@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fluxo de exemplo — Etapa 4</title>
+  <style>
+    :root { color-scheme: light; --bg:#f3f1ea; --ink:#1c1915; --muted:#5e584e; --card:#fffdf8; --line:#e4ddd0; --accent:#0f6e56; --br:#c45c26; }
+    html[data-theme="dark"] { color-scheme: dark; --bg:#12171a; --ink:#f3f1ea; --muted:#b7b1a6; --card:#1c2428; --line:#314046; --accent:#3dbe9a; --br:#e5925d; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Segoe UI","Helvetica Neue",sans-serif; background:var(--bg); color:var(--ink); }
+    header, main { width:min(980px, calc(100% - 32px)); margin:0 auto; }
+    header { padding:28px 0 8px; display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
+    h1 { margin:8px 0; font-size:1.7rem; }
+    h2 { margin:0 0 8px; font-size:1.15rem; }
+    h3 { margin:18px 0 8px; font-size:1rem; }
+    a { color:var(--br); }
+    p { line-height:1.45; }
+    .sub, .aviso, .url { color:var(--muted); }
+    button { font:inherit; border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:8px 14px; cursor:pointer; }
+    .voltar { color:var(--accent); text-decoration:none; }
+    .fluxo { background:var(--card); border:1px solid var(--accent); border-radius:16px; padding:18px; margin:18px 0; }
+    .par { display:flex; gap:12px; align-items:stretch; }
+    .cartao { flex:1; border:1px solid var(--line); border-radius:14px; padding:14px; background:var(--bg); }
+    .cartao p { margin:4px 0; }
+    .papel { margin:0; color:var(--accent); font-size:.8rem; letter-spacing:.04em; }
+    .seta { align-self:center; color:var(--accent); font-size:1.6rem; }
+    .parametros { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .parametros span { border:1px solid var(--line); border-radius:999px; padding:6px 10px; background:var(--card); }
+    .rolagem { overflow-x:auto; border:1px solid var(--line); border-radius:12px; }
+    table { width:100%; border-collapse:collapse; background:var(--card); }
+    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); white-space:nowrap; vertical-align:top; }
+    td { white-space:normal; }
+    .glossario td { white-space:normal; }
+    pre { white-space:pre-wrap; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:12px; overflow:auto; }
+    .bloco { margin-top:16px; }
+    code { font-family:Consolas,monospace; }
+    @media (max-width:700px) {
+      header { flex-direction:column; }
+      .par { flex-direction:column; }
+      .seta { transform:rotate(90deg); align-self:center; }
+    }
+    </style>
+</head>
+<body>
+  <header>
+    <div>
+      <a class="voltar" href="../../../index.html">← Início</a>
+      <h1>Fluxo de exemplo — Etapa 4</h1>
+      <p class="aviso">Amostra: 1 fluxo e as primeiras 10 de 360 linhas. Dados completos em `data/fluxo_bruto.csv`.</p>
+    </div>
+    <button id="tema" type="button">Tema escuro</button>
+  </header>
+  <main>
+    <section class="fluxo">
+      <h2>FLUXO 1016806_3679</h2>
+      <p>Um fluxo é o par origem → destino: uma probe envia pacotes para uma anchor. O identificador único junta os dois IDs.</p>
+      <div class="par">
+        <article class="cartao">
+          <p class="papel">ORIGEM (probe <a href="https://atlas.ripe.net/probes/1016806/">1016806</a>)</p>
+          <p>IP: 192.168.10.241</p>
+          <p>Cidade: —</p>
+          <p>País: BR</p>
+        </article>
+        <div class="seta" aria-hidden="true">→</div>
+        <article class="cartao">
+          <p class="papel">DESTINO (anchor <a href="https://atlas.ripe.net/anchors/3679/">3679</a>)</p>
+          <p>IP: 138.117.32.11</p>
+          <p>Cidade: Feira de Santana</p>
+          <p>País: BR</p>
+          <p>Hostname: br-fec-as264479</p>
+        </article>
+      </div>
+      <p>msm_id: <a href="https://atlas.ripe.net/measurements/66198951/">66198951</a></p>
+    </section>
+    <section>
+      <h2>Parâmetros comuns a todos os fluxos</h2>
+      <p>Estes parâmetros são constantes, definidos no início do projeto, e por isso não aparecem na tabela.</p>
+      <div class="parametros"><span><code>type</code> ping</span><span><code>af</code> 4</span><span><code>interval</code> 240</span><span><code>proto</code> ICMP</span><span><code>is_public</code> sim</span><span><code>status</code> Ongoing</span></div>
+    </section>
+    <section>
+      <h2>Amostra</h2>
+      <div class="rolagem">
+        <table>
+          <thead><tr><th>timestamp (UTC)</th><th>rtt_min (ms)</th><th>rtt_avg (ms)</th><th>rtt_max (ms)</th><th>rcvd</th><th>sent</th><th>pacotes</th><th>ttl</th></tr></thead>
+          <tbody>
+            <tr><td>2026-10-04 18:00:46 UTC (1791136846)</td><td>58.51</td><td>59.01</td><td>59.28</td><td>3</td><td>3</td><td>3</td><td>56</td></tr><tr><td>2026-10-04 18:04:44 UTC (1791137084)</td><td>58.91</td><td>58.97</td><td>59.08</td><td>3</td><td>3</td><td>3</td><td>56</td></tr><tr><td>2026-10-04 18:08:37 UTC (1791137317)</td><td>58.46</td><td>58.85</td><td>59.33</td><td>3</td><td>3</td><td>3</td><td>56</td></tr><tr><td>2026-10-04 18:12:42 UTC (1791137562)</td><td>58.68</td><td>58.93</td><td>59.23</td><td>3</td><td>3</td><td>3</td><td>56</td></tr><tr><td>2026-10-04 18:16:43 UTC (1791137803)</td><td>59.22</td><td>59.28</td><td>59.36</td><td>3</td><td>3</td><td>3</td><td>56</td></tr><tr><td>2026-10-04 18:20:35 UTC (1791138035)</td><td>58.42</td><td>58.71</td><td>59.29</td><td>3</td><td>3</td><td>3</td><td>56</td></tr><tr><td>2026-10-04 18:24:44 UTC (1791138284)</td><td>58.74</td><td>59.11</td><td>59.59</td><td>3</td><td>3</td><td>3</td><td>56</td></tr><tr><td>2026-10-04 18:28:41 UTC (1791138521)</td><td>58.29</td><td>58.44</td><td>58.60</td><td>3</td><td>3</td><td>3</td><td>56</td></tr><tr><td>2026-10-04 18:32:36 UTC (1791138756)</td><td>58.43</td><td>58.68</td><td>59.11</td><td>3</td><td>3</td><td>3</td><td>56</td></tr><tr><td>2026-10-04 18:36:46 UTC (1791139006)</td><td>58.96</td><td>59.06</td><td>59.23</td><td>3</td><td>3</td><td>3</td><td>56</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="glossario">
+      <h2>Glossário</h2>
+      <h3>1. Identificação do fluxo</h3>
+<table><thead><tr>
+<th>Feature</th>
+<th>Tipo esperado</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+<th>Utilidade</th>
+</tr></thead><tbody>
+<tr><td><code>id_fluxo</code></td><td>String</td><td>Identificador único do par origem → destino (`{probe_id}_{anchor_id}`). Definido pelo projeto.</td><td><code>6317_1002</code></td><td>Referenciar o fluxo sem ambiguidade.</td></tr>
+<tr><td><code>probe_id (prb_id)</code></td><td>Inteiro</td><td>Probe de origem que gerou o resultado.</td><td><code>6317</code></td><td>Identificar a origem.</td></tr>
+<tr><td><code>probe_ip (src_addr)</code></td><td>String</td><td>IP de origem usado pela probe.</td><td><code>130.59.80.2</code></td><td>Identificar o endereço de origem.</td></tr>
+<tr><td><code>anchor_id (id)</code></td><td>Inteiro</td><td>Anchor de destino.</td><td><code>1002</code></td><td>Identificar o destino.</td></tr>
+<tr><td><code>anchor_ip (ip_v4)</code></td><td>String</td><td>Endereço IPv4 da anchor.</td><td><code>193.65.45.86</code></td><td>Identificar o endereço de destino.</td></tr>
+<tr><td><code>city / country</code></td><td>String</td><td>Cidade e país (ISO alpha-2) da anchor; da origem, só quando ela é uma anchor.</td><td><code>Tampere / FI</code></td><td>Localizar geograficamente origem e destino.</td></tr>
+<tr><td><code>msm_id</code></td><td>Inteiro</td><td>Medição associada ao resultado.</td><td><code>1001</code></td><td>Ligar o fluxo aos metadados da medição.</td></tr>
+</tbody></table>
+<h3>2. Dados que variam a cada execução (colunas da tabela)</h3>
+<table><thead><tr>
+<th>Feature</th>
+<th>Tipo esperado</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+<th>Utilidade</th>
+</tr></thead><tbody>
+<tr><td><code>timestamp</code></td><td>Inteiro</td><td>Execução em Unix timestamp.</td><td><code>1789992001</code></td><td>Ordenar cronologicamente.</td></tr>
+<tr><td><code>min (rtt_min)</code></td><td>Decimal</td><td>Menor RTT entre os pacotes recebidos, em ms.</td><td><code>138.73</code></td><td>Menor tempo de ida e volta.</td></tr>
+<tr><td><code>avg (rtt_avg)</code></td><td>Decimal</td><td>RTT médio dos pacotes recebidos, em ms.</td><td><code>138.91</code></td><td>Latência média da execução.</td></tr>
+<tr><td><code>max (rtt_max)</code></td><td>Decimal</td><td>Maior RTT entre os pacotes recebidos, em ms.</td><td><code>139.04</code></td><td>Maior tempo de ida e volta.</td></tr>
+<tr><td><code>rcvd</code></td><td>Inteiro</td><td>Pacotes recebidos.</td><td><code>3</code></td><td>Saber quantas respostas chegaram.</td></tr>
+<tr><td><code>sent</code></td><td>Inteiro</td><td>Pacotes enviados.</td><td><code>3</code></td><td>Saber quantos pacotes saíram.</td></tr>
+<tr><td><code>packets (pacotes)</code></td><td>Inteiro</td><td>Pacotes configurados por execução (da medição).</td><td><code>3</code></td><td>Conhecer o tamanho da rodada de ping.</td></tr>
+<tr><td><code>ttl</code></td><td>Inteiro</td><td>TTL do pacote recebido.</td><td><code>47</code></td><td>Informação sobre a resposta recebida.</td></tr>
+</tbody></table>
+<h3>3. Parâmetros comuns a todos os fluxos</h3>
+<table><thead><tr>
+<th>Feature</th>
+<th>Tipo esperado</th>
+<th>Descrição</th>
+<th>Exemplo</th>
+<th>Utilidade</th>
+</tr></thead><tbody>
+<tr><td><code>type</code></td><td>String</td><td>Tipo de medição.</td><td><code>ping</code></td><td>Confirmar que o teste é ping.</td></tr>
+<tr><td><code>af</code></td><td>Inteiro</td><td>Address family (4 = IPv4).</td><td><code>4</code></td><td>Confirmar que o fluxo é IPv4.</td></tr>
+<tr><td><code>interval</code></td><td>Inteiro</td><td>Intervalo, em segundos, entre execuções.</td><td><code>240</code></td><td>Conhecer a frequência da medição.</td></tr>
+<tr><td><code>proto</code></td><td>String</td><td>Protocolo da medição.</td><td><code>ICMP</code></td><td>Em ping, normalmente ICMP.</td></tr>
+<tr><td><code>is_public</code></td><td>Booleano</td><td>Se a medição e seus resultados são públicos.</td><td><code>true</code></td><td>Verificar se os dados são consultáveis.</td></tr>
+<tr><td><code>status.name</code></td><td>String</td><td>Estado da medição.</td><td><code>Ongoing</code></td><td>Verificar se está ativa.</td></tr>
+</tbody></table>
+<h3>4. Relação entre os conjuntos de dados</h3>
+<pre class="diagrama">MEDIÇÃO (id, interval, is_public, packets, status.name, target, target_ip, type)
+    │ msm_id
+    ▼
+RESULTADO DO PROBE (prb_id, src_addr, dst_addr, af, proto, ttl, result, dup,
+                    rcvd, sent, min, max, avg, timestamp, type, msm_id)
+    │ prb_id
+    ▼
+PROBE / ORIGEM
+    │ medição
+    ▼
+ANCHOR / DESTINO (id, hostname, fqdn, probe, ip_v4, city, country, company,
+                  geometry, is_disabled)</pre>
+    </section>
+    <section>
+      <h2>Metadados do fluxo</h2>
+      <section class="bloco"><h3>Medição</h3><p class="url"><a href="https://atlas.ripe.net/api/v2/measurements/66198951/">https://atlas.ripe.net/api/v2/measurements/66198951/</a></p><pre>{
+  &quot;id&quot;: 66198951,
+  &quot;interval&quot;: 240,
+  &quot;is_public&quot;: true,
+  &quot;packets&quot;: 3,
+  &quot;target&quot;: &quot;br-fec-as264479.anchors.atlas.ripe.net&quot;,
+  &quot;target_ip&quot;: &quot;138.117.32.11&quot;,
+  &quot;type&quot;: &quot;ping&quot;,
+  &quot;status&quot;: {
+    &quot;name&quot;: &quot;Ongoing&quot;
+  }
+}</pre></section>
+      <section class="bloco"><h3>Anchor</h3><p class="url"><a href="https://atlas.ripe.net/api/v2/anchors/3679/">https://atlas.ripe.net/api/v2/anchors/3679/</a></p><pre>{
+  &quot;id&quot;: 3679,
+  &quot;hostname&quot;: &quot;br-fec-as264479&quot;,
+  &quot;fqdn&quot;: &quot;br-fec-as264479.anchors.atlas.ripe.net&quot;,
+  &quot;probe&quot;: 7307,
+  &quot;ip_v4&quot;: &quot;138.117.32.11&quot;,
+  &quot;city&quot;: &quot;Feira de Santana&quot;,
+  &quot;country&quot;: &quot;BR&quot;,
+  &quot;company&quot;: &quot;Turbozone Internet&quot;,
+  &quot;geometry&quot;: {
+    &quot;type&quot;: &quot;Point&quot;,
+    &quot;coordinates&quot;: [
+      -38.9739082,
+      -12.2397797
+    ]
+  },
+  &quot;is_disabled&quot;: false
+}</pre></section>
+      <section class="bloco"><h3>Resultado</h3><p class="url"><a href="https://atlas.ripe.net/api/v2/measurements/66198951/results/?probe_ids=1016806&amp;start=1791136800&amp;stop=1791223200&amp;format=json">https://atlas.ripe.net/api/v2/measurements/66198951/results/?probe_ids=1016806&amp;start=1791136800&amp;stop=1791223200&amp;format=json</a></p><pre>{
+  &quot;af&quot;: 4,
+  &quot;dst_name&quot;: &quot;138.117.32.11&quot;,
+  &quot;dst_addr&quot;: &quot;138.117.32.11&quot;,
+  &quot;src_addr&quot;: &quot;192.168.10.241&quot;,
+  &quot;proto&quot;: &quot;ICMP&quot;,
+  &quot;type&quot;: &quot;ping&quot;,
+  &quot;prb_id&quot;: 1016806,
+  &quot;msm_id&quot;: 66198951
+}</pre></section>
+    </section>
+  </main>
+  <script>
+    const raiz = document.documentElement;
+    const botao = document.getElementById("tema");
+    const salvo = localStorage.getItem("etapa-tema");
+    const inicial = salvo || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    aplicar(inicial);
+    botao.addEventListener("click", () => {
+      const proximo = raiz.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      localStorage.setItem("etapa-tema", proximo);
+      aplicar(proximo);
+    });
+    function aplicar(tema) {
+      raiz.setAttribute("data-theme", tema);
+      botao.textContent = tema === "dark" ? "Tema claro" : "Tema escuro";
+    }
+  </script>
+</body>
+</html>

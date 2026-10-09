@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rotulagem e dataset final — Etapa 7</title>
+<style>
+    :root { color-scheme: light; --bg:#f3f1ea; --ink:#1c1915; --muted:#5e584e; --card:#fffdf8; --line:#e4ddd0; --accent:#0f6e56; --br:#c45c26; --ok:#1b7f4e; --risco:#a67c00; --falha:#a33b32; }
+    html[data-theme="dark"] { color-scheme: dark; --bg:#12171a; --ink:#f3f1ea; --muted:#b7b1a6; --card:#1c2428; --line:#314046; --accent:#3dbe9a; --br:#e5925d; --ok:#3dbe9a; --risco:#e6c35c; --falha:#e07068; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:"Segoe UI","Helvetica Neue",sans-serif; background:var(--bg); color:var(--ink); font-size:1.12rem; }
+    header, main { width:min(1100px, calc(100% - 28px)); margin:0 auto; }
+    header { padding:28px 0 8px; display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
+    h1 { margin:8px 0; font-size:2rem; }
+    h2 { margin:32px 0 12px; font-size:1.45rem; }
+    a { color:var(--br); }
+    p, li { line-height:1.45; }
+    .voltar { color:var(--accent); text-decoration:none; }
+    button { font:inherit; border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:8px 14px; cursor:pointer; }
+    .cartao, .faixa { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px; }
+    .grade { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .rolagem { overflow-x:auto; border:1px solid var(--line); border-radius:12px; }
+    table { width:100%; border-collapse:collapse; background:var(--card); }
+    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); white-space:nowrap; }
+    svg { width:100%; height:auto; background:var(--card); border:1px solid var(--line); border-radius:16px; }
+    .ok { color:var(--ok); font-weight:700; }
+    .risco { color:var(--risco); font-weight:700; }
+    .falha { color:var(--falha); font-weight:700; }
+    .trilha { height:18px; background:var(--line); border-radius:999px; overflow:hidden; }
+    .miolo { height:100%; }
+    .miolo.ok { background:var(--ok); }
+    .miolo.risco { background:var(--risco); }
+    .miolo.falha { background:var(--falha); }
+    .miolo.sem { background:var(--muted); }
+    .selo { display:inline-block; margin:4px 8px 4px 0; padding:4px 10px; border-radius:999px; border:1px solid var(--line); }
+    code { font-family:Consolas,monospace; }
+    @media (max-width:800px) { .grade, header { display:flex; flex-direction:column; } }
+    </style>
+</head>
+<body>
+<header><div>
+<a class="voltar" href="../../../index.html">← Início</a>
+<h1>Rotulagem e dataset final — Etapa 7</h1>
+</div><button id="tema" type="button">Tema escuro</button></header>
+<main>
+<section><h2>Visão geral</h2>
+<svg viewBox="0 0 1080 150" role="img" aria-label="Fluxo dos dados: dataset do Período B e baseline do Período A, regras, dataset rotulado, janelas com alvo deslocado e dataset final."><rect x="16" y="28" width="180" height="78" rx="12" fill="none" stroke="currentColor"/><text x="106" y="58" text-anchor="middle" fill="currentColor" font-size="18">dataset B</text><text x="106" y="84" text-anchor="middle" fill="currentColor" font-size="14">358222 linhas</text><text x="208" y="74" fill="currentColor" font-size="22">→</text><rect x="230" y="28" width="180" height="78" rx="12" fill="none" stroke="currentColor"/><text x="320" y="58" text-anchor="middle" fill="currentColor" font-size="18">baseline A</text><text x="320" y="84" text-anchor="middle" fill="currentColor" font-size="14">limites do fluxo</text><text x="422" y="74" fill="currentColor" font-size="22">→</text><rect x="444" y="28" width="180" height="78" rx="12" fill="none" stroke="currentColor"/><text x="534" y="58" text-anchor="middle" fill="currentColor" font-size="18">regras</text><text x="534" y="84" text-anchor="middle" fill="currentColor" font-size="14">343172 rótulos</text><text x="636" y="74" fill="currentColor" font-size="22">→</text><rect x="658" y="28" width="180" height="78" rx="12" fill="none" stroke="currentColor"/><text x="748" y="58" text-anchor="middle" fill="currentColor" font-size="18">rotulado</text><text x="748" y="84" text-anchor="middle" fill="currentColor" font-size="14">15050 sem rótulo</text><text x="850" y="74" fill="currentColor" font-size="22">→</text><rect x="872" y="28" width="180" height="78" rx="12" fill="none" stroke="currentColor"/><text x="962" y="58" text-anchor="middle" fill="currentColor" font-size="18">final</text><text x="962" y="84" text-anchor="middle" fill="currentColor" font-size="14">333954 linhas</text></svg>
+<p>358222 linhas de B, 143 fluxos. 343172 rotuladas, 15050 sem rótulo. Dataset final: 333954 linhas e 135 fluxos.</p>
+</section>
+<section><h2>Como o baseline ajudou a rotular</h2>
+<p>O mesmo valor pode ser normal em um fluxo e anormal em outro.</p>
+<div class="grade">
+<article class="cartao"><p><code>1016806_3679</code> · br-fec-as264479 · BR</p><p>Período A: P95 59.4043 ms, P99 60.8391 ms, P95 do jitter 0.779658 ms.</p><p>2026-09-30 11:36:42 UTC: perda 0, latência 59.929701 ms, jitter 0.1449475406766961 ms.</p><p>Resultado da regra operacional adotada neste projeto: <span class="risco">RISCO</span> (latencia_acima_p95).</p></article>
+<article class="cartao"><p><code>7262_4371</code> · bo-cbb-as27839 · BO</p><p>Período A: P95 544.041 ms, P99 592.468 ms, P95 do jitter 2.95881 ms.</p><p>2026-09-29 18:20:53 UTC: perda 0, latência 638.194931 ms, jitter 61.2920075000000111 ms.</p><p>Resultado da regra operacional adotada neste projeto: <span class="falha">FALHA</span> (latencia_acima_p99).</p></article>
+</div>
+<p>A junção é por anchor_id + probe_id. Os dados do Período A não entram no dataset: só os limites de referência de cada fluxo são consultados.</p>
+</section>
+<section><h2>Regras de rotulagem</h2>
+<div class="rolagem"><table><thead><tr><th>Condição</th><th>Classe</th><th>Motivo</th></tr></thead><tbody><tr><td>perda_pct ≥ 200/3 − 0,01 (2 de 3 pacotes perdidos)</td><td><span class="falha">FALHA</span></td><td>perda_severa</td></tr><tr><td>latencia_ms &gt; P99 de RTT do próprio fluxo</td><td><span class="falha">FALHA</span></td><td>latencia_acima_p99</td></tr><tr><td>perda_pct ≥ 100/3 − 0,01 (1 de 3 pacotes perdido)</td><td><span class="risco">RISCO</span></td><td>perda_parcial</td></tr><tr><td>latencia_ms &gt; P95 de RTT do próprio fluxo</td><td><span class="risco">RISCO</span></td><td>latencia_acima_p95</td></tr><tr><td>jitter_ms &gt; P95 de jitter do próprio fluxo</td><td><span class="risco">RISCO</span></td><td>jitter_acima_p95</td></tr><tr><td>nenhuma das condições acima</td><td><span class="ok">OK</span></td><td>sem_alerta</td></tr></tbody></table></div>
+<ul><li>0.00% → <span class="ok">OK</span></li><li>33.33% → <span class="risco">RISCO</span></li><li>66.67% → <span class="falha">FALHA</span></li><li>100.00% → <span class="falha">FALHA</span></li></ul><p>Com 3 pacotes por execução não faz sentido falar em 1% ou 5% de perda.</p>
+<ul>
+<li><span class="ok">OK</span>: Sem sinais relevantes de degradação nesta execução. Não quer dizer que a rede é perfeita.</li>
+<li><span class="risco">RISCO</span>: A comunicação existe, mas há instabilidade ou degradação nesta execução.</li>
+<li><span class="falha">FALHA</span>: Indisponibilidade ou degradação severa nesta execução.</li>
+</ul>
+<p>Regra operacional adotada neste projeto. ttl_changed = 1 não é falha. O TTL não entra na regra. Sem baseline válido a classe fica vazia. Nunca vira OK.</p>
+</section>
+<section><h2>Dataset usado para rotular</h2>
+<p>As linhas vêm de <code>pipeline/05_periodos/data/dataset_processado.csv</code>, somente do Período B.</p>
+<p>Amostra: 10 de 358222 linhas. Dados completos em data/dataset_rotulado.csv.</p>
+<div class="rolagem"><table><thead><tr><th>id_fluxo</th><th>timestamp (UTC)</th><th>perda_pct</th><th>latencia_ms</th><th>jitter_ms</th><th>ttl_changed</th></tr></thead><tbody><tr><td>7565_4685</td><td>2026-09-29 13:48:39 UTC</td><td>0</td><td>348.90121</td><td>0.0655217466664601</td><td>0</td></tr><tr><td>6919_1880</td><td>2026-09-29 20:47:17 UTC</td><td>0</td><td>158.586636</td><td>0.0700461257363073</td><td>0</td></tr><tr><td>12541_1418</td><td>2026-09-29 22:10:18 UTC</td><td>0</td><td>82.873135</td><td>1.9497329321062302</td><td>0</td></tr><tr><td>7378_1223</td><td>2026-09-30 15:42:10 UTC</td><td>0</td><td>41.849355</td><td>0.0546774258050486</td><td>0</td></tr><tr><td>7560_1605</td><td>2026-10-01 14:57:58 UTC</td><td>0</td><td>325.754308</td><td>54.5368412908211013</td><td>0</td></tr><tr><td>7306_1612</td><td>2026-10-02 11:37:53 UTC</td><td>0</td><td>155.467177</td><td>0.1804842167134463</td><td>0</td></tr><tr><td>7749_2026</td><td>2026-10-02 14:54:21 UTC</td><td>100</td><td>—</td><td>—</td><td>—</td></tr><tr><td>6944_4766</td><td>2026-10-02 15:31:48 UTC</td><td>0</td><td>296.613668</td><td>0.9191733005290866</td><td>0</td></tr><tr><td>7688_3294</td><td>2026-10-02 18:58:42 UTC</td><td>0</td><td>16.966689</td><td>0.042308554882224</td><td>1</td></tr><tr><td>7694_2526</td><td>2026-10-03 05:02:44 UTC</td><td>0</td><td>205.340541</td><td>0.1104995724647353</td><td>0</td></tr></tbody></table></div>
+</section>
+<section><h2>Dataset rotulado</h2>
+<div class="rolagem"><table><thead><tr><th>id_fluxo</th><th>timestamp (UTC)</th><th>perda_pct</th><th>latencia_ms</th><th>jitter_ms</th><th>p95_rtt_A</th><th>p99_rtt_A</th><th>classe</th><th>motivo</th></tr></thead><tbody><tr><td>7565_4685</td><td>2026-09-29 13:48:39 UTC</td><td>0</td><td>348.90121</td><td>0.0655217466664601</td><td>348.22371375</td><td>348.5033618</td><td><span class="falha">FALHA</span></td><td>latencia_acima_p99</td></tr><tr><td>6919_1880</td><td>2026-09-29 20:47:17 UTC</td><td>0</td><td>158.586636</td><td>0.0700461257363073</td><td>157.63755759999987</td><td>176.48550758999997</td><td><span class="risco">RISCO</span></td><td>latencia_acima_p95</td></tr><tr><td>12541_1418</td><td>2026-09-29 22:10:18 UTC</td><td>0</td><td>82.873135</td><td>1.9497329321062302</td><td>85.7369678</td><td>89.09035876000002</td><td><span class="ok">OK</span></td><td>sem_alerta</td></tr><tr><td>7378_1223</td><td>2026-09-30 15:42:10 UTC</td><td>0</td><td>41.849355</td><td>0.0546774258050486</td><td>41.78096</td><td>45.984448840000006</td><td><span class="risco">RISCO</span></td><td>latencia_acima_p95</td></tr><tr><td>7560_1605</td><td>2026-10-01 14:57:58 UTC</td><td>0</td><td>325.754308</td><td>54.5368412908211013</td><td>327.88717434999995</td><td>358.45575633999994</td><td><span class="risco">RISCO</span></td><td>jitter_acima_p95</td></tr><tr><td>7306_1612</td><td>2026-10-02 11:37:53 UTC</td><td>0</td><td>155.467177</td><td>0.1804842167134463</td><td>232.37408955</td><td>232.86506763999998</td><td><span class="ok">OK</span></td><td>sem_alerta</td></tr><tr><td>7749_2026</td><td>2026-10-02 14:54:21 UTC</td><td>100</td><td>—</td><td>—</td><td>350.33204855</td><td>397.02095271999985</td><td><span class="falha">FALHA</span></td><td>perda_severa</td></tr><tr><td>6944_4766</td><td>2026-10-02 15:31:48 UTC</td><td>0</td><td>296.613668</td><td>0.9191733005290866</td><td>366.93826370000005</td><td>417.79214728</td><td><span class="risco">RISCO</span></td><td>jitter_acima_p95</td></tr><tr><td>7688_3294</td><td>2026-10-02 18:58:42 UTC</td><td>0</td><td>16.966689</td><td>0.042308554882224</td><td>16.1657602</td><td>16.21370676</td><td><span class="falha">FALHA</span></td><td>latencia_acima_p99</td></tr><tr><td>7694_2526</td><td>2026-10-03 05:02:44 UTC</td><td>0</td><td>205.340541</td><td>0.1104995724647353</td><td>242.62544225</td><td>284.14608555</td><td><span class="ok">OK</span></td><td>sem_alerta</td></tr></tbody></table></div>
+<div role="img" aria-label="Barras com a quantidade e o percentual de OK, RISCO, FALHA e linhas sem rótulo."><p><span class="ok">OK</span> 296808 (82.86%)<span class="trilha"><span class="miolo ok" style="width:82.86%"></span></span></p><p><span class="risco">RISCO</span> 29783 (8.31%)<span class="trilha"><span class="miolo risco" style="width:8.31%"></span></span></p><p><span class="falha">FALHA</span> 16581 (4.63%)<span class="trilha"><span class="miolo falha" style="width:4.63%"></span></span></p><p><span class="sem">sem rótulo</span> 15050 (4.20%)<span class="trilha"><span class="miolo sem" style="width:4.20%"></span></span></p></div>
+<p>RISCO e FALHA por latência têm taxa mínima esperada por construção: o P95 e o P99 foram definidos para deixar cerca de 5% e 1% do histórico de A acima deles.</p>
+<p>Perda de 100%: o RTT fica vazio e a classe sai pela perda, sem comparar latência.</p>
+</section>
+<section><h2>Janela temporal e deslocamento do alvo</h2>
+<svg viewBox="0 0 1080 180" role="img" aria-label="Linha do tempo: janelas de 3, 6 e 12 medições até t viram features; a medição t+1 é só o alvo."><text x="40" y="36" fill="currentColor" font-size="16">t−11 … t−2  t−1  t</text><text x="760" y="36" fill="currentColor" font-size="16">t+1 = alvo</text><rect x="40" y="56" width="620" height="22" fill="currentColor" fill-opacity="0.15"/><rect x="250" y="86" width="410" height="22" fill="currentColor" fill-opacity="0.28"/><rect x="430" y="116" width="230" height="22" fill="currentColor" fill-opacity="0.45"/><text x="48" y="73" fill="currentColor" font-size="14">12 medições, só passado, inclui t</text><text x="258" y="103" fill="currentColor" font-size="14">6 medições</text><text x="438" y="133" fill="currentColor" font-size="14">3 medições</text><text x="760" y="100" fill="currentColor" font-size="16">não entra nas features</text><text x="40" y="168" fill="currentColor" font-size="14">O futuro nunca entra nas features. 3 medições (~12 min), 6 medições (~24 min), 12 medições (~48 min)</text></svg>
+<p>Fluxo da tabela: medições consecutivas do dataset final. A seta liga <code>classe_atual</code> desta linha ao <code>alvo</code>, que é a classe da linha de baixo. O valor -1 é sentinela: a feature dependia de RTT e não havia RTT utilizável. Não é uma latência negativa e não foi imputada.</p><div class="rolagem"><table><thead><tr><th>timestamp (UTC)</th><th>classe_atual (t)</th><th>razao_rtt_p95</th><th>razao_jitter_p95</th><th>perda_media_w3</th><th>perdas_consecutivas</th><th>alvo (t+1)</th><th></th></tr></thead><tbody><tr><td>2026-09-29 05:24:47 UTC</td><td><span class="ok">OK</span></td><td>0.936567</td><td>0.0693214</td><td>0</td><td>0</td><td><span class="ok">OK</span></td><td>↓</td></tr><tr><td>2026-09-29 05:28:38 UTC</td><td><span class="ok">OK</span></td><td>0.926972</td><td>0.104359</td><td>0</td><td>0</td><td><span class="risco">RISCO</span></td><td>↓</td></tr><tr><td>2026-09-29 05:32:43 UTC</td><td><span class="risco">RISCO</span></td><td>0.946219</td><td>1.485</td><td>0</td><td>0</td><td><span class="ok">OK</span></td><td>↓</td></tr><tr><td>2026-09-29 05:36:35 UTC</td><td><span class="ok">OK</span></td><td>0.945904</td><td>0.960347</td><td>0</td><td>0</td><td><span class="ok">OK</span></td><td>↓</td></tr><tr><td>2026-09-29 05:40:40 UTC</td><td><span class="ok">OK</span></td><td>0.933784</td><td>0.150871</td><td>0</td><td>0</td><td><span class="ok">OK</span></td><td>↓</td></tr><tr><td>2026-09-29 05:44:38 UTC</td><td><span class="ok">OK</span></td><td>0.933408</td><td>0.461342</td><td>0</td><td>0</td><td><span class="ok">OK</span></td><td>↓</td></tr><tr><td>2026-09-29 05:48:38 UTC</td><td><span class="ok">OK</span></td><td>0.940918</td><td>0.468772</td><td>0</td><td>0</td><td><span class="falha">FALHA</span></td><td>↓</td></tr><tr><td>2026-09-29 05:52:40 UTC</td><td><span class="falha">FALHA</span></td><td>−1 sentinela</td><td>−1 sentinela</td><td>33.3333</td><td>1</td><td><span class="falha">FALHA</span></td><td></td></tr></tbody></table></div>
+<ul>
+<li>A regra usa a perda, a latência e o jitter da própria linha. Prever a classe dessa mesma linha com essas colunas apenas repetiria a regra.</li>
+<li>Prever a medição seguinte transforma o problema em antecipação do estado do fluxo, a partir do histórico recente.</li>
+<li>As features só usam medições até t. O rótulo de t+1 nunca entra nas features.</li>
+<li>Dá para medir o ganho do modelo contra o baseline de persistência, que repete a classe atual como previsão da próxima.</li>
+</ul>
+<p>classe_atual não é feature. As últimas medições de cada fluxo, as que não têm alvo rotulado e as com intervalo maior que o limite são descartadas. O limite de intervalo é 600 segundos e o horizonte é 1 medição.</p>
+<p>Baseline de persistência (prever que o alvo repete a classe atual), macro-F1 por split: treino 0.7032, validacao 0.7106, teste 0.7108.</p>
+</section>
+<section><h2>Dataset final</h2>
+<ul><li><strong>Metadado.</strong> id_fluxo, anchor_id, probe_id, timestamp, split, classe_atual</li><li><strong>Feature.</strong> 21 colunas, normalizadas pelo baseline do próprio fluxo</li><li><strong>Alvo.</strong> classe da medição seguinte do mesmo fluxo</li></ul><h3>Split cronológico</h3><ul><li>treino: 241359 linhas, 2026-09-28 18:00:01 UTC → 2026-10-03 17:59:49 UTC</li><li>validacao: 46490 linhas, 2026-10-03 19:00:01 UTC → 2026-10-04 17:59:58 UTC</li><li>teste: 46105 linhas, 2026-10-04 19:00:03 UTC → 2026-10-05 17:55:50 UTC</li><li>Cortes a partir de t0 2026-09-28 18:00:01 UTC: treino antes de 2026-10-03 18:00:01 UTC, validação antes de 2026-10-04 18:00:01 UTC, com 60 min de embargo após cada corte.</li></ul><h3>Alvo por split</h3><ul><li>treino: OK 211029, RISCO 20695, FALHA 9635</li><li>validacao: OK 41000, RISCO 4084, FALHA 1406</li><li>teste: OK 40250, RISCO 4440, FALHA 1415</li></ul><h3>Exclusões</h3><ul><li>alvo_sem_rotulo: 3 fluxos, 14 linhas</li><li>baseline_desatualizado: 2 fluxos, 5025 linhas</li><li>baseline_nao_encontrado: 6 fluxos, 15034 linhas</li><li>embargo: 135 fluxos, 4025 linhas</li><li>intervalo_acima_de_gap: 17 fluxos, 19 linhas</li><li>perda_pct_vazio: 3 fluxos, 16 linhas</li><li>sem_medicao_t_mais_h: 135 fluxos, 135 linhas</li></ul><h3>Verificações</h3><p><span class="selo">perda_severa_e_falha: PASSOU</span><span class="selo">latencia_acima_dos_limites: PASSOU</span><span class="selo">sem_baseline_nao_e_ok: PASSOU</span><span class="selo">sem_vazamento_do_futuro: PASSOU</span><span class="selo">alvo_finito_e_features_sem_nan: PASSOU</span><span class="selo">colunas_proibidas_fora_das_features: PASSOU</span><span class="selo">ordem_temporal_e_duplicatas: PASSOU</span><span class="selo">latencia_igual_rtt_e_vazio_preservado: PASSOU</span><span class="selo">timestamps_na_janela_b: PASSOU</span></p>
+</section>
+<section><h2>Cuidados</h2><ul>
+<li>As classes são uma regra operacional adotada neste projeto, não verdades universais sobre redes.</li>
+<li>O modelo pode reproduzir a parte da regra baseada em perda, mas os limiares de latência e jitter vêm do baseline de cada fluxo e não são colunas.</li>
+<li>ttl_changed = 1 não é falha.</li>
+<li>O alvo é desbalanceado: a acurácia engana.</li>
+<li>anchor_id e probe_id podem levar à memorização de fluxos.</li>
+<li>O Período B tem só 7 dias.</li>
+</ul></section>
+<section><h2>Próximo passo</h2>
+<p>Treinar e avaliar modelos com o dataset_final.csv e o split cronológico.</p>
+</section>
+</main>
+<script>
+const raiz = document.documentElement;
+const botao = document.getElementById('tema');
+const salvo = localStorage.getItem('etapa-tema');
+const inicial = salvo || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+aplicar(inicial);
+botao.addEventListener('click', () => {
+  const proximo = raiz.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('etapa-tema', proximo);
+  aplicar(proximo);
+});
+function aplicar(tema) {
+  raiz.setAttribute('data-theme', tema);
+  botao.textContent = tema === 'dark' ? 'Tema claro' : 'Tema escuro';
+}
+</script>
+</body></html>

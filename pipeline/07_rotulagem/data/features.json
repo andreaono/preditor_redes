@@ -1,0 +1,99 @@
+{
+  "alvo": "classe da medição t+H do mesmo fluxo",
+  "features": [
+    "perda_pct",
+    "rtt_ausente",
+    "razao_rtt_p95",
+    "razao_rtt_p99",
+    "razao_jitter_p95",
+    "amplitude_rtt_rel",
+    "delta_ttl_clip",
+    "ttl_reset",
+    "perda_media_w3",
+    "rtt_p95_max_w3",
+    "jitter_p95_max_w3",
+    "n_rtt_acima_p95_w3",
+    "perda_media_w6",
+    "rtt_p95_max_w6",
+    "jitter_p95_max_w6",
+    "n_rtt_acima_p95_w6",
+    "perda_media_w12",
+    "rtt_p95_max_w12",
+    "jitter_p95_max_w12",
+    "n_rtt_acima_p95_w12",
+    "perdas_consecutivas"
+  ],
+  "definicoes": {
+    "perda_pct": "Perda de pacotes da execução t, em percentual.",
+    "rtt_ausente": "1 se rtt_avg está vazio; 0 se há RTT médio.",
+    "razao_rtt_p95": "rtt_avg dividido pelo P95 de RTT do próprio fluxo.",
+    "razao_rtt_p99": "rtt_avg dividido pelo P99 de RTT do próprio fluxo.",
+    "razao_jitter_p95": "jitter_ms dividido pelo P95 de jitter do próprio fluxo.",
+    "amplitude_rtt_rel": "(rtt_max − rtt_min) / rtt_avg na execução t.",
+    "delta_ttl_clip": "delta_ttl limitado ao intervalo [-16, 16]. Se o delta falta, usa a sentinela.",
+    "ttl_reset": "1 se o valor absoluto de delta_ttl é pelo menos 64. Delta ausente não é reinício.",
+    "perda_media_w3": "Média de perda_pct nas últimas 3 medições, incluindo t, ignorando vazios.",
+    "rtt_p95_max_w3": "Máximo de razao_rtt_p95 nas últimas 3 medições, incluindo t.",
+    "jitter_p95_max_w3": "Máximo de razao_jitter_p95 nas últimas 3 medições, incluindo t.",
+    "n_rtt_acima_p95_w3": "Quantas das últimas 3 medições, incluindo t, têm razao_rtt_p95 maior que 1.",
+    "perda_media_w6": "Média de perda_pct nas últimas 6 medições, incluindo t, ignorando vazios.",
+    "rtt_p95_max_w6": "Máximo de razao_rtt_p95 nas últimas 6 medições, incluindo t.",
+    "jitter_p95_max_w6": "Máximo de razao_jitter_p95 nas últimas 6 medições, incluindo t.",
+    "n_rtt_acima_p95_w6": "Quantas das últimas 6 medições, incluindo t, têm razao_rtt_p95 maior que 1.",
+    "perda_media_w12": "Média de perda_pct nas últimas 12 medições, incluindo t, ignorando vazios.",
+    "rtt_p95_max_w12": "Máximo de razao_rtt_p95 nas últimas 12 medições, incluindo t.",
+    "jitter_p95_max_w12": "Máximo de razao_jitter_p95 nas últimas 12 medições, incluindo t.",
+    "n_rtt_acima_p95_w12": "Quantas das últimas 12 medições, incluindo t, têm razao_rtt_p95 maior que 1.",
+    "perdas_consecutivas": "Medições seguidas, terminando em t, com perda maior que 0."
+  },
+  "metadados": [
+    "id_fluxo",
+    "anchor_id",
+    "probe_id",
+    "timestamp",
+    "split",
+    "classe_atual"
+  ],
+  "horizonte": 1,
+  "janelas": [
+    3,
+    6,
+    12
+  ],
+  "sentinela": -1,
+  "splits": {
+    "t0": "2026-09-28 18:00:01 UTC",
+    "corte_treino": "2026-10-03 18:00:01 UTC",
+    "corte_validacao": "2026-10-04 18:00:01 UTC",
+    "treino": {
+      "linhas": 241359,
+      "inicio": "2026-09-28 18:00:01 UTC",
+      "fim": "2026-10-03 17:59:49 UTC"
+    },
+    "validacao": {
+      "linhas": 46490,
+      "inicio": "2026-10-03 19:00:01 UTC",
+      "fim": "2026-10-04 17:59:58 UTC"
+    },
+    "teste": {
+      "linhas": 46105,
+      "inicio": "2026-10-04 19:00:03 UTC",
+      "fim": "2026-10-05 17:55:50 UTC"
+    }
+  },
+  "parametros": {
+    "gap_max_s": 600,
+    "ttl_clip": 16,
+    "ttl_reset": 64,
+    "max_frac_falha_latencia": 0.5,
+    "corte_treino_dias": 5,
+    "corte_val_dias": 6,
+    "embargo_min": 60,
+    "embargo_s": 3600,
+    "lim_perda_risco": 33.333333333333336,
+    "lim_perda_falha": 66.66666666666667,
+    "eps": 0.01,
+    "seed": 42,
+    "float_format": "%.6g"
+  }
+}

@@ -1,0 +1,19 @@
+cooldown_horas: 24
+regras:
+  contrato_ou_coleta:
+    gravidade: alta
+    janelas_consecutivas: 1
+    acao: pausar as previsoes da execucao e investigar a coleta
+  psi_feature_importante:
+    gravidade: media
+    limiar: 0.25
+    acao: investigar a fatia afetada (rota, API, sazonalidade)
+  proporcao_classes:
+    gravidade: media
+    limiar_js: 0.1
+    acao: verificar evento real contra artefato
+  macro_f1:
+    gravidade: alta
+    limiar: 0.60
+    janelas_consecutivas: 3
+    acao: abrir processo de retreino

@@ -1,0 +1,386 @@
+{
+  "familia": "random_forest",
+  "modelo": {
+    "geral": {
+      "n": 46105,
+      "por_classe": {
+        "OK": {
+          "precisao": "0.9390841420898898",
+          "recall": "0.9904596273291926",
+          "f1": "0.9640879301588836",
+          "suporte": 40250
+        },
+        "RISCO": {
+          "precisao": "0.8224101479915433",
+          "recall": "0.4380630630630631",
+          "f1": "0.5716385011021309",
+          "suporte": 4440
+        },
+        "FALHA": {
+          "precisao": "0.7639751552795031",
+          "recall": "0.6954063604240283",
+          "f1": "0.7280799112097669",
+          "suporte": 1415
+        }
+      },
+      "macro_f1": "0.7546021141569271",
+      "f1_ponderado": "0.9190510185045082",
+      "acuracia": "0.928207352781694",
+      "matriz": [
+        [
+          39866,
+          252,
+          132
+        ],
+        [
+          2323,
+          1945,
+          172
+        ],
+        [
+          263,
+          168,
+          984
+        ]
+      ],
+      "recall_falha": "0.6954063604240283",
+      "f1_falha": "0.7280799112097669"
+    },
+    "transicoes": {
+      "n": 4879,
+      "por_classe": {
+        "OK": {
+          "precisao": "0.473426402155278",
+          "recall": "0.8637176050044683",
+          "f1": "0.6116120866951432",
+          "suporte": 2238
+        },
+        "RISCO": {
+          "precisao": "0.23427331887201736",
+          "recall": "0.04933759707629054",
+          "f1": "0.08150943396226414",
+          "suporte": 2189
+        },
+        "FALHA": {
+          "precisao": "0.19701492537313434",
+          "recall": "0.14601769911504425",
+          "f1": "0.16772554002541296",
+          "suporte": 452
+        }
+      },
+      "macro_f1": "0.28694902022760677",
+      "f1_ponderado": "0.33265504100401994",
+      "acuracia": "0.43185078909612623",
+      "matriz": [
+        [
+          1933,
+          198,
+          107
+        ],
+        [
+          1919,
+          108,
+          162
+        ],
+        [
+          231,
+          155,
+          66
+        ]
+      ],
+      "recall_falha": "0.14601769911504425",
+      "f1_falha": "0.16772554002541296"
+    },
+    "inicio_falha": {
+      "n": 452,
+      "por_classe": {
+        "OK": {
+          "precisao": null,
+          "recall": null,
+          "f1": null,
+          "suporte": 0
+        },
+        "RISCO": {
+          "precisao": null,
+          "recall": null,
+          "f1": null,
+          "suporte": 0
+        },
+        "FALHA": {
+          "precisao": "1.0",
+          "recall": "0.14601769911504425",
+          "f1": "0.25482625482625487",
+          "suporte": 452
+        }
+      },
+      "macro_f1": "0.25482625482625487",
+      "f1_ponderado": "0.25482625482625487",
+      "acuracia": "0.14601769911504425",
+      "matriz": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          231,
+          155,
+          66
+        ]
+      ],
+      "recall_falha": "0.14601769911504425",
+      "f1_falha": "0.25482625482625487"
+    },
+    "sem_anchor_dominante": {
+      "n": 44396,
+      "por_classe": {
+        "OK": {
+          "precisao": "0.9389790111146241",
+          "recall": "0.9923150075821832",
+          "f1": "0.9649105268419474",
+          "suporte": 38907
+        },
+        "RISCO": {
+          "precisao": "0.8197074010327022",
+          "recall": "0.4417903525046382",
+          "f1": "0.5741410488245932",
+          "suporte": 4312
+        },
+        "FALHA": {
+          "precisao": "0.7926701570680629",
+          "recall": "0.643160577740017",
+          "f1": "0.7101313320825516",
+          "suporte": 1177
+        }
+      },
+      "macro_f1": "0.749727635916364",
+      "f1_ponderado": "0.9202021499286525",
+      "acuracia": "0.9295882511938013",
+      "matriz": [
+        [
+          38608,
+          251,
+          48
+        ],
+        [
+          2257,
+          1905,
+          150
+        ],
+        [
+          252,
+          168,
+          757
+        ]
+      ],
+      "recall_falha": "0.643160577740017",
+      "f1_falha": "0.7101313320825516"
+    },
+    "anchor_dominante": {
+      "anchor_id": "2026",
+      "fracao_falha_anchor_dominante": "0.16819787985865725"
+    }
+  },
+  "persistencia": {
+    "geral": {
+      "n": 46105,
+      "por_classe": {
+        "OK": {
+          "precisao": "0.9445383162707485",
+          "recall": "0.9443975155279503",
+          "f1": "0.9444679106517255",
+          "suporte": 40250
+        },
+        "RISCO": {
+          "precisao": "0.5058426966292134",
+          "recall": "0.506981981981982",
+          "f1": "0.5064116985376828",
+          "suporte": 4440
+        },
+        "FALHA": {
+          "precisao": "0.6824946846208363",
+          "recall": "0.680565371024735",
+          "f1": "0.6815286624203822",
+          "suporte": 1415
+        }
+      },
+      "macro_f1": "0.7108027572032635",
+      "f1_ponderado": "0.8942124368845917",
+      "acuracia": "0.894176336622926",
+      "matriz": [
+        [
+          38012,
+          1999,
+          239
+        ],
+        [
+          1980,
+          2251,
+          209
+        ],
+        [
+          252,
+          200,
+          963
+        ]
+      ],
+      "recall_falha": "0.680565371024735",
+      "f1_falha": "0.6815286624203822"
+    },
+    "transicoes": {
+      "n": 4879,
+      "por_classe": {
+        "OK": {
+          "precisao": "0.0",
+          "recall": "0.0",
+          "f1": "0.0",
+          "suporte": 2238
+        },
+        "RISCO": {
+          "precisao": "0.0",
+          "recall": "0.0",
+          "f1": "0.0",
+          "suporte": 2189
+        },
+        "FALHA": {
+          "precisao": "0.0",
+          "recall": "0.0",
+          "f1": "0.0",
+          "suporte": 452
+        }
+      },
+      "macro_f1": "0.0",
+      "f1_ponderado": "0.0",
+      "acuracia": "0.0",
+      "matriz": [
+        [
+          0,
+          1999,
+          239
+        ],
+        [
+          1980,
+          0,
+          209
+        ],
+        [
+          252,
+          200,
+          0
+        ]
+      ],
+      "recall_falha": "0.0",
+      "f1_falha": "0.0"
+    },
+    "inicio_falha": {
+      "n": 452,
+      "por_classe": {
+        "OK": {
+          "precisao": null,
+          "recall": null,
+          "f1": null,
+          "suporte": 0
+        },
+        "RISCO": {
+          "precisao": null,
+          "recall": null,
+          "f1": null,
+          "suporte": 0
+        },
+        "FALHA": {
+          "precisao": "0.0",
+          "recall": "0.0",
+          "f1": "0.0",
+          "suporte": 452
+        }
+      },
+      "macro_f1": "0.0",
+      "f1_ponderado": "0.0",
+      "acuracia": "0.0",
+      "matriz": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          252,
+          200,
+          0
+        ]
+      ],
+      "recall_falha": "0.0",
+      "f1_falha": "0.0"
+    },
+    "sem_anchor_dominante": {
+      "n": 44396,
+      "por_classe": {
+        "OK": {
+          "precisao": "0.9458167330677291",
+          "recall": "0.945768113707045",
+          "f1": "0.9457924227625558",
+          "suporte": 38907
+        },
+        "RISCO": {
+          "precisao": "0.5109979161843019",
+          "recall": "0.5118274582560297",
+          "f1": "0.5114123508284092",
+          "suporte": 4312
+        },
+        "FALHA": {
+          "precisao": "0.6800341296928327",
+          "recall": "0.6771452846219201",
+          "f1": "0.678586632609621",
+          "suporte": 1177
+        }
+      },
+      "macro_f1": "0.7119304687335287",
+      "f1_ponderado": "0.8965188826870976",
+      "acuracia": "0.8964996846562754",
+      "matriz": [
+        [
+          36797,
+          1926,
+          184
+        ],
+        [
+          1914,
+          2207,
+          191
+        ],
+        [
+          194,
+          186,
+          797
+        ]
+      ],
+      "recall_falha": "0.6771452846219201",
+      "f1_falha": "0.678586632609621"
+    },
+    "anchor_dominante": {
+      "anchor_id": "2026",
+      "fracao_falha_anchor_dominante": "0.16819787985865725"
+    }
+  },
+  "ganho": {
+    "geral": "0.04379935695366366",
+    "transicoes": null,
+    "inicio_falha": "0.25482625482625487",
+    "sem_anchor_dominante": "0.03779716718283532"
+  },
+  "analise_teste": [
+    "No teste, o modelo antecipa só 14,6% dos inícios de FALHA."
+  ],
+  "reavaliacoes": [],
+  "frase_fixa": "O teste não deve ser usado para novos ajustes. Ajustar de novo exige outro conjunto de teste ou nova janela de dados."
+}

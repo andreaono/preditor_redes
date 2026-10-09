@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anchors-alvo do RIPE Atlas — Etapa 1</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f1ea;
+      --ink: #1c1915;
+      --muted: #5e584e;
+      --card: #fffdf8;
+      --line: #e4ddd0;
+      --accent: #0f6e56;
+      --accent-soft: #e5f5ef;
+      --br: #c45c26;
+      --br-bg: #fff1e6;
+      --shadow: 0 10px 30px rgba(40, 32, 20, 0.06);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #12171a;
+      --ink: #f3f1ea;
+      --muted: #b7b1a6;
+      --card: #1c2428;
+      --line: #314046;
+      --accent: #3dbe9a;
+      --accent-soft: #16352c;
+      --br: #e5925d;
+      --br-bg: #3a2a22;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    header, main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 32px 0 8px; display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+    h1 { font-size: 1.8rem; line-height: 1.15; margin: 0 0 8px; }
+    h2 { font-size: 1.15rem; margin: 0 0 12px; }
+    p { margin: 0; }
+    .sub { color: var(--muted); max-width: 62ch; }
+    button, input { font: inherit; color: inherit; }
+    #tema {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+    .bloco, .cartao {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0; }
+    .cartao { padding: 14px 16px; }
+    .cartao span { display: block; color: var(--muted); font-size: 0.85rem; }
+    .cartao strong { font-size: 1.45rem; }
+    .destaque {
+      border-color: var(--accent);
+      background: linear-gradient(180deg, var(--accent-soft), var(--card) 70%);
+      padding: 18px 18px 16px;
+      margin-bottom: 16px;
+    }
+    .diagrama {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px 18px;
+      align-items: center;
+      margin: 14px 0;
+    }
+    pre {
+      margin: 0;
+      font-family: "Cascadia Mono", "Consolas", monospace;
+      background: var(--card);
+      border: 1px dashed var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      line-height: 1.55;
+    }
+    .ferramentas { display: flex; gap: 12px; align-items: center; margin: 8px 0 12px; }
+    #busca {
+      flex: 1;
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 12px;
+      padding: 10px 12px;
+    }
+    .tabela-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; vertical-align: top; }
+    th button {
+      border: 0;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      font-weight: 650;
+    }
+    tbody tr:hover { background: var(--accent-soft); }
+    tr.brasil { background: var(--br-bg); box-shadow: inset 4px 0 0 var(--br); }
+    .selo {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: var(--br);
+      color: #fff;
+      font-size: 0.72rem;
+      vertical-align: 1px;
+    }
+    #mapa { height: 440px; border-radius: 12px; }
+    #mapa-aviso { margin-bottom: 10px; color: var(--muted); }
+    .listas { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    ul { margin: 8px 0 0; padding-left: 18px; }
+    footer { width: min(1180px, calc(100% - 32px)); margin: 8px auto 28px; color: var(--muted); }
+    @media (max-width: 800px) {
+      .grade, .listas, .diagrama { grid-template-columns: 1fr; }
+      header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1 id="titulo">Anchors-alvo do RIPE Atlas — Etapa 1</h1>
+      <p class="sub">Amostra estratificada de anchors-alvo IPv4. Cada anchor será medida por várias origens na etapa seguinte.</p>
+    </div>
+    <button id="tema" type="button">Tema escuro</button>
+  </header>
+  <main>
+    <section class="grade" id="cartoes"></section>
+    <section class="destaque" id="bloco-origens">
+      <h2>Múltiplas origens por anchor</h2>
+      <div class="diagrama">
+        <pre>Probe A →
+Probe B →
+Probe C → Anchor X
+Probe D →
+Probe E →</pre>
+        <p>Uma única relação probe–anchor representa apenas um caminho específico de rede. Esse caminho pode ser influenciado pela localização da probe, pelo ASN de origem, pela rota utilizada e pelas condições particulares daquele trajeto. Ao utilizar de três a cinco probes para a mesma anchor, o projeto observa o mesmo destino a partir de diferentes caminhos de rede.</p>
+      </div>
+    </section>
+    <section class="bloco" style="padding: 16px;">
+      <h2>Resumo</h2>
+      <div class="listas">
+        <div>
+          <strong>Continente</strong>
+          <ul id="lista-continentes"></ul>
+        </div>
+        <div>
+          <strong>Faixa de distância até o Brasil</strong>
+          <ul id="lista-faixas"></ul>
+        </div>
+      </div>
+    </section>
+    <section style="margin-top: 16px;">
+      <div class="ferramentas">
+        <input id="busca" type="search" placeholder="Buscar hostname, país, cidade, ASN, continente…" autocomplete="off">
+        <span id="contagem"></span>
+      </div>
+      <div class="tabela-wrap">
+        <table>
+          <thead><tr id="cabecalho"></tr></thead>
+          <tbody id="corpo"></tbody>
+        </table>
+      </div>
+    </section>
+    
+    <section class="bloco" id="secao-mapa">
+      <h2>Mapa</h2>
+      <p id="mapa-aviso" hidden>O mapa precisa de internet para carregar o Leaflet e os tiles. A tabela funciona offline.</p>
+      <div id="mapa"></div>
+    </section>
+  </main>
+  <footer id="rodape"></footer>
+  <script id="dados-anchors" type="application/json">{"meta":{"gerado_em":"2026-10-05T16:49:24+00:00","seed":42,"cotas_continente":{"África":3,"América do Norte":3,"América do Sul":3,"Ásia":5,"Europa":4,"Oceania":2,"Antártida":0},"faixas_km":{"curta":{"max_exclusivo":4000},"media":{"max_exclusivo":10000}},"max_europa":6,"total_anchors":30,"limite_asn":1,"justificativa_asn":null,"intervalos_divergentes":[],"resumo":{"por_continente":{"América do Norte":5,"América do Sul":7,"Europa":6,"Oceania":2,"África":4,"Ásia":6},"por_faixa":{"curta":9,"media":12,"longa":9},"por_regiao":{"América Central":1,"América do Norte":2,"América do Sul":7,"Austrália e Nova Zelândia":1,"Caribe":2,"Europa Meridional":1,"Europa Ocidental":4,"Europa Setentrional":1,"Melanésia":1,"Sudeste Asiático":2,"África Austral":1,"África Ocidental":2,"África Setentrional":1,"Ásia Central":1,"Ásia Meridional":1,"Ásia Ocidental":1,"Ásia Oriental":1},"europa":6,"paises_distintos":30,"asn_maximo":1,"intervalos_segundos":{"240":30}}},"pagina":{"titulo":"Anchors-alvo do RIPE Atlas — Etapa 1","titulo_bloco":"Múltiplas origens por anchor","diagrama":"Probe A →\nProbe B →\nProbe C → Anchor X\nProbe D →\nProbe E →","texto_bloco":"Uma única relação probe–anchor representa apenas um caminho específico de rede. Esse caminho pode ser influenciado pela localização da probe, pelo ASN de origem, pela rota utilizada e pelas condições particulares daquele trajeto. Ao utilizar de três a cinco probes para a mesma anchor, o projeto observa o mesmo destino a partir de diferentes caminhos de rede.","pais_brasil":"BR","vazio":"—","continente_europa":"Europa","max_europa":6,"ordem_faixas":["curta","media","longa"],"colunas":[{"chave":"id","rotulo":"ID","tipo":"numero"},{"chave":"hostname","rotulo":"Hostname","tipo":"texto"},{"chave":"fqdn","rotulo":"FQDN","tipo":"texto"},{"chave":"ip_v4","rotulo":"IPv4","tipo":"texto"},{"chave":"city","rotulo":"Cidade","tipo":"texto"},{"chave":"country","rotulo":"País","tipo":"texto"},{"chave":"company","rotulo":"Empresa","tipo":"texto"},{"chave":"coordinates","rotulo":"Coordenadas","tipo":"texto"},{"chave":"asn_v4","rotulo":"ASN v4","tipo":"numero"},{"chave":"continent","rotulo":"Continente","tipo":"texto"},{"chave":"region","rotulo":"Região","tipo":"texto"},{"chave":"mesh_measurement_ids","rotulo":"Medições mesh IPv4","tipo":"texto"},{"chave":"interval_segundos","rotulo":"Intervalo (s)","tipo":"numero"},{"chave":"estratos","rotulo":"Estratos","tipo":"numero"}],"mapa":true,"url_leaflet":"https://unpkg.com/leaflet@1.9.4/dist/","url_tiles":"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png","atribuicao_mapa":"\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e"},"anchors":[{"id":4335,"hostname":"ca-van-as396993","fqdn":"ca-van-as396993.anchors.atlas.ripe.net","ip_v4":"198.135.169.29","city":"Vancouver","country":"CA","company":"Soraxus Networks Inc.","coordinates":[-123.0296962,49.2594269],"asn_v4":396993,"continent":"América do Norte","region":"América do Norte","mesh_measurement_ids":[112696111],"interval_segundos":240,"estratos":{"continente":"América do Norte","regiao":"América do Norte","asn":396993,"faixa_distancia":"longa","distancia_km":10611.0}},{"id":3920,"hostname":"do-lav-as273867","fqdn":"do-lav-as273867.anchors.atlas.ripe.net","ip_v4":"45.68.42.34","city":"La Vega","country":"DO","company":"ADOTIC ASOCIACIÓN DOMINICANA DE EMPRESAS DE TECNOLOGÍAS DE INFORMACIÓN Y COMUNICACIÓN","coordinates":[-70.6111982,19.3402163],"asn_v4":273867,"continent":"América do Norte","region":"Caribe","mesh_measurement_ids":[79976907],"interval_segundos":240,"estratos":{"continente":"América do Norte","regiao":"Caribe","asn":273867,"faixa_distancia":"media","distancia_km":4933.4}},{"id":1086,"hostname":"mx-tte-as22894","fqdn":"mx-tte-as22894.anchors.atlas.ripe.net","ip_v4":"200.94.182.170","city":"Monterrey","country":"MX","company":"NIC México","coordinates":[-100.1931493,25.76602539],"asn_v4":22894,"continent":"América do Norte","region":"América Central","mesh_measurement_ids":[16437037],"interval_segundos":240,"estratos":{"continente":"América do Norte","regiao":"América Central","asn":22894,"faixa_distancia":"media","distancia_km":7854.3}},{"id":1418,"hostname":"tt-ptw-as264811","fqdn":"tt-ptw-as264811.anchors.atlas.ripe.net","ip_v4":"131.72.76.118","city":"Princes Town","country":"TT","company":"Air Link Networks","coordinates":[-61.37337,10.238839],"asn_v4":264811,"continent":"América do Norte","region":"Caribe","mesh_measurement_ids":[88535195],"interval_segundos":240,"estratos":{"continente":"América do Norte","regiao":"Caribe","asn":264811,"faixa_distancia":"curta","distancia_km":3517.0}},{"id":1880,"hostname":"us-dcx-as5006","fqdn":"us-dcx-as5006.anchors.atlas.ripe.net","ip_v4":"206.144.243.4","city":"Dallas","country":"US","company":"Voyant","coordinates":[-96.7940781,32.786645],"asn_v4":5006,"continent":"América do Norte","region":"América do Norte","mesh_measurement_ids":[23663001],"interval_segundos":240,"estratos":{"continente":"América do Norte","regiao":"América do Norte","asn":5006,"faixa_distancia":"media","distancia_km":7913.8}},{"id":3816,"hostname":"ar-bue-as4270","fqdn":"ar-bue-as4270.anchors.atlas.ripe.net","ip_v4":"170.210.5.200","city":"Buenos Aires","country":"AR","company":"ARIU - Asociacion Redes de Interconexion Universitaria","coordinates":[-58.3708289,-34.6133169],"asn_v4":4270,"continent":"América do Sul","region":"América do Sul","mesh_measurement_ids":[94342428],"interval_segundos":240,"estratos":{"continente":"América do Sul","regiao":"América do Sul","asn":4270,"faixa_distancia":"curta","distancia_km":3165.7}},{"id":4371,"hostname":"bo-cbb-as27839","fqdn":"bo-cbb-as27839.anchors.atlas.ripe.net","ip_v4":"200.58.72.14","city":"Cochabamba","country":"BO","company":"Comteco R.L.","coordinates":[-66.1583161,-17.3852792],"asn_v4":27839,"continent":"América do Sul","region":"América do Sul","mesh_measurement_ids":[125059414],"interval_segundos":240,"estratos":{"continente":"América do Sul","regiao":"América do Sul","asn":27839,"faixa_distancia":"curta","distancia_km":2974.8}},{"id":3679,"hostname":"br-fec-as264479","fqdn":"br-fec-as264479.anchors.atlas.ripe.net","ip_v4":"138.117.32.11","city":"Feira de Santana","country":"BR","company":"Turbozone Internet","coordinates":[-38.9739082,-12.2397797],"asn_v4":264479,"continent":"América do Sul","region":"América do Sul","mesh_measurement_ids":[66196984],"interval_segundos":240,"estratos":{"continente":"América do Sul","regiao":"América do Sul","asn":264479,"faixa_distancia":"curta","distancia_km":0.0}},{"id":1605,"hostname":"cl-scl-as64112","fqdn":"cl-scl-as64112.anchors.atlas.ripe.net","ip_v4":"170.247.95.81","city":"Santiago de Chile","country":"CL","company":"PIT Chile SpA","coordinates":[-70.5993464,-33.4183565],"asn_v4":64112,"continent":"América do Sul","region":"América do Sul","mesh_measurement_ids":[19187535],"interval_segundos":240,"estratos":{"continente":"América do Sul","regiao":"América do Sul","asn":64112,"faixa_distancia":"curta","distancia_km":3978.0}},{"id":3217,"hostname":"pe-aqp-as263189","fqdn":"pe-aqp-as263189.anchors.atlas.ripe.net","ip_v4":"179.43.96.85","city":"Arequipa","country":"PE","company":"MISTICOM","coordinates":[-71.5427443,-16.4167934],"asn_v4":263189,"continent":"América do Sul","region":"América do Sul","mesh_measurement_ids":[48152563],"interval_segundos":240,"estratos":{"continente":"América do Sul","regiao":"América do Sul","asn":263189,"faixa_distancia":"curta","distancia_km":3535.6}},{"id":4074,"hostname":"uy-mvd-as28000","fqdn":"uy-mvd-as28000.anchors.atlas.ripe.net","ip_v4":"200.7.84.24","city":"Montevideo","country":"UY","company":"LACNIC","coordinates":[-56.0640686,-34.8986369],"asn_v4":28000,"continent":"América do Sul","region":"América do Sul","mesh_measurement_ids":[86022641],"interval_segundos":240,"estratos":{"continente":"América do Sul","regiao":"América do Sul","asn":28000,"faixa_distancia":"curta","distancia_km":3052.2}},{"id":4261,"hostname":"ve-bla-as21826","fqdn":"ve-bla-as21826.anchors.atlas.ripe.net","ip_v4":"200.82.230.152","city":"Barcelona","country":"VE","company":"Corporacion Telemic CA","coordinates":[-64.67768,10.1445691],"asn_v4":21826,"continent":"América do Sul","region":"América do Sul","mesh_measurement_ids":[132526060],"interval_segundos":240,"estratos":{"continente":"América do Sul","regiao":"América do Sul","asn":21826,"faixa_distancia":"curta","distancia_km":3775.8}},{"id":2343,"hostname":"ch-win-as58299","fqdn":"ch-win-as58299.anchors.atlas.ripe.net","ip_v4":"5.226.144.240","city":"Winterthur","country":"CH","company":"Openfactory GmbH","coordinates":[8.7207455,47.5008806],"asn_v4":58299,"continent":"Europa","region":"Europa Ocidental","mesh_measurement_ids":[26523893],"interval_segundos":240,"estratos":{"continente":"Europa","regiao":"Europa Ocidental","asn":58299,"faixa_distancia":"media","distancia_km":8145.8}},{"id":1360,"hostname":"de-mdt-as15945","fqdn":"de-mdt-as15945.anchors.atlas.ripe.net","ip_v4":"213.206.174.172","city":"Mutterstadt","country":"DE","company":"PfalzKom, Gesellschaft für Telekommunikation mbH","coordinates":[8.35915723,49.42631922],"asn_v4":15945,"continent":"Europa","region":"Europa Ocidental","mesh_measurement_ids":[15708032],"interval_segundos":240,"estratos":{"continente":"Europa","regiao":"Europa Ocidental","asn":15945,"faixa_distancia":"media","distancia_km":8267.3}},{"id":1612,"hostname":"fr-rns-as204092","fqdn":"fr-rns-as204092.anchors.atlas.ripe.net","ip_v4":"80.67.190.218","city":"Rennes","country":"FR","company":"Grifon","coordinates":[-1.6437736,48.1075171],"asn_v4":204092,"continent":"Europa","region":"Europa Ocidental","mesh_measurement_ids":[19299324],"interval_segundos":240,"estratos":{"continente":"Europa","regiao":"Europa Ocidental","asn":204092,"faixa_distancia":"media","distancia_km":7654.0}},{"id":1223,"hostname":"it-mil-as42473","fqdn":"it-mil-as42473.anchors.atlas.ripe.net","ip_v4":"188.172.218.22","city":"Milano","country":"IT","company":"ANEXIA Internetdienstleistung GmbH","coordinates":[9.3534509,45.5038487],"asn_v4":42473,"continent":"Europa","region":"Europa Meridional","mesh_measurement_ids":[10683789],"interval_segundos":240,"estratos":{"continente":"Europa","regiao":"Europa Meridional","asn":42473,"faixa_distancia":"media","distancia_km":8038.5}},{"id":3294,"hostname":"nl-ams-as44788","fqdn":"nl-ams-as44788.anchors.atlas.ripe.net","ip_v4":"178.250.1.75","city":"Amsterdam","country":"NL","company":"Criteo","coordinates":[4.7431424,52.2757527],"asn_v4":44788,"continent":"Europa","region":"Europa Ocidental","mesh_measurement_ids":[79429531],"interval_segundos":240,"estratos":{"continente":"Europa","regiao":"Europa Ocidental","asn":44788,"faixa_distancia":"media","distancia_km":8302.2}},{"id":4169,"hostname":"se-bod-as200675","fqdn":"se-bod-as200675.anchors.atlas.ripe.net","ip_v4":"185.71.177.181","city":"Boden","country":"SE","company":"Hydro66 Svenska AB","coordinates":[21.6821152,65.8046941],"asn_v4":200675,"continent":"Europa","region":"Europa Setentrional","mesh_measurement_ids":[91218945],"interval_segundos":240,"estratos":{"continente":"Europa","regiao":"Europa Setentrional","asn":200675,"faixa_distancia":"media","distancia_km":9989.1}},{"id":4685,"hostname":"au-mel-as63956","fqdn":"au-mel-as63956.anchors.atlas.ripe.net","ip_v4":"103.52.117.1","city":"Melbourne","country":"AU","company":"5G Networks","coordinates":[144.9659079,-37.8147114],"asn_v4":63956,"continent":"Oceania","region":"Austrália e Nova Zelândia","mesh_measurement_ids":[179906321],"interval_segundos":240,"estratos":{"continente":"Oceania","regiao":"Austrália e Nova Zelândia","asn":63956,"faixa_distancia":"longa","distancia_km":14434.1}},{"id":2842,"hostname":"nc-nou-as45345","fqdn":"nc-nou-as45345.anchors.atlas.ripe.net","ip_v4":"103.2.186.195","city":"Nouméa","country":"NC","company":"Nautile SARL","coordinates":[166.460824,-22.269224],"asn_v4":45345,"continent":"Oceania","region":"Melanésia","mesh_measurement_ids":[31471701],"interval_segundos":240,"estratos":{"continente":"Oceania","regiao":"Melanésia","asn":45345,"faixa_distancia":"longa","distancia_km":15280.9}},{"id":4809,"hostname":"gh-acc-as37271","fqdn":"gh-acc-as37271.anchors.atlas.ripe.net","ip_v4":"197.157.75.29","city":"Accra","country":"GH","company":"Workonline Communications","coordinates":[-0.1944746,5.5742522],"asn_v4":37271,"continent":"África","region":"África Ocidental","mesh_measurement_ids":[207232419],"interval_segundos":240,"estratos":{"continente":"África","regiao":"África Ocidental","asn":37271,"faixa_distancia":"media","distancia_km":4722.3}},{"id":4828,"hostname":"ly-tip-as329263-client","fqdn":"ly-tip-as329263-client.anchors.atlas.ripe.net","ip_v4":"102.213.181.187","city":"Tripoli","country":"LY","company":"Libyan Spider Cloud Provider, Libyan Technology Foundation","coordinates":[13.19887777,32.86999104],"asn_v4":329263,"continent":"África","region":"África Setentrional","mesh_measurement_ids":[209696740],"interval_segundos":240,"estratos":{"continente":"África","regiao":"África Setentrional","asn":329263,"faixa_distancia":"media","distancia_km":7466.7}},{"id":4292,"hostname":"sl-fna-as209049","fqdn":"sl-fna-as209049.anchors.atlas.ripe.net","ip_v4":"195.110.184.7","city":"Freetown","country":"SL","company":"Michcom Limited","coordinates":[-13.2717507,8.4791275],"asn_v4":209049,"continent":"África","region":"África Ocidental","mesh_measurement_ids":[108739161],"interval_segundos":240,"estratos":{"continente":"África","regiao":"África Ocidental","asn":209049,"faixa_distancia":"curta","distancia_km":3657.4}},{"id":4766,"hostname":"za-dur-as37668","fqdn":"za-dur-as37668.anchors.atlas.ripe.net","ip_v4":"196.10.55.135","city":"Durban","country":"ZA","company":"INX-ZA","coordinates":[30.994738,-29.777119],"asn_v4":37668,"continent":"África","region":"África Austral","mesh_measurement_ids":[192498850],"interval_segundos":240,"estratos":{"continente":"África","regiao":"África Austral","asn":37668,"faixa_distancia":"media","distancia_km":7414.7}},{"id":4707,"hostname":"bh-amh-as51375","fqdn":"bh-amh-as51375.anchors.atlas.ripe.net","ip_v4":"37.131.66.98","city":"Seef","country":"BH","company":"STC Bahrain B.S.C Closed","coordinates":[50.5384949,26.2382],"asn_v4":51375,"continent":"Ásia","region":"Ásia Ocidental","mesh_measurement_ids":[209654486],"interval_segundos":240,"estratos":{"continente":"Ásia","regiao":"Ásia Ocidental","asn":51375,"faixa_distancia":"longa","distancia_km":10557.8}},{"id":2526,"hostname":"jp-tyo-as12008","fqdn":"jp-tyo-as12008.anchors.atlas.ripe.net","ip_v4":"156.154.181.254","city":"Tokyo","country":"JP","company":"DigiCert","coordinates":[139.748057,35.617458],"asn_v4":12008,"continent":"Ásia","region":"Ásia Oriental","mesh_measurement_ids":[79354268],"interval_segundos":240,"estratos":{"continente":"Ásia","regiao":"Ásia Oriental","asn":12008,"faixa_distancia":"longa","distancia_km":17412.4}},{"id":4524,"hostname":"kz-ura-as21299","fqdn":"kz-ura-as21299.anchors.atlas.ripe.net","ip_v4":"145.249.228.158","city":"Uralsk","country":"KZ","company":"LLP Kar-Tel","coordinates":[51.3850125,51.2439333],"asn_v4":21299,"continent":"Ásia","region":"Ásia Central","mesh_measurement_ids":[141855159],"interval_segundos":240,"estratos":{"continente":"Ásia","regiao":"Ásia Central","asn":21299,"faixa_distancia":"longa","distancia_km":11090.4}},{"id":4382,"hostname":"lk-cmb-as151197","fqdn":"lk-cmb-as151197.anchors.atlas.ripe.net","ip_v4":"103.140.194.100","city":"Colombo","country":"LK","company":"OREL I T (Pvt) Ltd","coordinates":[79.8795738,6.9416245],"asn_v4":151197,"continent":"Ásia","region":"Ásia Meridional","mesh_measurement_ids":[125059589],"interval_segundos":240,"estratos":{"continente":"Ásia","regiao":"Ásia Meridional","asn":151197,"faixa_distancia":"longa","distancia_km":13297.6}},{"id":4237,"hostname":"my-kul-as45839","fqdn":"my-kul-as45839.anchors.atlas.ripe.net","ip_v4":"124.217.226.30","city":"kuala lumpur","country":"MY","company":"Shinjiru Technology","coordinates":[101.6944619,3.1499222],"asn_v4":45839,"continent":"Ásia","region":"Sudeste Asiático","mesh_measurement_ids":[135841920],"interval_segundos":240,"estratos":{"continente":"Ásia","regiao":"Sudeste Asiático","asn":45839,"faixa_distancia":"longa","distancia_km":15571.0}},{"id":2026,"hostname":"vn-sgn-as24173","fqdn":"vn-sgn-as24173.anchors.atlas.ripe.net","ip_v4":"101.53.31.6","city":"Ho Chi Minh City","country":"VN","company":"NetNam Corp.","coordinates":[106.7028941,10.7882534],"asn_v4":24173,"continent":"Ásia","region":"Sudeste Asiático","mesh_measurement_ids":[23834668],"interval_segundos":240,"estratos":{"continente":"Ásia","regiao":"Sudeste Asiático","asn":24173,"faixa_distancia":"longa","distancia_km":16274.3}}]}</script>
+  <script>
+    const doc = JSON.parse(document.getElementById("dados-anchors").textContent);
+    const anchors = doc.anchors;
+    const meta = doc.meta;
+    const pagina = doc.pagina;
+    const vazio = pagina.vazio;
+
+    const raiz = document.documentElement;
+    const botaoTema = document.getElementById("tema");
+    const temaSalvo = localStorage.getItem("etapa1-tema");
+    const temaInicial = temaSalvo || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    aplicarTema(temaInicial);
+    botaoTema.addEventListener("click", () => {
+      const proximo = raiz.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      localStorage.setItem("etapa1-tema", proximo);
+      aplicarTema(proximo);
+    });
+    function aplicarTema(tema) {
+      raiz.setAttribute("data-theme", tema);
+      botaoTema.textContent = tema === "dark" ? "Tema claro" : "Tema escuro";
+    }
+
+    function semValor(valor) {
+      return valor === null || valor === undefined || valor === "" || (Array.isArray(valor) && valor.length === 0);
+    }
+    function textoEstratos(estratos) {
+      if (!estratos) return "";
+      return "continente: " + estratos.continente
+        + "; região: " + estratos.regiao
+        + "; asn: " + estratos.asn
+        + "; faixa: " + estratos.faixa_distancia
+        + "; " + estratos.distancia_km + " km";
+    }
+    function exibir(anchor, chave) {
+      if (chave === "coordinates") {
+        if (!anchor.coordinates) return vazio;
+        return anchor.coordinates[0].toFixed(4) + ", " + anchor.coordinates[1].toFixed(4);
+      }
+      if (chave === "mesh_measurement_ids") {
+        if (!anchor.mesh_measurement_ids || !anchor.mesh_measurement_ids.length) return vazio;
+        return anchor.mesh_measurement_ids.join(", ");
+      }
+      if (chave === "estratos") {
+        const texto = textoEstratos(anchor.estratos);
+        return texto || vazio;
+      }
+      const valor = anchor[chave];
+      return semValor(valor) ? vazio : String(valor);
+    }
+    function bruto(anchor, chave) {
+      if (chave === "estratos") return anchor.estratos ? anchor.estratos.distancia_km : null;
+      if (chave === "coordinates") return anchor.coordinates ? anchor.coordinates.join(",") : null;
+      if (chave === "mesh_measurement_ids") {
+        return anchor.mesh_measurement_ids ? anchor.mesh_measurement_ids.join(",") : null;
+      }
+      return anchor[chave];
+    }
+
+    let ordem = {chave: "continent", dir: 1};
+    const busca = document.getElementById("busca");
+    const corpo = document.getElementById("corpo");
+    const cabecalho = document.getElementById("cabecalho");
+
+    pagina.colunas.forEach((coluna) => {
+      const th = document.createElement("th");
+      const botao = document.createElement("button");
+      botao.type = "button";
+      botao.textContent = coluna.rotulo;
+      botao.addEventListener("click", () => {
+        if (ordem.chave === coluna.chave) ordem.dir *= -1;
+        else ordem = {chave: coluna.chave, dir: 1};
+        desenhar();
+      });
+      th.appendChild(botao);
+      th.dataset.chave = coluna.chave;
+      cabecalho.appendChild(th);
+    });
+
+    function comparar(a, b) {
+      const coluna = pagina.colunas.find((item) => item.chave === ordem.chave);
+      const va = bruto(a, ordem.chave);
+      const vb = bruto(b, ordem.chave);
+      const aVazio = semValor(va);
+      const bVazio = semValor(vb);
+      if (aVazio && bVazio) return a.id - b.id;
+      if (aVazio) return 1;
+      if (bVazio) return -1;
+      let resultado = 0;
+      if (coluna && coluna.tipo === "numero") resultado = Number(va) - Number(vb);
+      else resultado = String(va).localeCompare(String(vb), "pt", {numeric: true, sensitivity: "base"});
+      if (resultado === 0) return a.id - b.id;
+      return resultado * ordem.dir;
+    }
+
+    function desenhar() {
+      const termo = busca.value.trim().toLocaleLowerCase("pt");
+      const linhas = anchors.filter((anchor) => {
+        if (!termo) return true;
+        return pagina.colunas.some((coluna) => exibir(anchor, coluna.chave).toLocaleLowerCase("pt").includes(termo));
+      }).sort(comparar);
+      corpo.replaceChildren();
+      linhas.forEach((anchor) => {
+        const tr = document.createElement("tr");
+        const brasil = anchor.country === pagina.pais_brasil;
+        if (brasil) tr.className = "brasil";
+        pagina.colunas.forEach((coluna) => {
+          const td = document.createElement("td");
+          td.textContent = exibir(anchor, coluna.chave);
+          if (coluna.chave === "hostname" && brasil) {
+            const selo = document.createElement("span");
+            selo.className = "selo";
+            selo.textContent = "Brasil";
+            td.appendChild(selo);
+          }
+          tr.appendChild(td);
+        });
+        corpo.appendChild(tr);
+      });
+      document.getElementById("contagem").textContent = linhas.length + " de " + anchors.length;
+      cabecalho.querySelectorAll("th").forEach((th) => {
+        const botao = th.querySelector("button");
+        const coluna = pagina.colunas.find((item) => item.chave === th.dataset.chave);
+        const marca = th.dataset.chave === ordem.chave ? (ordem.dir > 0 ? " ▲" : " ▼") : "";
+        botao.textContent = coluna.rotulo + marca;
+      });
+    }
+    busca.addEventListener("input", desenhar);
+    desenhar();
+
+    const resumo = meta.resumo;
+    const cartoes = [
+      ["Anchors", String(anchors.length)],
+      ["Países", String(resumo.paises_distintos)],
+      [pagina.continente_europa, resumo.europa + " / máx. " + pagina.max_europa],
+      ["ASN máximo", String(resumo.asn_maximo)]
+    ];
+    const grade = document.getElementById("cartoes");
+    cartoes.forEach(([rotulo, valor]) => {
+      const artigo = document.createElement("article");
+      artigo.className = "cartao";
+      const span = document.createElement("span");
+      span.textContent = rotulo;
+      const forte = document.createElement("strong");
+      forte.textContent = valor;
+      artigo.append(span, forte);
+      grade.appendChild(artigo);
+    });
+    const listaContinentes = document.getElementById("lista-continentes");
+    Object.keys(resumo.por_continente).sort((a, b) => a.localeCompare(b, "pt")).forEach((nome) => {
+      const li = document.createElement("li");
+      const cota = meta.cotas_continente[nome];
+      li.textContent = nome + ": " + resumo.por_continente[nome] + (cota === undefined ? "" : " (cota mínima " + cota + ")");
+      listaContinentes.appendChild(li);
+    });
+    const listaFaixas = document.getElementById("lista-faixas");
+    pagina.ordem_faixas.forEach((faixa) => {
+      const li = document.createElement("li");
+      li.textContent = faixa + ": " + (resumo.por_faixa[faixa] || 0);
+      listaFaixas.appendChild(li);
+    });
+    const quando = new Date(meta.gerado_em);
+    const dataTexto = Number.isNaN(quando.getTime())
+      ? meta.gerado_em
+      : quando.toLocaleString("pt-BR", {timeZone: "UTC"}) + " UTC";
+    document.getElementById("rodape").textContent = "Gerado em " + dataTexto + " · seed " + meta.seed;
+
+    function escapar(valor) {
+      return String(valor ?? "").replace(/[&<>"']/g, (caractere) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[caractere]));
+    }
+    function iniciarMapa(elMapa) {
+      const mapa = L.map(elMapa);
+      L.tileLayer(pagina.url_tiles, {attribution: pagina.atribuicao_mapa, maxZoom: 18}).addTo(mapa);
+      const pontos = [];
+      anchors.forEach((anchor) => {
+        if (!anchor.coordinates) return;
+        const lat = anchor.coordinates[1];
+        const lon = anchor.coordinates[0];
+        const brasil = anchor.country === pagina.pais_brasil;
+        const marca = L.circleMarker([lat, lon], {
+          radius: brasil ? 10 : 7,
+          color: brasil ? "#c45c26" : "#0f6e56",
+          fillColor: brasil ? "#e07a3d" : "#1a9d74",
+          fillOpacity: 0.92,
+          weight: 2
+        }).addTo(mapa);
+        const cidade = anchor.city || vazio;
+        marca.bindPopup(
+          "<strong>" + escapar(anchor.hostname) + "</strong><br>"
+          + escapar(cidade) + " · " + escapar(anchor.country) + "<br>"
+          + escapar(anchor.estratos.faixa_distancia) + " · "
+          + escapar(anchor.estratos.distancia_km) + " km"
+        );
+        pontos.push([lat, lon]);
+      });
+      if (pontos.length) mapa.fitBounds(pontos, {padding: [28, 28]});
+    }
+    const elMapa = document.getElementById("mapa");
+    if (elMapa && pagina.mapa) {
+      const aviso = document.getElementById("mapa-aviso");
+      const css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = pagina.url_leaflet + "leaflet.css";
+      document.head.appendChild(css);
+      const scriptMapa = document.createElement("script");
+      scriptMapa.src = pagina.url_leaflet + "leaflet.js";
+      scriptMapa.onload = () => iniciarMapa(elMapa);
+      scriptMapa.onerror = () => {
+        elMapa.hidden = true;
+        if (aviso) aviso.hidden = false;
+      };
+      document.body.appendChild(scriptMapa);
+    }
+  </script>
+</body>
+</html>

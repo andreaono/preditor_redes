@@ -1,0 +1,42 @@
+{
+  "features_so_do_json": {
+    "estado": "PASSOU",
+    "detalhe": "21 features de features.json, sem coluna proibida e sem NaN."
+  },
+  "ordem_temporal": {
+    "estado": "PASSOU",
+    "detalhe": "O maior timestamp de treino é anterior ao menor da validação."
+  },
+  "teste_fora_do_ajuste": {
+    "estado": "PASSOU",
+    "detalhe": "O teste foi lido só em --avaliar-teste, depois da escolha."
+  },
+  "matriz_de_confusao": {
+    "estado": "PASSOU",
+    "detalhe": "A soma da matriz é o número de linhas e cada linha soma o suporte."
+  },
+  "persistencia_confere": {
+    "estado": "PASSOU",
+    "detalhe": "Macro-F1 da persistência comparado ao da Etapa 7."
+  },
+  "escolha_pela_validacao": {
+    "estado": "PASSOU",
+    "detalhe": "O escolhido tem o maior macro-F1 de validação da grade."
+  },
+  "lock_do_teste": {
+    "estado": "PASSOU",
+    "detalhe": "O lock foi gravado depois da única leitura do teste."
+  },
+  "determinismo": {
+    "estado": "ATENCAO",
+    "detalhe": "O script usa SEED e a ordem da grade. A igualdade byte a byte é conferida repetindo a execução. O tempo de treino pode variar."
+  },
+  "arvore_ilustrativa": {
+    "estado": "PASSOU",
+    "detalhe": "Profundidade 3, folhas somam 241359."
+  },
+  "contagem_so_treino": {
+    "estado": "PASSOU",
+    "detalhe": "A raiz da árvore ilustrativa conta todas as linhas de treino e nenhuma de validação."
+  }
+}

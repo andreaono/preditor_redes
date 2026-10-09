@@ -1,0 +1,16 @@
+{
+  "pares": [
+    {
+      "fluxo_id": "1016806_3679",
+      "probe_id": 1016806,
+      "anchor_id": 3679,
+      "measurement_id": 66198951
+    },
+    {
+      "fluxo_id": "999001_3679",
+      "probe_id": 999001,
+      "anchor_id": 3679,
+      "measurement_id": 90000001
+    }
+  ]
+}

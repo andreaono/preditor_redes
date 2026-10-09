@@ -1,0 +1,14 @@
+# Python 3.11 ou superior.
+# A etapa 1 usa só a biblioteca padrão. Este arquivo cobre a API, o pipeline e o lote em producao/.
+fastapi==0.123.0
+uvicorn==0.41.0
+pydantic==2.12.5
+pandas==2.2.2
+numpy==2.2.6
+scikit-learn==1.5.1
+scipy==1.14.0
+joblib==1.4.2
+requests==2.32.3
+pyarrow==23.0.1
+PyYAML==6.0.3
+pytest==9.0.2

@@ -1,0 +1,27 @@
+# Mesmos parâmetros do pipeline, com a régua de demonstração e a pasta de logs da demo.
+# Os limiares daqui não são o aceite do campo.
+
+janela_minutos: 60
+intervalo_medicao_s: 240
+minimo_medicoes_historico: 12
+historico_maximo: 48
+
+pares: fixtures/pares_offline.json
+criterios: fixtures/criterios_demonstracao.yaml
+lock: fixtures/criterios_demonstracao.lock
+
+url_resultados: https://atlas.ripe.net/api/v2/measurements/{id}/results/
+timeout_s: 120
+max_tentativas: 5
+backoff_s: 2.0
+pausa_s: 0
+user_agent: "projeto-preditor-redes/producao (inferencia; uso academico)"
+
+pasta_logs: logs/predicoes
+pasta_quarentena: logs/quarentena
+pasta_estado: logs/estado
+pasta_erros: logs/erros
+pasta_coleta: logs/coleta
+arquivo_baseline: ../6_baseline_periodo_a/data/baseline_rotulacao_por_fluxo.csv
+arquivo_artefato: modelo/modelo_rf_v1.0.0.joblib
+arquivo_lock_execucao: logs/execucao.lock

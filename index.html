@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preditor de redes — RIPE Atlas</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f1ea;
+      --ink: #1c1915;
+      --muted: #5e584e;
+      --card: #fffdf8;
+      --line: #e4ddd0;
+      --accent: #0f6e56;
+      --br: #c45c26;
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #12171a;
+      --ink: #f3f1ea;
+      --muted: #b7b1a6;
+      --card: #1c2428;
+      --line: #314046;
+      --accent: #3dbe9a;
+      --br: #e5925d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header, main { width: min(880px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 32px 0 8px; display: flex; justify-content: space-between; gap: 16px; }
+    h1 { margin: 0 0 8px; font-size: 1.8rem; }
+    .sub { color: var(--muted); }
+    button, a { font: inherit; }
+    #tema {
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+    .grade { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0 40px; }
+    .cartao {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .cartao.ativo { border-color: var(--accent); }
+    .etapa { margin: 0; color: var(--accent); font-size: 0.85rem; }
+    h2 { margin: 6px 0 8px; }
+    p { margin: 0 0 14px; }
+    a { color: var(--br); }
+    @media (max-width: 700px) { .grade { grid-template-columns: 1fr; } header { flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Preditor de redes — RIPE Atlas</h1>
+      <p class="sub">Dataset de medições de rede com anchors do RIPE Atlas como destino.</p>
+    </div>
+    <button id="tema" type="button">Tema escuro</button>
+  </header>
+  <main>
+    <div class="grade">
+      <article class="cartao">
+        <p class="etapa">Etapa 1</p>
+        <h2>Anchors-alvo</h2>
+        <p>30 anchors-alvo IPv4 escolhidas por amostragem estratificada.</p>
+        <a href="pipeline/01_anchors/template/etapa1_anchors.html">Abrir página</a>
+      </article>
+      <!-- etapa2:inicio -->
+    <article class="cartao ativo">
+      <p class="etapa">Etapa 2</p>
+      <h2>Medições ping</h2>
+      <p>63 medições de ping IPv4 em andamento com as anchors da Etapa 1 como destino.</p>
+      <a href="pipeline/02_medicoes/template/medicoes.html">Abrir página</a>
+    </article>
+    <!-- etapa2:fim -->
+<!-- etapa3:inicio -->
+    <article class="cartao ativo">
+      <p class="etapa">Etapa 3</p>
+      <h2>Probes de origem</h2>
+      <p>150 vínculos de probes de origem para as 30 anchors de destino.</p>
+      <a href="pipeline/03_probes/template/probes.html">Abrir página</a>
+    </article>
+    <!-- etapa3:fim -->
+<!-- etapa4:inicio -->
+    <article class="cartao ativo">
+      <p class="etapa">Etapa 4</p>
+      <h2>Medições dos fluxos</h2>
+      <p>51501 linhas de ping coletadas nos fluxos origem → destino.</p>
+      <a href="pipeline/04_fluxos/template/fluxo.html">Abrir página</a>
+    </article>
+    <!-- etapa4:fim -->
+<!-- etapa5:inicio -->
+    <article class="cartao ativo">
+      <p class="etapa">Etapa 5</p>
+      <h2>Períodos e dataset</h2>
+      <p>A+B: 137 · B: 6 · A: 0 · nenhum: 7. 358222 linhas no dataset.</p>
+      <a href="pipeline/05_periodos/template/periodos.html">Abrir página</a>
+    </article>
+    <!-- etapa5:fim -->
+<!-- etapa6:inicio -->
+    <article class="cartao ativo">
+      <p class="etapa">Etapa 6</p>
+      <h2>Baseline do Período A</h2>
+      <p>137 fluxos com baseline válido.</p>
+      <a href="pipeline/06_baseline/template/baseline.html">Abrir página</a>
+    </article>
+    <!-- etapa6:fim -->
+<!-- etapa7:inicio -->
+    <article class="cartao ativo">
+      <p class="etapa">Etapa 7</p>
+      <h2>Rotulagem e alvo</h2>
+      <p>343172 linhas rotuladas. 333954 linhas no dataset final.</p>
+      <a href="pipeline/07_rotulagem/template/rotulagem.html">Abrir página</a>
+    </article>
+    <!-- etapa7:fim -->
+<!-- etapa8:inicio -->
+    <article class="cartao ativo">
+      <p class="etapa">Etapa 8</p>
+      <h2>Modelos</h2>
+      <p>Random Forest. Macro-F1 de validação 0,767. Teste 0,755.</p>
+      <a href="pipeline/08_treino/template/modelo.html">Abrir página</a>
+    </article>
+    <!-- etapa8:fim -->
+<!-- etapa9:inicio -->
+    <article class="cartao ativo">
+      <p class="etapa">Etapa 9</p>
+      <h2>Monitoramento</h2>
+      <p>Avaliação gravada do Random Forest e leitura ao vivo de um par da malha pública.</p>
+      <a href="painel-preditor.html">Abrir página</a>
+    </article>
+    <!-- etapa9:fim -->
+    </div>
+  </main>
+  <script>
+    const raiz = document.documentElement;
+    const botao = document.getElementById("tema");
+    const salvo = localStorage.getItem("etapa-tema");
+    const inicial = salvo || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    aplicar(inicial);
+    botao.addEventListener("click", () => {
+      const proximo = raiz.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      localStorage.setItem("etapa-tema", proximo);
+      aplicar(proximo);
+    });
+    function aplicar(tema) {
+      raiz.setAttribute("data-theme", tema);
+      botao.textContent = tema === "dark" ? "Tema claro" : "Tema escuro";
+    }
+  </script>
+</body>
+</html>

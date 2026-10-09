@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medições ping ongoing — Etapa 2</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f1ea;
+      --ink: #1c1915;
+      --muted: #5e584e;
+      --card: #fffdf8;
+      --line: #e4ddd0;
+      --accent: #0f6e56;
+      --accent-soft: #e5f5ef;
+      --br: #c45c26;
+      --br-bg: #fff1e6;
+      --shadow: 0 10px 30px rgba(40, 32, 20, 0.06);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #12171a;
+      --ink: #f3f1ea;
+      --muted: #b7b1a6;
+      --card: #1c2428;
+      --line: #314046;
+      --accent: #3dbe9a;
+      --accent-soft: #16352c;
+      --br: #e5925d;
+      --br-bg: #3a2a22;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    header, main { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 28px 0 8px; display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+    h1 { margin: 8px 0; font-size: 1.7rem; }
+    h2 { font-size: 1.05rem; margin: 0 0 10px; }
+    a { color: var(--br); }
+    .voltar { color: var(--muted); text-decoration: none; }
+    button, input, select { font: inherit; color: inherit; }
+    #tema, select, input {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 12px;
+      padding: 8px 12px;
+    }
+    #tema { border-radius: 999px; cursor: pointer; }
+    .aviso, .bloco {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    .aviso { padding: 14px 16px; margin: 16px 0; border-color: var(--accent); background: var(--accent-soft); }
+    .grade { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+    .cartao { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; }
+    .cartao span { display: block; color: var(--muted); font-size: 0.85rem; }
+    .cartao strong { font-size: 1.4rem; }
+    .ferramentas { display: flex; gap: 10px; flex-wrap: wrap; margin: 8px 0 12px; }
+    #busca { flex: 1; min-width: 220px; }
+    .tabela-wrap { overflow: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+    th button { border: 0; background: transparent; padding: 0; cursor: pointer; font-weight: 650; }
+    tr.brasil { background: var(--br-bg); box-shadow: inset 4px 0 0 var(--br); }
+    .selo { margin-left: 6px; padding: 1px 6px; border-radius: 999px; background: var(--br); color: #fff; font-size: 0.72rem; }
+    footer { width: min(1100px, calc(100% - 32px)); margin: 12px auto 28px; color: var(--muted); }
+    @media (max-width: 800px) { .grade { grid-template-columns: 1fr; } header { flex-direction: column; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <a class="voltar" id="inicio" href="../../../index.html">← Início</a>
+      <h1 id="titulo">Medições ping ongoing — Etapa 2</h1>
+    </div>
+    <button id="tema" type="button">Tema escuro</button>
+  </header>
+  <main>
+    <p class="aviso" id="aviso"></p>
+    <section class="grade" id="cartoes"></section>
+    <div class="ferramentas">
+      <input id="busca" type="search" placeholder="Buscar hostname, país, cidade ou medição…" autocomplete="off">
+      <select id="pais"></select>
+      <span id="contagem"></span>
+    </div>
+    <div class="tabela-wrap">
+      <table>
+        <thead><tr id="cabecalho"></tr></thead>
+        <tbody id="corpo"></tbody>
+      </table>
+    </div>
+  </main>
+  <footer id="rodape"></footer>
+  <script id="dados-medicoes" type="application/json">{"meta":{"gerado_em":"2026-10-05T17:17:08+00:00","totais":{"anchors":30,"medicoes":63,"anchors_sem_medicao":0}},"amostra":[{"id":3679,"hostname":"br-fec-as264479","fqdn":"br-fec-as264479.anchors.atlas.ripe.net","ip_v4":"138.117.32.11","city":"Feira de Santana","country":"BR","medicoes":[{"id":66196984,"type":"ping","status":"Ongoing","af":4,"interval":240,"is_public":true,"description":"Anchoring Mesh Measurement: Ping IPv4 for anchor br-fec-as264479.anchors.atlas.ripe.net","start_time":1705350819,"target":"br-fec-as264479.anchors.atlas.ripe.net","target_ip":"138.117.32.11","participant_count":1064},{"id":66198951,"type":"ping","status":"Ongoing","af":4,"interval":240,"is_public":true,"description":"Anchoring Probes Measurement: Ping IPv4 for anchor br-fec-as264479.anchors.atlas.ripe.net","start_time":1705357719,"target":"br-fec-as264479.anchors.atlas.ripe.net","target_ip":"138.117.32.11","participant_count":154}]},{"id":4335,"hostname":"ca-van-as396993","fqdn":"ca-van-as396993.anchors.atlas.ripe.net","ip_v4":"198.135.169.29","city":"Vancouver","country":"CA","medicoes":[{"id":112696111,"type":"ping","status":"Ongoing","af":4,"interval":240,"is_public":true,"description":"Anchoring Mesh Measurement: Ping IPv4 for anchor ca-van-as396993.anchors.atlas.ripe.net","start_time":1751028170,"target":"ca-van-as396993.anchors.atlas.ripe.net","target_ip":"198.135.169.29","participant_count":1071},{"id":112713951,"type":"ping","status":"Ongoing","af":4,"interval":240,"is_public":true,"description":"Anchoring Probes Measurement: Ping IPv4 for anchor ca-van-as396993.anchors.atlas.ripe.net","start_time":1751032931,"target":"ca-van-as396993.anchors.atlas.ripe.net","target_ip":"198.135.169.29","participant_count":146}]},{"id":4524,"hostname":"kz-ura-as21299","fqdn":"kz-ura-as21299.anchors.atlas.ripe.net","ip_v4":"145.249.228.158","city":"Uralsk","country":"KZ","medicoes":[{"id":141855159,"type":"ping","status":"Ongoing","af":4,"interval":240,"is_public":true,"description":"Anchoring Mesh Measurement: Ping IPv4 for anchor kz-ura-as21299.anchors.atlas.ripe.net","start_time":1764693216,"target":"kz-ura-as21299.anchors.atlas.ripe.net","target_ip":"145.249.228.158","participant_count":1070},{"id":141858884,"type":"ping","status":"Ongoing","af":4,"interval":240,"is_public":true,"description":"Anchoring Probes Measurement: Ping IPv4 for anchor kz-ura-as21299.anchors.atlas.ripe.net","start_time":1764694985,"target":"kz-ura-as21299.anchors.atlas.ripe.net","target_ip":"145.249.228.158","participant_count":88}]},{"id":1086,"hostname":"mx-tte-as22894","fqdn":"mx-tte-as22894.anchors.atlas.ripe.net","ip_v4":"200.94.182.170","city":"Monterrey","country":"MX","medicoes":[{"id":16437037,"type":"ping","status":"Ongoing","af":4,"interval":240,"is_public":true,"description":"Anchoring Mesh Measurement: Ping IPv4 for anchor mx-tte-as22894.anchors.atlas.ripe.net","start_time":1538652864,"target":"mx-tte-as22894.anchors.atlas.ripe.net","target_ip":"200.94.182.170","participant_count":1058},{"id":16437076,"type":"ping","status":"Ongoing","af":4,"interval":240,"is_public":true,"description":"Anchoring Probes Measurement: Ping IPv4 for anchor mx-tte-as22894.anchors.atlas.ripe.net","start_time":1538653217,"target":"mx-tte-as22894.anchors.atlas.ripe.net","target_ip":"200.94.182.170","participant_count":119}]},{"id":1418,"hostname":"tt-ptw-as264811","fqdn":"tt-ptw-as264811.anchors.atlas.ripe.net","ip_v4":"131.72.76.118","city":"Princes Town","country":"TT","medicoes":[{"id":88535195,"type":"ping","status":"Ongoing","af":4,"interval":240,"is_public":true,"description":"Anchoring Mesh Measurement: Ping IPv4 for anchor tt-ptw-as264811.anchors.atlas.ripe.net","start_time":1740917488,"target":"tt-ptw-as264811.anchors.atlas.ripe.net","target_ip":"131.72.76.118","participant_count":1068},{"id":88636105,"type":"ping","status":"Ongoing","af":4,"interval":240,"is_public":true,"description":"Anchoring Probes Measurement: Ping IPv4 for anchor tt-ptw-as264811.anchors.atlas.ripe.net","start_time":1740954368,"target":"tt-ptw-as264811.anchors.atlas.ripe.net","target_ip":"131.72.76.118","participant_count":173}]}],"pagina":{"titulo":"Medições ping ongoing — Etapa 2","pais_destaque":"BR","vazio":"—","texto_sem_medicao":"nenhuma medição ongoing encontrada","caminho_dados":"data/medicoes_ping_ongoing.json","link_inicio":"../../index.html","url_medicao":"https://atlas.ripe.net/measurements/{id}/","total_anchors":30,"colunas":[{"chave":"country","rotulo":"País","tipo":"texto"},{"chave":"city","rotulo":"Cidade","tipo":"texto"},{"chave":"hostname","rotulo":"Hostname","tipo":"texto"},{"chave":"id","rotulo":"Medição","tipo":"numero"},{"chave":"type","rotulo":"Tipo","tipo":"texto"},{"chave":"participant_count","rotulo":"Participantes","tipo":"numero"},{"chave":"status","rotulo":"Status","tipo":"texto"}]}}</script>
+  <script>
+    const doc = JSON.parse(document.getElementById("dados-medicoes").textContent);
+    const pagina = doc.pagina;
+    const amostra = doc.amostra;
+    const vazio = pagina.vazio;
+    const linhas = [];
+    amostra.forEach((anchor) => {
+      if (!anchor.medicoes.length) {
+        linhas.push({anchor: anchor, medicao: null});
+      } else {
+        anchor.medicoes.forEach((medicao) => linhas.push({anchor: anchor, medicao: medicao}));
+      }
+    });
+
+    const raiz = document.documentElement;
+    const botaoTema = document.getElementById("tema");
+    const temaSalvo = localStorage.getItem("etapa-tema");
+    const temaInicial = temaSalvo || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    aplicarTema(temaInicial);
+    botaoTema.addEventListener("click", () => {
+      const proximo = raiz.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      localStorage.setItem("etapa-tema", proximo);
+      aplicarTema(proximo);
+    });
+    function aplicarTema(tema) {
+      raiz.setAttribute("data-theme", tema);
+      botaoTema.textContent = tema === "dark" ? "Tema claro" : "Tema escuro";
+    }
+
+    function semValor(valor) {
+      return valor === null || valor === undefined || valor === "";
+    }
+    function valorCampo(linha, chave) {
+      if (!linha.medicao && (chave === "id" || chave === "type" || chave === "participant_count" || chave === "status")) {
+        return chave === "id" ? pagina.texto_sem_medicao : "";
+      }
+      if (chave === "id" || chave === "type" || chave === "participant_count" || chave === "status") {
+        return linha.medicao[chave];
+      }
+      return linha.anchor[chave];
+    }
+    function exibir(linha, chave) {
+      const valor = valorCampo(linha, chave);
+      return semValor(valor) ? vazio : String(valor);
+    }
+
+    const mostradas = linhas.filter((linha) => linha.medicao).length;
+    document.getElementById("aviso").textContent =
+      "Amostra: " + amostra.length + " de " + pagina.total_anchors + " anchors e "
+      + mostradas + " de " + doc.meta.totais.medicoes + " medições. Dados completos em `"
+      + pagina.caminho_dados + "`.";
+
+    const totais = doc.meta.totais;
+    const grade = document.getElementById("cartoes");
+    [
+      ["Anchors processadas", String(totais.anchors)],
+      ["Medições", String(totais.medicoes)],
+      ["Anchors sem medição", String(totais.anchors_sem_medicao)]
+    ].forEach(([rotulo, valor]) => {
+      const artigo = document.createElement("article");
+      artigo.className = "cartao";
+      const span = document.createElement("span");
+      span.textContent = rotulo;
+      const forte = document.createElement("strong");
+      forte.textContent = valor;
+      artigo.append(span, forte);
+      grade.appendChild(artigo);
+    });
+
+    const selectPais = document.getElementById("pais");
+    const opcaoTodos = document.createElement("option");
+    opcaoTodos.value = "";
+    opcaoTodos.textContent = "Todos os países";
+    selectPais.appendChild(opcaoTodos);
+    [...new Set(amostra.map((anchor) => anchor.country).filter(Boolean))].sort((a, b) => a.localeCompare(b, "pt")).forEach((pais) => {
+      const opcao = document.createElement("option");
+      opcao.value = pais;
+      opcao.textContent = pais;
+      selectPais.appendChild(opcao);
+    });
+
+    const cabecalho = document.getElementById("cabecalho");
+    const corpo = document.getElementById("corpo");
+    const busca = document.getElementById("busca");
+    let ordem = {chave: "hostname", dir: 1};
+    pagina.colunas.forEach((coluna) => {
+      const th = document.createElement("th");
+      const botao = document.createElement("button");
+      botao.type = "button";
+      botao.textContent = coluna.rotulo;
+      botao.addEventListener("click", () => {
+        if (ordem.chave === coluna.chave) ordem.dir *= -1;
+        else ordem = {chave: coluna.chave, dir: 1};
+        desenhar();
+      });
+      th.appendChild(botao);
+      th.dataset.chave = coluna.chave;
+      cabecalho.appendChild(th);
+    });
+
+    function comparar(a, b) {
+      const coluna = pagina.colunas.find((item) => item.chave === ordem.chave);
+      const va = valorCampo(a, ordem.chave);
+      const vb = valorCampo(b, ordem.chave);
+      const aVazio = semValor(va);
+      const bVazio = semValor(vb);
+      if (aVazio && bVazio) return (a.anchor.id || 0) - (b.anchor.id || 0);
+      if (aVazio) return 1;
+      if (bVazio) return -1;
+      let resultado = 0;
+      if (coluna && coluna.tipo === "numero") resultado = Number(va) - Number(vb);
+      else resultado = String(va).localeCompare(String(vb), "pt", {numeric: true, sensitivity: "base"});
+      if (resultado === 0) return (a.anchor.id || 0) - (b.anchor.id || 0);
+      return resultado * ordem.dir;
+    }
+
+    function desenhar() {
+      const termo = busca.value.trim().toLocaleLowerCase("pt");
+      const pais = selectPais.value;
+      const visiveis = linhas.filter((linha) => {
+        if (pais && linha.anchor.country !== pais) return false;
+        if (!termo) return true;
+        return pagina.colunas.some((coluna) => exibir(linha, coluna.chave).toLocaleLowerCase("pt").includes(termo));
+      }).sort(comparar);
+      corpo.replaceChildren();
+      visiveis.forEach((linha) => {
+        const tr = document.createElement("tr");
+        const brasil = linha.anchor.country === pagina.pais_destaque;
+        if (brasil) tr.className = "brasil";
+        pagina.colunas.forEach((coluna) => {
+          const td = document.createElement("td");
+          if (coluna.chave === "id" && linha.medicao) {
+            const link = document.createElement("a");
+            link.href = pagina.url_medicao.replace("{id}", String(linha.medicao.id));
+            link.textContent = String(linha.medicao.id);
+            link.rel = "noopener";
+            td.appendChild(link);
+          } else {
+            td.textContent = exibir(linha, coluna.chave);
+          }
+          if (coluna.chave === "hostname" && brasil) {
+            const selo = document.createElement("span");
+            selo.className = "selo";
+            selo.textContent = "Brasil";
+            td.appendChild(selo);
+          }
+          tr.appendChild(td);
+        });
+        corpo.appendChild(tr);
+      });
+      document.getElementById("contagem").textContent = visiveis.length + " linhas";
+      cabecalho.querySelectorAll("th").forEach((th) => {
+        const botao = th.querySelector("button");
+        const coluna = pagina.colunas.find((item) => item.chave === th.dataset.chave);
+        const marca = th.dataset.chave === ordem.chave ? (ordem.dir > 0 ? " ▲" : " ▼") : "";
+        botao.textContent = coluna.rotulo + marca;
+      });
+    }
+    busca.addEventListener("input", desenhar);
+    selectPais.addEventListener("change", desenhar);
+    desenhar();
+
+    const quando = new Date(doc.meta.gerado_em);
+    const dataTexto = Number.isNaN(quando.getTime())
+      ? doc.meta.gerado_em
+      : quando.toLocaleString("pt-BR", {timeZone: "UTC"}) + " UTC";
+    document.getElementById("rodape").textContent = "Consulta em " + dataTexto;
+  </script>
+</body>
+</html>

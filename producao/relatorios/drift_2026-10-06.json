@@ -1,0 +1,102 @@
+{
+  "gerado_em": "2026-10-06T13:21:05Z",
+  "limiares_psi": {
+    "estavel": 0.1,
+    "alerta": 0.25
+  },
+  "importancia_permutacao": {
+    "perda_pct": 0.0,
+    "rtt_ausente": 0.0,
+    "razao_rtt_p95": 0.044700081992899765,
+    "razao_rtt_p99": 0.3130633511398679,
+    "razao_jitter_p95": 0.0142794897342536,
+    "amplitude_rtt_rel": 0.014900027330966589,
+    "delta_ttl_clip": 0.07010922384039775,
+    "ttl_reset": 0.0,
+    "perda_media_w3": 0.0,
+    "rtt_p95_max_w3": 0.0071397448671268,
+    "jitter_p95_max_w3": 0.05316979594206576,
+    "n_rtt_acima_p95_w3": 0.020127908626150697,
+    "perda_media_w6": -0.01528449042261193,
+    "rtt_p95_max_w6": 0.0214192346013804,
+    "jitter_p95_max_w6": 0.07010922384039775,
+    "n_rtt_acima_p95_w6": 0.0,
+    "perda_media_w12": 0.0,
+    "rtt_p95_max_w12": 0.0,
+    "jitter_p95_max_w12": 0.06163950989123176,
+    "n_rtt_acima_p95_w12": 0.002910582488336163,
+    "perdas_consecutivas": 0.0
+  },
+  "janelas": [
+    {
+      "n": 0,
+      "qualidade_dados": {
+        "n": 0,
+        "status": "amostra_insuficiente"
+      },
+      "data_drift": {
+        "n": 0,
+        "status": "amostra_insuficiente"
+      },
+      "predicao": {
+        "n": 0,
+        "status": "amostra_insuficiente"
+      },
+      "desempenho": {
+        "n": 0,
+        "status": "amostra_insuficiente"
+      },
+      "comparacao_sazonal": {
+        "n_equivalente": 0,
+        "status": "amostra_insuficiente"
+      },
+      "nome": "24h",
+      "fatias": []
+    },
+    {
+      "n": 1,
+      "qualidade_dados": {
+        "n": 1,
+        "status": "amostra_insuficiente"
+      },
+      "data_drift": {
+        "n": 1,
+        "status": "amostra_insuficiente"
+      },
+      "predicao": {
+        "n": 1,
+        "status": "amostra_insuficiente"
+      },
+      "desempenho": {
+        "n": 0,
+        "status": "amostra_insuficiente"
+      },
+      "comparacao_sazonal": {
+        "n_equivalente": 0,
+        "status": "amostra_insuficiente"
+      },
+      "nome": "7d",
+      "fatias": [
+        {
+          "tipo": "anchor",
+          "chave": 3679,
+          "n": 1,
+          "status": "amostra_insuficiente"
+        },
+        {
+          "tipo": "continente",
+          "chave": "América do Sul",
+          "n": 1,
+          "status": "amostra_insuficiente"
+        },
+        {
+          "tipo": "faixa_rtt",
+          "chave": "tipica",
+          "n": 1,
+          "status": "amostra_insuficiente"
+        }
+      ]
+    }
+  ],
+  "mudanca_de_rota_provavel": []
+}

@@ -1,0 +1,21 @@
+# Régua só para a demonstração offline passar pela conferência do lock.
+# Não é o aceite do campo. O aceite continua em config/criterios.yaml, com limiares vazios.
+
+modelo_versao: rf_v1.0.0
+fatias: [geral, transicoes, por_continente, probe_vs_anchor, com_e_sem_anchor_dominante]
+metricas:
+  primarias: [macro_f1, recall_falha, ganho_sobre_persistencia]
+  secundarias: [f1_por_classe, precisao, pr_auc, antecedencia]
+limiares:
+  macro_f1_transicoes_min: 0.25
+  recall_falha_min: 0.50
+  ganho_sobre_persistencia_min: 0.03
+  antecedencia_media_min_minutos: 4
+periodo_minimo_coleta_dias: 14
+minimo_eventos_falha: 100
+minimo_fluxos: 30
+bootstrap:
+  nivel: fluxo
+  iteracoes: 1000
+  seed: 42
+  ic: 0.95

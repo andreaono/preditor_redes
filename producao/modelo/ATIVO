@@ -1,0 +1,7 @@
+{
+  "modelo_versao": "rf_v1.0.0",
+  "modelo_hash": "sha256:ed0f99f27a2ad2e55b63aed196e2fe067f2fdc7a9f81ebdf51e7994b75470b58",
+  "desde": "2026-10-06T00:00:00Z",
+  "quem": "etapa 8",
+  "motivo": "Random Forest escolhido na validação. O ponteiro não retreina nem substitui o joblib."
+}

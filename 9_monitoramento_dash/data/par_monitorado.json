@@ -1,0 +1,30 @@
+{
+  "id_fluxo": "35709_1360",
+  "origem": {
+    "id": 35709,
+    "ip": "200.0.70.3",
+    "pais": "BR",
+    "cidade": null,
+    "status": "Connected"
+  },
+  "destino": {
+    "id": 1360,
+    "ip": "213.206.174.172",
+    "pais": "DE",
+    "cidade": "Mutterstadt",
+    "hostname": "de-mdt-as15945"
+  },
+  "msm_id": null,
+  "modo": "novo",
+  "baseline": {
+    "mediana_rtt": 218.759812,
+    "p95_rtt": 244.3017984,
+    "p99_rtt": 245.11955992,
+    "p95_jitter": 0.36512877960443685,
+    "ttl_baseline": 46.0,
+    "status_baseline": "VALIDO"
+  },
+  "ttl_baseline": 46.0,
+  "escolhido_em": "2026-10-09T02:41:26Z",
+  "medicao_criada": false
+}

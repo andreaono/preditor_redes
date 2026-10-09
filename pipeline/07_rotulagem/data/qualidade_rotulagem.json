@@ -1,0 +1,1757 @@
+{
+  "janela_b": {
+    "inicio": "2026-09-28T18:00:00+00:00",
+    "fim": "2026-10-05T18:00:00+00:00",
+    "inicio_unix": 1790618400,
+    "fim_unix": 1791223200,
+    "fonte": "5_periodos_dataset/data/metadados.json"
+  },
+  "linhas_lidas": 358222,
+  "fluxos_lidos": 143,
+  "linhas_rotuladas": 343172,
+  "linhas_sem_rotulo": 15050,
+  "linhas_dataset_final": 333954,
+  "fluxos_dataset_final": 135,
+  "contagem_por_classe": {
+    "OK": 296808,
+    "RISCO": 29783,
+    "FALHA": 16581,
+    "sem rótulo": 15050
+  },
+  "contagem_por_motivo": {
+    "perda_severa": 3115,
+    "latencia_acima_p99": 13466,
+    "perda_parcial": 932,
+    "latencia_acima_p95": 15761,
+    "jitter_acima_p95": 13090,
+    "sem_alerta": 296808,
+    "baseline_nao_encontrado": 15034,
+    "baseline_insuficiente": 0,
+    "perda_pct_vazio": 16
+  },
+  "sem_rotulo_por_motivo": {
+    "baseline_nao_encontrado": 15034,
+    "baseline_insuficiente": 0,
+    "perda_pct_vazio": 16
+  },
+  "alvo_por_split": {
+    "treino": {
+      "OK": 211029,
+      "RISCO": 20695,
+      "FALHA": 9635
+    },
+    "validacao": {
+      "OK": 41000,
+      "RISCO": 4084,
+      "FALHA": 1406
+    },
+    "teste": {
+      "OK": 40250,
+      "RISCO": 4440,
+      "FALHA": 1415
+    }
+  },
+  "transicao_classe_atual_para_alvo": {
+    "OK": {
+      "OK": 274859,
+      "RISCO": 15217,
+      "FALHA": 2207
+    },
+    "RISCO": {
+      "OK": 15208,
+      "RISCO": 12938,
+      "FALHA": 1074
+    },
+    "FALHA": {
+      "OK": 2212,
+      "RISCO": 1064,
+      "FALHA": 9175
+    }
+  },
+  "baseline_persistencia_macro_f1": {
+    "treino": 0.703200211398657,
+    "validacao": 0.7105887942733683,
+    "teste": 0.7108027572032635
+  },
+  "nota_macro_f1": "A macro-F1 usa as três classes. Classe ausente no split entra com F1 zero. A previsão de persistência repete classe_atual.",
+  "avisos": {
+    "p95_jitter_zero": [],
+    "perda_pct_fora_do_conjunto": {
+      "quantidade": 217,
+      "exemplos": [
+        {
+          "id_fluxo": "7509_1086",
+          "timestamp": "1790944941",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "23017_1086",
+          "timestamp": "1790822181",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "23017_1086",
+          "timestamp": "1790903300",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "23017_1086",
+          "timestamp": "1790903781",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "23017_1086",
+          "timestamp": "1790906653",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "7776_1223",
+          "timestamp": "1791051247",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "35709_1360",
+          "timestamp": "1791052083",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "6933_1418",
+          "timestamp": "1790629405",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "6933_1418",
+          "timestamp": "1790688689",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "7802_1418",
+          "timestamp": "1790719166",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "7802_1418",
+          "timestamp": "1790864610",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "7187_1605",
+          "timestamp": "1790678513",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "7187_1605",
+          "timestamp": "1790785082",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "7798_1605",
+          "timestamp": "1790938203",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "62282_1605",
+          "timestamp": "1790949161",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "62282_1605",
+          "timestamp": "1791039400",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "6919_1880",
+          "timestamp": "1791131467",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "7523_2026",
+          "timestamp": "1790667506",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "7523_2026",
+          "timestamp": "1790723430",
+          "perda_pct": "50"
+        },
+        {
+          "id_fluxo": "7749_2026",
+          "timestamp": "1790619030",
+          "perda_pct": "50"
+        }
+      ]
+    },
+    "timestamps_fora_da_janela": 0
+  },
+  "linhas_sem_rotulo_com_perda_severa": [
+    {
+      "id_fluxo": "1013136_2526",
+      "n_linhas": 98
+    },
+    {
+      "id_fluxo": "32764_1223",
+      "n_linhas": 2520
+    },
+    {
+      "id_fluxo": "7414_4169",
+      "n_linhas": 2520
+    },
+    {
+      "id_fluxo": "7461_4524",
+      "n_linhas": 2516
+    },
+    {
+      "id_fluxo": "7814_4237",
+      "n_linhas": 3
+    }
+  ],
+  "exclusoes": [
+    {
+      "id_fluxo": "25792_1612",
+      "motivo": "alvo_sem_rotulo",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6382_2842",
+      "motivo": "alvo_sem_rotulo",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "65328_2026",
+      "motivo": "alvo_sem_rotulo",
+      "n_linhas": 12
+    },
+    {
+      "id_fluxo": "7323_3294",
+      "motivo": "baseline_desatualizado",
+      "n_linhas": 2513
+    },
+    {
+      "id_fluxo": "7688_3294",
+      "motivo": "baseline_desatualizado",
+      "n_linhas": 2512
+    },
+    {
+      "id_fluxo": "1013136_2526",
+      "motivo": "baseline_nao_encontrado",
+      "n_linhas": 2448
+    },
+    {
+      "id_fluxo": "1015231_4237",
+      "motivo": "baseline_nao_encontrado",
+      "n_linhas": 2520
+    },
+    {
+      "id_fluxo": "32764_1223",
+      "motivo": "baseline_nao_encontrado",
+      "n_linhas": 2520
+    },
+    {
+      "id_fluxo": "7414_4169",
+      "motivo": "baseline_nao_encontrado",
+      "n_linhas": 2520
+    },
+    {
+      "id_fluxo": "7461_4524",
+      "motivo": "baseline_nao_encontrado",
+      "n_linhas": 2516
+    },
+    {
+      "id_fluxo": "7814_4237",
+      "motivo": "baseline_nao_encontrado",
+      "n_linhas": 2510
+    },
+    {
+      "id_fluxo": "1000820_4524",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1008431_2343",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1009368_4074",
+      "motivo": "embargo",
+      "n_linhas": 29
+    },
+    {
+      "id_fluxo": "1010359_3816",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1010890_4335",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1012282_3217",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1013364_3816",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1014085_4685",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1015748_4685",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1015907_4766",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1016806_3679",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1017252_3294",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1017588_4809",
+      "motivo": "embargo",
+      "n_linhas": 29
+    },
+    {
+      "id_fluxo": "10932_4524",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "12159_1880",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "12541_1418",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "13104_2842",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "13821_2526",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "23017_1086",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "25792_1612",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "30986_4169",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "35709_1360",
+      "motivo": "embargo",
+      "n_linhas": 32
+    },
+    {
+      "id_fluxo": "61225_3217",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "62282_1605",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6324_3816",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6329_4237",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6382_2842",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "64062_3920",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "64129_4261",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6431_4335",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "64504_4292",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6454_3217",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6492_4809",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6493_2343",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6503_1086",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6516_1605",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6521_1360",
+      "motivo": "embargo",
+      "n_linhas": 29
+    },
+    {
+      "id_fluxo": "6521_2343",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "65328_2026",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6553_1086",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "65614_4707",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6565_3294",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6583_4335",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6588_2526",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6630_3679",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6659_4074",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6666_3920",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6680_3217",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6687_4809",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6727_4524",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6737_4828",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6775_1360",
+      "motivo": "embargo",
+      "n_linhas": 29
+    },
+    {
+      "id_fluxo": "6782_2842",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6801_1418",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6803_3679",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6811_4237",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6849_4707",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6918_4809",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6919_1880",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6931_3920",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6933_1418",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6935_2026",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6944_4766",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "6972_1223",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7022_1360",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7036_4074",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7049_4371",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7050_3816",
+      "motivo": "embargo",
+      "n_linhas": 25
+    },
+    {
+      "id_fluxo": "7062_1612",
+      "motivo": "embargo",
+      "n_linhas": 15
+    },
+    {
+      "id_fluxo": "7063_2526",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7083_4766",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7091_3679",
+      "motivo": "embargo",
+      "n_linhas": 29
+    },
+    {
+      "id_fluxo": "7098_1880",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7098_4261",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7099_3294",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7099_4335",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7099_4685",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7105_3816",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7111_1223",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7113_4828",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7187_1605",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7189_4707",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7198_4292",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7221_4828",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7262_4371",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7271_4169",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7306_1612",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7307_2026",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7325_4382",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7333_2343",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7341_4169",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7348_4292",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7354_4261",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7378_1223",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7427_4335",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7455_4809",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7462_1880",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7463_1360",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7467_2842",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7470_4707",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7479_4371",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7485_2842",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7494_4292",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7509_1086",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7509_1612",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7517_4766",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7523_2026",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7526_3217",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7548_4766",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7554_4382",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7560_1605",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7565_4685",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7573_4382",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7578_1612",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7627_1086",
+      "motivo": "embargo",
+      "n_linhas": 28
+    },
+    {
+      "id_fluxo": "7638_1880",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7647_4371",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7657_4074",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7658_3920",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7687_4685",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7694_2526",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7720_4524",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7735_4828",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7749_2026",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7767_3920",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7772_4292",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7776_1223",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7795_1418",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7798_1605",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7800_4074",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7800_4707",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7802_1418",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7805_4169",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "7811_2343",
+      "motivo": "embargo",
+      "n_linhas": 30
+    },
+    {
+      "id_fluxo": "1010359_3816",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1014085_4685",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1016806_3679",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 2
+    },
+    {
+      "id_fluxo": "1017252_3294",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1017588_4809",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "10932_4524",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "64129_4261",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6849_4707",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6933_1418",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7062_1612",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7198_4292",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 2
+    },
+    {
+      "id_fluxo": "7306_1612",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7333_2343",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7348_4292",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7455_4809",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7560_1605",
+      "motivo": "intervalo_acima_de_gap",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "25792_1612",
+      "motivo": "perda_pct_vazio",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6382_2842",
+      "motivo": "perda_pct_vazio",
+      "n_linhas": 2
+    },
+    {
+      "id_fluxo": "65328_2026",
+      "motivo": "perda_pct_vazio",
+      "n_linhas": 13
+    },
+    {
+      "id_fluxo": "1000820_4524",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1008431_2343",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1009368_4074",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1010359_3816",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1010890_4335",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1012282_3217",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1013364_3816",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1014085_4685",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1015748_4685",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1015907_4766",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1016806_3679",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1017252_3294",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "1017588_4809",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "10932_4524",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "12159_1880",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "12541_1418",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "13104_2842",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "13821_2526",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "23017_1086",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "25792_1612",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "30986_4169",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "35709_1360",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "61225_3217",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "62282_1605",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6324_3816",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6329_4237",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6382_2842",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "64062_3920",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "64129_4261",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6431_4335",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "64504_4292",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6454_3217",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6492_4809",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6493_2343",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6503_1086",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6516_1605",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6521_1360",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6521_2343",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "65328_2026",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6553_1086",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "65614_4707",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6565_3294",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6583_4335",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6588_2526",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6630_3679",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6659_4074",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6666_3920",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6680_3217",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6687_4809",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6727_4524",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6737_4828",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6775_1360",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6782_2842",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6801_1418",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6803_3679",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6811_4237",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6849_4707",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6918_4809",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6919_1880",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6931_3920",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6933_1418",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6935_2026",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6944_4766",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "6972_1223",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7022_1360",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7036_4074",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7049_4371",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7050_3816",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7062_1612",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7063_2526",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7083_4766",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7091_3679",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7098_1880",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7098_4261",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7099_3294",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7099_4335",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7099_4685",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7105_3816",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7111_1223",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7113_4828",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7187_1605",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7189_4707",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7198_4292",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7221_4828",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7262_4371",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7271_4169",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7306_1612",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7307_2026",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7325_4382",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7333_2343",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7341_4169",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7348_4292",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7354_4261",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7378_1223",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7427_4335",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7455_4809",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7462_1880",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7463_1360",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7467_2842",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7470_4707",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7479_4371",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7485_2842",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7494_4292",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7509_1086",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7509_1612",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7517_4766",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7523_2026",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7526_3217",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7548_4766",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7554_4382",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7560_1605",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7565_4685",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7573_4382",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7578_1612",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7627_1086",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7638_1880",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7647_4371",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7657_4074",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7658_3920",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7687_4685",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7694_2526",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7720_4524",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7735_4828",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7749_2026",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7767_3920",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7772_4292",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7776_1223",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7795_1418",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7798_1605",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7800_4074",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7800_4707",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7802_1418",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7805_4169",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    },
+    {
+      "id_fluxo": "7811_2343",
+      "motivo": "sem_medicao_t_mais_h",
+      "n_linhas": 1
+    }
+  ],
+  "verificacoes": {
+    "perda_severa_e_falha": {
+      "estado": "PASSOU",
+      "detalhe": "3115 linhas com perda de pelo menos 2/3 e baseline válido."
+    },
+    "latencia_acima_dos_limites": {
+      "estado": "PASSOU",
+      "detalhe": "13525 linhas acima do P99 e 29409 acima do P95."
+    },
+    "sem_baseline_nao_e_ok": {
+      "estado": "PASSOU",
+      "detalhe": "OK exige baseline válido. FALHA só sai por perda severa ou latência acima do P99."
+    },
+    "sem_vazamento_do_futuro": {
+      "estado": "PASSOU",
+      "detalhe": "200 linhas refeitas só com timestamp ≤ t e com o futuro alterado. Divergências: 0."
+    },
+    "alvo_finito_e_features_sem_nan": {
+      "estado": "PASSOU",
+      "detalhe": "333954 linhas no dataset final."
+    },
+    "colunas_proibidas_fora_das_features": {
+      "estado": "PASSOU",
+      "detalhe": "Nenhuma coluna proibida entre as features."
+    },
+    "ordem_temporal_e_duplicatas": {
+      "estado": "PASSOU",
+      "detalhe": "Treino, validação e teste estão em ordem, com embargo e sem duplicatas."
+    },
+    "latencia_igual_rtt_e_vazio_preservado": {
+      "estado": "PASSOU",
+      "detalhe": "latencia_ms permanece igual a rtt_avg e vazio não entra na comparação."
+    },
+    "timestamps_na_janela_b": {
+      "estado": "PASSOU",
+      "detalhe": "Todo timestamp está em B e fora de A."
+    }
+  },
+  "sentinela": {
+    "valor": -1,
+    "uso": "Features que dependem de RTT e não têm RTT utilizável, inclusive divisão por P95 de jitter igual a zero. delta_ttl ausente também usa -1; um delta real de -1 fica igual à sentinela depois do recorte."
+  }
+}

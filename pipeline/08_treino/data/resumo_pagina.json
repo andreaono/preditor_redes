@@ -1,0 +1,459 @@
+{
+  "totais": {
+    "linhas": 333954,
+    "linhas_ajuste": 287849,
+    "fluxos": 135,
+    "features": 21
+  },
+  "amostra": [
+    {
+      "id_fluxo": "1017252_3294",
+      "timestamp_utc": "2026-09-29 09:33:55 UTC",
+      "split": "treino",
+      "classe_atual": "OK",
+      "alvo": "OK",
+      "features": {
+        "razao_rtt_p95": "0.948798",
+        "razao_jitter_p95": "0.535868",
+        "perda_media_w3": "0.0",
+        "perdas_consecutivas": "0.0"
+      }
+    },
+    {
+      "id_fluxo": "6933_1418",
+      "timestamp_utc": "2026-09-29 10:43:27 UTC",
+      "split": "treino",
+      "classe_atual": "FALHA",
+      "alvo": "FALHA",
+      "features": {
+        "razao_rtt_p95": "1.02467",
+        "razao_jitter_p95": "0.0322166",
+        "perda_media_w3": "0.0",
+        "perdas_consecutivas": "0.0"
+      }
+    },
+    {
+      "id_fluxo": "7306_1612",
+      "timestamp_utc": "2026-09-29 18:21:43 UTC",
+      "split": "treino",
+      "classe_atual": "OK",
+      "alvo": "OK",
+      "features": {
+        "razao_rtt_p95": "0.754247",
+        "razao_jitter_p95": "0.044227",
+        "perda_media_w3": "0.0",
+        "perdas_consecutivas": "0.0"
+      }
+    },
+    {
+      "id_fluxo": "6935_2026",
+      "timestamp_utc": "2026-09-30 04:50:25 UTC",
+      "split": "treino",
+      "classe_atual": "OK",
+      "alvo": "OK",
+      "features": {
+        "razao_rtt_p95": "0.910634",
+        "razao_jitter_p95": "0.290481",
+        "perda_media_w3": "0.0",
+        "perdas_consecutivas": "0.0"
+      }
+    },
+    {
+      "id_fluxo": "7062_1612",
+      "timestamp_utc": "2026-09-30 22:57:56 UTC",
+      "split": "treino",
+      "classe_atual": "RISCO",
+      "alvo": "RISCO",
+      "features": {
+        "razao_rtt_p95": "1.00561",
+        "razao_jitter_p95": "0.176358",
+        "perda_media_w3": "0.0",
+        "perdas_consecutivas": "0.0"
+      }
+    },
+    {
+      "id_fluxo": "7105_3816",
+      "timestamp_utc": "2026-10-02 20:01:05 UTC",
+      "split": "treino",
+      "classe_atual": "OK",
+      "alvo": "OK",
+      "features": {
+        "razao_rtt_p95": "0.928117",
+        "razao_jitter_p95": "0.247713",
+        "perda_media_w3": "0.0",
+        "perdas_consecutivas": "0.0"
+      }
+    },
+    {
+      "id_fluxo": "7198_4292",
+      "timestamp_utc": "2026-10-03 06:54:08 UTC",
+      "split": "treino",
+      "classe_atual": "OK",
+      "alvo": "OK",
+      "features": {
+        "razao_rtt_p95": "0.953506",
+        "razao_jitter_p95": "0.154071",
+        "perda_media_w3": "0.0",
+        "perdas_consecutivas": "0.0"
+      }
+    },
+    {
+      "id_fluxo": "6680_3217",
+      "timestamp_utc": "2026-10-03 12:32:19 UTC",
+      "split": "treino",
+      "classe_atual": "OK",
+      "alvo": "OK",
+      "features": {
+        "razao_rtt_p95": "0.995471",
+        "razao_jitter_p95": "0.101631",
+        "perda_media_w3": "0.0",
+        "perdas_consecutivas": "0.0"
+      }
+    }
+  ],
+  "splits": {
+    "t0": "2026-09-28 18:00:01 UTC",
+    "corte_treino": "2026-10-03 18:00:01 UTC",
+    "corte_validacao": "2026-10-04 18:00:01 UTC",
+    "treino": {
+      "linhas": 241359,
+      "inicio": "2026-09-28 18:00:01 UTC",
+      "fim": "2026-10-03 17:59:49 UTC"
+    },
+    "validacao": {
+      "linhas": 46490,
+      "inicio": "2026-10-03 19:00:01 UTC",
+      "fim": "2026-10-04 17:59:58 UTC"
+    },
+    "teste": {
+      "linhas": 46105,
+      "inicio": "2026-10-04 19:00:03 UTC",
+      "fim": "2026-10-05 17:55:50 UTC"
+    }
+  },
+  "distribuicao": {
+    "treino": {
+      "OK": 211029,
+      "RISCO": 20695,
+      "FALHA": 9635
+    },
+    "validacao": {
+      "OK": 41000,
+      "RISCO": 4084,
+      "FALHA": 1406
+    },
+    "teste": {
+      "OK": 40250,
+      "RISCO": 4440,
+      "FALHA": 1415
+    }
+  },
+  "persistencia": {
+    "treino": "0.703200211398657",
+    "validacao": "0.7105887942733683",
+    "f1_falha_validacao": "0.7045454545454546",
+    "recall_falha_validacao": "0.705547652916074"
+  },
+  "sempre_ok": {
+    "treino": "0.8743365691770351",
+    "validacao": "0.8819100881910088"
+  },
+  "familias": {
+    "naive_bayes": {
+      "hiperparametros": "var_smoothing=1e-06",
+      "macro_f1_treino": "0.5535051883436056",
+      "macro_f1_validacao": "0.5665973351750367",
+      "gap": "-0.013092146831431117",
+      "f1_falha_validacao": "0.2871939736346516",
+      "recall_falha_validacao": "0.21692745376955902",
+      "matriz": [
+        [
+          39165,
+          1497,
+          338
+        ],
+        [
+          2063,
+          1946,
+          75
+        ],
+        [
+          212,
+          889,
+          305
+        ]
+      ],
+      "por_classe": {
+        "OK": {
+          "precisao": "0.9451013513513513",
+          "recall": "0.9552439024390244",
+          "f1": "0.9501455604075691",
+          "suporte": 41000
+        },
+        "RISCO": {
+          "precisao": "0.4492151431209603",
+          "recall": "0.4764936336924584",
+          "f1": "0.4624524714828897",
+          "suporte": 4084
+        },
+        "FALHA": {
+          "precisao": "0.42479108635097496",
+          "recall": "0.21692745376955902",
+          "f1": "0.2871939736346516",
+          "suporte": 1406
+        }
+      }
+    },
+    "arvore_decisao": {
+      "hiperparametros": "max_depth=sem_limite;min_samples_leaf=100;class_weight=nenhum",
+      "macro_f1_treino": "0.7475527346726648",
+      "macro_f1_validacao": "0.7623971425043209",
+      "gap": "-0.014844407831656081",
+      "f1_falha_validacao": "0.7738317757009346",
+      "recall_falha_validacao": "0.7361308677098151",
+      "matriz": [
+        [
+          40522,
+          349,
+          129
+        ],
+        [
+          2275,
+          1704,
+          105
+        ],
+        [
+          309,
+          62,
+          1035
+        ]
+      ],
+      "por_classe": {
+        "OK": {
+          "precisao": "0.9400547487588735",
+          "recall": "0.9883414634146341",
+          "f1": "0.9635935605069792",
+          "suporte": 41000
+        },
+        "RISCO": {
+          "precisao": "0.8056737588652483",
+          "recall": "0.41723800195886385",
+          "f1": "0.5497660913050492",
+          "suporte": 4084
+        },
+        "FALHA": {
+          "precisao": "0.8156028368794326",
+          "recall": "0.7361308677098151",
+          "f1": "0.7738317757009346",
+          "suporte": 1406
+        }
+      }
+    },
+    "random_forest": {
+      "hiperparametros": "n_estimators=200;max_depth=sem_limite;min_samples_leaf=5;max_features=sqrt;class_weight=nenhum",
+      "macro_f1_treino": "0.7923841805806866",
+      "macro_f1_validacao": "0.7671747956006114",
+      "gap": "0.02520938498007519",
+      "f1_falha_validacao": "0.7811676082862524",
+      "recall_falha_validacao": "0.7375533428165008",
+      "matriz": [
+        [
+          40616,
+          272,
+          112
+        ],
+        [
+          2281,
+          1703,
+          100
+        ],
+        [
+          297,
+          72,
+          1037
+        ]
+      ],
+      "por_classe": {
+        "OK": {
+          "precisao": "0.9403157845997129",
+          "recall": "0.9906341463414634",
+          "f1": "0.9648193457966127",
+          "suporte": 41000
+        },
+        "RISCO": {
+          "precisao": "0.8319491939423547",
+          "recall": "0.4169931439764936",
+          "f1": "0.5555374327189692",
+          "suporte": 4084
+        },
+        "FALHA": {
+          "precisao": "0.8302642113690952",
+          "recall": "0.7375533428165008",
+          "f1": "0.7811676082862524",
+          "suporte": 1406
+        }
+      }
+    }
+  },
+  "escolhido": {
+    "familia": "random_forest",
+    "hiperparametros": {
+      "n_estimators": 200,
+      "max_depth": null,
+      "min_samples_leaf": 5,
+      "max_features": "sqrt",
+      "class_weight": null
+    },
+    "hiperparametros_texto": "n_estimators=200;max_depth=sem_limite;min_samples_leaf=5;max_features=sqrt;class_weight=nenhum",
+    "macro_f1_validacao": "0.7671747956006114",
+    "criterio": "macro_f1",
+    "desempate": "maior macro-F1 de validação; empate pelo menor gap; depois o modelo mais simples",
+    "features": [
+      "perda_pct",
+      "rtt_ausente",
+      "razao_rtt_p95",
+      "razao_rtt_p99",
+      "razao_jitter_p95",
+      "amplitude_rtt_rel",
+      "delta_ttl_clip",
+      "ttl_reset",
+      "perda_media_w3",
+      "rtt_p95_max_w3",
+      "jitter_p95_max_w3",
+      "n_rtt_acima_p95_w3",
+      "perda_media_w6",
+      "rtt_p95_max_w6",
+      "jitter_p95_max_w6",
+      "n_rtt_acima_p95_w6",
+      "perda_media_w12",
+      "rtt_p95_max_w12",
+      "jitter_p95_max_w12",
+      "n_rtt_acima_p95_w12",
+      "perdas_consecutivas"
+    ]
+  },
+  "supera_persistencia": true,
+  "analise_validacao": [
+    "O modelo antecipa só 18,1% dos inícios de FALHA.",
+    "O Naive Bayes ficou abaixo: a suposição de independência não vale para features em janela."
+  ],
+  "ilustrativa": {
+    "macro_f1_treino": "0.7239498901311662",
+    "macro_f1_validacao": "0.7547975795599324",
+    "profundidade_total": 3,
+    "n_folhas": 8,
+    "texto_caminho": "se n_rtt_acima_p95_w3 <= 1,50 e perda_media_w12 > 37,92 e jitter_p95_max_w12 sem RTT (sentinela), então FALHA",
+    "svg": "<svg viewBox=\"0 0 1686 512\" role=\"img\" aria-label=\"Árvore de decisão com a pergunta de cada nó, as amostras e a classe majoritária.\"><line x1=\"843.0\" y1=\"108.0\" x2=\"423.0\" y2=\"144.0\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"633.0\" y=\"126.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">sim</text><line x1=\"843.0\" y1=\"108.0\" x2=\"1263.0\" y2=\"144.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"1053.0\" y=\"126.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">não</text><line x1=\"423.0\" y1=\"236.0\" x2=\"213.0\" y2=\"272.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"318.0\" y=\"254.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">sim</text><line x1=\"423.0\" y1=\"236.0\" x2=\"633.0\" y2=\"272.0\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"528.0\" y=\"254.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">não</text><line x1=\"213.0\" y1=\"364.0\" x2=\"108.0\" y2=\"400.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"160.5\" y=\"382.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">sim</text><line x1=\"213.0\" y1=\"364.0\" x2=\"318.0\" y2=\"400.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"265.5\" y=\"382.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">não</text><line x1=\"633.0\" y1=\"364.0\" x2=\"528.0\" y2=\"400.0\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"580.5\" y=\"382.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">sem RTT (sentinela)</text><line x1=\"633.0\" y1=\"364.0\" x2=\"738.0\" y2=\"400.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"685.5\" y=\"382.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">não</text><line x1=\"1263.0\" y1=\"236.0\" x2=\"1053.0\" y2=\"272.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"1158.0\" y=\"254.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">sim</text><line x1=\"1263.0\" y1=\"236.0\" x2=\"1473.0\" y2=\"272.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"1368.0\" y=\"254.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">não</text><line x1=\"1053.0\" y1=\"364.0\" x2=\"948.0\" y2=\"400.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"1000.5\" y=\"382.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">sim</text><line x1=\"1053.0\" y1=\"364.0\" x2=\"1158.0\" y2=\"400.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"1105.5\" y=\"382.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">não</text><line x1=\"1473.0\" y1=\"364.0\" x2=\"1368.0\" y2=\"400.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"1420.5\" y=\"382.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">sim</text><line x1=\"1473.0\" y1=\"364.0\" x2=\"1578.0\" y2=\"400.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"1525.5\" y=\"382.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">não</text><rect x=\"755.0\" y=\"16.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"763.0\" y=\"38.0\" fill=\"currentColor\" font-size=\"12\">n_rtt_acima_p95_w3 &lt;= 1,50</text><text x=\"763.0\" y=\"58.0\" fill=\"currentColor\" font-size=\"12\">amostras 241359</text><text x=\"763.0\" y=\"78.0\" fill=\"currentColor\" font-size=\"13\" class=\"ok\">OK</text><rect x=\"335.0\" y=\"144.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"343.0\" y=\"166.0\" fill=\"currentColor\" font-size=\"12\">perda_media_w12 &lt;= 37,92</text><text x=\"343.0\" y=\"186.0\" fill=\"currentColor\" font-size=\"12\">amostras 226518</text><text x=\"343.0\" y=\"206.0\" fill=\"currentColor\" font-size=\"13\" class=\"ok\">OK</text><rect x=\"125.0\" y=\"272.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"133.0\" y=\"294.0\" fill=\"currentColor\" font-size=\"12\">jitter_p95_max_w3 &lt;= 2,46</text><text x=\"133.0\" y=\"314.0\" fill=\"currentColor\" font-size=\"12\">amostras 223980</text><text x=\"133.0\" y=\"334.0\" fill=\"currentColor\" font-size=\"13\" class=\"ok\">OK</text><rect x=\"20.0\" y=\"400.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"28.0\" y=\"422.0\" fill=\"currentColor\" font-size=\"14\" class=\"ok\">OK</text><text x=\"28.0\" y=\"442.0\" fill=\"currentColor\" font-size=\"12\">amostras 213930</text><rect x=\"28.0\" y=\"458.0\" width=\"150.2\" height=\"18\" fill=\"#1b7f4e\"/><rect x=\"178.2\" y=\"458.0\" width=\"8.6\" height=\"18\" fill=\"#a67c00\"/><rect x=\"186.7\" y=\"458.0\" width=\"1.3\" height=\"18\" fill=\"#a33b32\"/><rect x=\"230.0\" y=\"400.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"238.0\" y=\"422.0\" fill=\"currentColor\" font-size=\"14\" class=\"ok\">OK</text><text x=\"238.0\" y=\"442.0\" fill=\"currentColor\" font-size=\"12\">amostras 10050</text><rect x=\"238.0\" y=\"458.0\" width=\"118.1\" height=\"18\" fill=\"#1b7f4e\"/><rect x=\"356.1\" y=\"458.0\" width=\"37.8\" height=\"18\" fill=\"#a67c00\"/><rect x=\"393.9\" y=\"458.0\" width=\"4.1\" height=\"18\" fill=\"#a33b32\"/><rect x=\"545.0\" y=\"272.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"553.0\" y=\"294.0\" fill=\"currentColor\" font-size=\"12\">jitter_p95_max_w12 &lt;= -0,50</text><text x=\"553.0\" y=\"314.0\" fill=\"currentColor\" font-size=\"12\">amostras 2538</text><text x=\"553.0\" y=\"334.0\" fill=\"currentColor\" font-size=\"13\" class=\"falha\">FALHA</text><rect x=\"440.0\" y=\"400.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"448.0\" y=\"422.0\" fill=\"currentColor\" font-size=\"14\" class=\"falha\">FALHA</text><text x=\"448.0\" y=\"442.0\" fill=\"currentColor\" font-size=\"12\">amostras 521</text><rect x=\"448.0\" y=\"458.0\" width=\"3.4\" height=\"18\" fill=\"#1b7f4e\"/><rect x=\"451.4\" y=\"458.0\" width=\"0.3\" height=\"18\" fill=\"#a67c00\"/><rect x=\"451.7\" y=\"458.0\" width=\"156.3\" height=\"18\" fill=\"#a33b32\"/><rect x=\"650.0\" y=\"400.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"658.0\" y=\"422.0\" fill=\"currentColor\" font-size=\"14\" class=\"falha\">FALHA</text><text x=\"658.0\" y=\"442.0\" fill=\"currentColor\" font-size=\"12\">amostras 2017</text><rect x=\"658.0\" y=\"458.0\" width=\"38.6\" height=\"18\" fill=\"#1b7f4e\"/><rect x=\"696.6\" y=\"458.0\" width=\"14.4\" height=\"18\" fill=\"#a67c00\"/><rect x=\"711.1\" y=\"458.0\" width=\"106.9\" height=\"18\" fill=\"#a33b32\"/><rect x=\"1175.0\" y=\"144.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"1183.0\" y=\"166.0\" fill=\"currentColor\" font-size=\"12\">razao_rtt_p99 &lt;= 1,00</text><text x=\"1183.0\" y=\"186.0\" fill=\"currentColor\" font-size=\"12\">amostras 14841</text><text x=\"1183.0\" y=\"206.0\" fill=\"currentColor\" font-size=\"13\" class=\"risco\">RISCO</text><rect x=\"965.0\" y=\"272.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"973.0\" y=\"294.0\" fill=\"currentColor\" font-size=\"12\">n_rtt_acima_p95_w6 &lt;= 5,50</text><text x=\"973.0\" y=\"314.0\" fill=\"currentColor\" font-size=\"12\">amostras 8628</text><text x=\"973.0\" y=\"334.0\" fill=\"currentColor\" font-size=\"13\" class=\"risco\">RISCO</text><rect x=\"860.0\" y=\"400.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"868.0\" y=\"422.0\" fill=\"currentColor\" font-size=\"14\" class=\"risco\">RISCO</text><text x=\"868.0\" y=\"442.0\" fill=\"currentColor\" font-size=\"12\">amostras 4001</text><rect x=\"868.0\" y=\"458.0\" width=\"68.7\" height=\"18\" fill=\"#1b7f4e\"/><rect x=\"936.7\" y=\"458.0\" width=\"80.5\" height=\"18\" fill=\"#a67c00\"/><rect x=\"1017.2\" y=\"458.0\" width=\"10.8\" height=\"18\" fill=\"#a33b32\"/><rect x=\"1070.0\" y=\"400.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"1078.0\" y=\"422.0\" fill=\"currentColor\" font-size=\"14\" class=\"risco\">RISCO</text><text x=\"1078.0\" y=\"442.0\" fill=\"currentColor\" font-size=\"12\">amostras 4627</text><rect x=\"1078.0\" y=\"458.0\" width=\"6.2\" height=\"18\" fill=\"#1b7f4e\"/><rect x=\"1084.2\" y=\"458.0\" width=\"147.3\" height=\"18\" fill=\"#a67c00\"/><rect x=\"1231.5\" y=\"458.0\" width=\"6.5\" height=\"18\" fill=\"#a33b32\"/><rect x=\"1385.0\" y=\"272.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"1393.0\" y=\"294.0\" fill=\"currentColor\" font-size=\"12\">n_rtt_acima_p95_w6 &lt;= 5,50</text><text x=\"1393.0\" y=\"314.0\" fill=\"currentColor\" font-size=\"12\">amostras 6213</text><text x=\"1393.0\" y=\"334.0\" fill=\"currentColor\" font-size=\"13\" class=\"falha\">FALHA</text><rect x=\"1280.0\" y=\"400.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"1288.0\" y=\"422.0\" fill=\"currentColor\" font-size=\"14\" class=\"falha\">FALHA</text><text x=\"1288.0\" y=\"442.0\" fill=\"currentColor\" font-size=\"12\">amostras 1198</text><rect x=\"1288.0\" y=\"458.0\" width=\"43.9\" height=\"18\" fill=\"#1b7f4e\"/><rect x=\"1331.9\" y=\"458.0\" width=\"25.5\" height=\"18\" fill=\"#a67c00\"/><rect x=\"1357.4\" y=\"458.0\" width=\"90.6\" height=\"18\" fill=\"#a33b32\"/><rect x=\"1490.0\" y=\"400.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"1498.0\" y=\"422.0\" fill=\"currentColor\" font-size=\"14\" class=\"falha\">FALHA</text><text x=\"1498.0\" y=\"442.0\" fill=\"currentColor\" font-size=\"12\">amostras 5015</text><rect x=\"1498.0\" y=\"458.0\" width=\"2.5\" height=\"18\" fill=\"#1b7f4e\"/><rect x=\"1500.5\" y=\"458.0\" width=\"7.6\" height=\"18\" fill=\"#a67c00\"/><rect x=\"1508.1\" y=\"458.0\" width=\"149.9\" height=\"18\" fill=\"#a33b32\"/></svg>"
+  },
+  "pedaco": {
+    "origem": "random_forest_arvore_0",
+    "n_arvores": 200,
+    "profundidade_total": 56,
+    "n_folhas": 8886,
+    "nota_contagem": "As contagens desta árvore foram feitas no treino inteiro, não na amostra bootstrap dela.",
+    "svg": "<svg viewBox=\"0 0 846 384\" role=\"img\" aria-label=\"Árvore de decisão com a pergunta de cada nó, as amostras e a classe majoritária.\"><line x1=\"423.0\" y1=\"108.0\" x2=\"213.0\" y2=\"144.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"318.0\" y=\"126.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">sim</text><line x1=\"423.0\" y1=\"108.0\" x2=\"633.0\" y2=\"144.0\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"528.0\" y=\"126.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">não</text><line x1=\"213.0\" y1=\"236.0\" x2=\"108.0\" y2=\"272.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"160.5\" y=\"254.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">sim</text><line x1=\"213.0\" y1=\"236.0\" x2=\"318.0\" y2=\"272.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"265.5\" y=\"254.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">não</text><line x1=\"633.0\" y1=\"236.0\" x2=\"528.0\" y2=\"272.0\" stroke=\"currentColor\" stroke-width=\"1.4\"/><text x=\"580.5\" y=\"254.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">sim</text><line x1=\"633.0\" y1=\"236.0\" x2=\"738.0\" y2=\"272.0\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"685.5\" y=\"254.0\" fill=\"currentColor\" font-size=\"12\" text-anchor=\"middle\">não</text><rect x=\"335.0\" y=\"16.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"343.0\" y=\"38.0\" fill=\"currentColor\" font-size=\"12\">perda_media_w12 &lt;= 34,03</text><text x=\"343.0\" y=\"58.0\" fill=\"currentColor\" font-size=\"12\">amostras 241359</text><text x=\"343.0\" y=\"78.0\" fill=\"currentColor\" font-size=\"13\" class=\"ok\">OK</text><rect x=\"125.0\" y=\"144.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"133.0\" y=\"166.0\" fill=\"currentColor\" font-size=\"12\">razao_jitter_p95 &lt;= 1,46</text><text x=\"133.0\" y=\"186.0\" fill=\"currentColor\" font-size=\"12\">amostras 238709</text><text x=\"133.0\" y=\"206.0\" fill=\"currentColor\" font-size=\"13\" class=\"ok\">OK</text><rect x=\"20.0\" y=\"272.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"28.0\" y=\"294.0\" fill=\"currentColor\" font-size=\"14\" class=\"\">…</text><text x=\"28.0\" y=\"314.0\" fill=\"currentColor\" font-size=\"12\">amostras 229815</text><rect x=\"230.0\" y=\"272.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"238.0\" y=\"294.0\" fill=\"currentColor\" font-size=\"14\" class=\"\">…</text><text x=\"238.0\" y=\"314.0\" fill=\"currentColor\" font-size=\"12\">amostras 8894</text><rect x=\"545.0\" y=\"144.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"553.0\" y=\"166.0\" fill=\"currentColor\" font-size=\"12\">perda_media_w12 &lt;= 98,61</text><text x=\"553.0\" y=\"186.0\" fill=\"currentColor\" font-size=\"12\">amostras 2650</text><text x=\"553.0\" y=\"206.0\" fill=\"currentColor\" font-size=\"13\" class=\"falha\">FALHA</text><rect x=\"440.0\" y=\"272.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"448.0\" y=\"294.0\" fill=\"currentColor\" font-size=\"14\" class=\"\">…</text><text x=\"448.0\" y=\"314.0\" fill=\"currentColor\" font-size=\"12\">amostras 2129</text><rect x=\"650.0\" y=\"272.0\" width=\"176\" height=\"92\" rx=\"10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\"/><text x=\"658.0\" y=\"294.0\" fill=\"currentColor\" font-size=\"14\" class=\"\">…</text><text x=\"658.0\" y=\"314.0\" fill=\"currentColor\" font-size=\"12\">amostras 521</text></svg>"
+  },
+  "teste": {
+    "macro_f1": "0.7546021141569271",
+    "acuracia": "0.928207352781694",
+    "f1_ponderado": "0.9190510185045082",
+    "por_classe": {
+      "OK": {
+        "precisao": "0.9390841420898898",
+        "recall": "0.9904596273291926",
+        "f1": "0.9640879301588836",
+        "suporte": 40250
+      },
+      "RISCO": {
+        "precisao": "0.8224101479915433",
+        "recall": "0.4380630630630631",
+        "f1": "0.5716385011021309",
+        "suporte": 4440
+      },
+      "FALHA": {
+        "precisao": "0.7639751552795031",
+        "recall": "0.6954063604240283",
+        "f1": "0.7280799112097669",
+        "suporte": 1415
+      }
+    },
+    "matriz": [
+      [
+        39866,
+        252,
+        132
+      ],
+      [
+        2323,
+        1945,
+        172
+      ],
+      [
+        263,
+        168,
+        984
+      ]
+    ],
+    "persistencia_macro_f1": "0.7108027572032635",
+    "persistencia_acuracia": "0.894176336622926",
+    "persistencia_f1_ponderado": "0.8942124368845917",
+    "persistencia_por_classe": {
+      "OK": {
+        "precisao": "0.9445383162707485",
+        "recall": "0.9443975155279503",
+        "f1": "0.9444679106517255",
+        "suporte": 40250
+      },
+      "RISCO": {
+        "precisao": "0.5058426966292134",
+        "recall": "0.506981981981982",
+        "f1": "0.5064116985376828",
+        "suporte": 4440
+      },
+      "FALHA": {
+        "precisao": "0.6824946846208363",
+        "recall": "0.680565371024735",
+        "f1": "0.6815286624203822",
+        "suporte": 1415
+      }
+    },
+    "fatias": {
+      "geral": {
+        "n": 46105,
+        "macro_f1": "0.7546021141569271",
+        "persistencia": "0.7108027572032635",
+        "ganho": "0.04379935695366366",
+        "recall_falha": "0.6954063604240283"
+      },
+      "transicoes": {
+        "n": 4879,
+        "macro_f1": "0.28694902022760677",
+        "persistencia": "0.0",
+        "ganho": null,
+        "recall_falha": "0.14601769911504425"
+      },
+      "inicio_falha": {
+        "n": 452,
+        "macro_f1": "0.25482625482625487",
+        "persistencia": "0.0",
+        "ganho": "0.25482625482625487",
+        "recall_falha": "0.14601769911504425"
+      },
+      "sem_anchor_dominante": {
+        "n": 44396,
+        "macro_f1": "0.749727635916364",
+        "persistencia": "0.7119304687335287",
+        "ganho": "0.03779716718283532",
+        "recall_falha": "0.643160577740017"
+      }
+    },
+    "anchor": {
+      "anchor_id": "2026",
+      "fracao_falha_anchor_dominante": "0.16819787985865725"
+    },
+    "analise": [
+      "No teste, o modelo antecipa só 14,6% dos inícios de FALHA."
+    ]
+  },
+  "embargo_min": 60
+}

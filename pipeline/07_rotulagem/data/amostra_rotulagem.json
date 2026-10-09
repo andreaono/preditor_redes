@@ -1,0 +1,524 @@
+{
+  "totais": {
+    "linhas_b": 358222,
+    "fluxos_b": 143,
+    "linhas_rotuladas": 343172,
+    "linhas_sem_rotulo": 15050,
+    "linhas_final": 333954,
+    "fluxos_final": 135,
+    "features": 21
+  },
+  "fluxo": {
+    "id_fluxo": "1016806_3679",
+    "hostname": "br-fec-as264479",
+    "cidade": "Feira de Santana",
+    "pais": "BR",
+    "p95_rtt_A": 59.4043357,
+    "p99_rtt_A": 60.83911424000001,
+    "p95_jitter_A": 0.7796581544053771
+  },
+  "contraste": {
+    "id_fluxo": "7262_4371",
+    "hostname": "bo-cbb-as27839",
+    "cidade": "Cochabamba",
+    "pais": "BO",
+    "p95_rtt_A": 544.0414321999999,
+    "p99_rtt_A": 592.467567699999,
+    "p95_jitter_A": 2.9588122873916616
+  },
+  "medicao": {
+    "id_fluxo": "1016806_3679",
+    "timestamp": 1790768202,
+    "timestamp_utc": "2026-09-30 11:36:42 UTC",
+    "perda_pct": "0",
+    "latencia_ms": "59.929701",
+    "jitter_ms": "0.1449475406766961",
+    "ttl_changed": "0",
+    "p95_rtt_A": "59.4043357",
+    "p99_rtt_A": "60.83911424000001",
+    "p95_jitter_A": "0.7796581544053771",
+    "classe": "RISCO",
+    "motivo_rotulagem": "latencia_acima_p95",
+    "latencia_num": 59.929701
+  },
+  "medicao_contraste": {
+    "id_fluxo": "7262_4371",
+    "timestamp": 1790706053,
+    "timestamp_utc": "2026-09-29 18:20:53 UTC",
+    "perda_pct": "0",
+    "latencia_ms": "638.194931",
+    "jitter_ms": "61.2920075000000111",
+    "ttl_changed": "0",
+    "p95_rtt_A": "544.0414321999999",
+    "p99_rtt_A": "592.467567699999",
+    "p95_jitter_A": "2.9588122873916616",
+    "classe": "FALHA",
+    "motivo_rotulagem": "latencia_acima_p99",
+    "latencia_num": 638.194931
+  },
+  "amostra": [
+    {
+      "id_fluxo": "7565_4685",
+      "timestamp": 1790689719,
+      "timestamp_utc": "2026-09-29 13:48:39 UTC",
+      "perda_pct": "0",
+      "latencia_ms": "348.90121",
+      "jitter_ms": "0.0655217466664601",
+      "ttl_changed": "0",
+      "p95_rtt_A": "348.22371375",
+      "p99_rtt_A": "348.5033618",
+      "classe": "FALHA",
+      "motivo_rotulagem": "latencia_acima_p99"
+    },
+    {
+      "id_fluxo": "6919_1880",
+      "timestamp": 1790714837,
+      "timestamp_utc": "2026-09-29 20:47:17 UTC",
+      "perda_pct": "0",
+      "latencia_ms": "158.586636",
+      "jitter_ms": "0.0700461257363073",
+      "ttl_changed": "0",
+      "p95_rtt_A": "157.63755759999987",
+      "p99_rtt_A": "176.48550758999997",
+      "classe": "RISCO",
+      "motivo_rotulagem": "latencia_acima_p95"
+    },
+    {
+      "id_fluxo": "12541_1418",
+      "timestamp": 1790719818,
+      "timestamp_utc": "2026-09-29 22:10:18 UTC",
+      "perda_pct": "0",
+      "latencia_ms": "82.873135",
+      "jitter_ms": "1.9497329321062302",
+      "ttl_changed": "0",
+      "p95_rtt_A": "85.7369678",
+      "p99_rtt_A": "89.09035876000002",
+      "classe": "OK",
+      "motivo_rotulagem": "sem_alerta"
+    },
+    {
+      "id_fluxo": "7378_1223",
+      "timestamp": 1790782930,
+      "timestamp_utc": "2026-09-30 15:42:10 UTC",
+      "perda_pct": "0",
+      "latencia_ms": "41.849355",
+      "jitter_ms": "0.0546774258050486",
+      "ttl_changed": "0",
+      "p95_rtt_A": "41.78096",
+      "p99_rtt_A": "45.984448840000006",
+      "classe": "RISCO",
+      "motivo_rotulagem": "latencia_acima_p95"
+    },
+    {
+      "id_fluxo": "7560_1605",
+      "timestamp": 1790866678,
+      "timestamp_utc": "2026-10-01 14:57:58 UTC",
+      "perda_pct": "0",
+      "latencia_ms": "325.754308",
+      "jitter_ms": "54.5368412908211013",
+      "ttl_changed": "0",
+      "p95_rtt_A": "327.88717434999995",
+      "p99_rtt_A": "358.45575633999994",
+      "classe": "RISCO",
+      "motivo_rotulagem": "jitter_acima_p95"
+    },
+    {
+      "id_fluxo": "7306_1612",
+      "timestamp": 1790941073,
+      "timestamp_utc": "2026-10-02 11:37:53 UTC",
+      "perda_pct": "0",
+      "latencia_ms": "155.467177",
+      "jitter_ms": "0.1804842167134463",
+      "ttl_changed": "0",
+      "p95_rtt_A": "232.37408955",
+      "p99_rtt_A": "232.86506763999998",
+      "classe": "OK",
+      "motivo_rotulagem": "sem_alerta"
+    },
+    {
+      "id_fluxo": "7749_2026",
+      "timestamp": 1790952861,
+      "timestamp_utc": "2026-10-02 14:54:21 UTC",
+      "perda_pct": "100",
+      "latencia_ms": "",
+      "jitter_ms": "",
+      "ttl_changed": "",
+      "p95_rtt_A": "350.33204855",
+      "p99_rtt_A": "397.02095271999985",
+      "classe": "FALHA",
+      "motivo_rotulagem": "perda_severa"
+    },
+    {
+      "id_fluxo": "6944_4766",
+      "timestamp": 1790955108,
+      "timestamp_utc": "2026-10-02 15:31:48 UTC",
+      "perda_pct": "0",
+      "latencia_ms": "296.613668",
+      "jitter_ms": "0.9191733005290866",
+      "ttl_changed": "0",
+      "p95_rtt_A": "366.93826370000005",
+      "p99_rtt_A": "417.79214728",
+      "classe": "RISCO",
+      "motivo_rotulagem": "jitter_acima_p95"
+    },
+    {
+      "id_fluxo": "7688_3294",
+      "timestamp": 1790967522,
+      "timestamp_utc": "2026-10-02 18:58:42 UTC",
+      "perda_pct": "0",
+      "latencia_ms": "16.966689",
+      "jitter_ms": "0.042308554882224",
+      "ttl_changed": "1",
+      "p95_rtt_A": "16.1657602",
+      "p99_rtt_A": "16.21370676",
+      "classe": "FALHA",
+      "motivo_rotulagem": "latencia_acima_p99"
+    },
+    {
+      "id_fluxo": "7694_2526",
+      "timestamp": 1791003764,
+      "timestamp_utc": "2026-10-03 05:02:44 UTC",
+      "perda_pct": "0",
+      "latencia_ms": "205.340541",
+      "jitter_ms": "0.1104995724647353",
+      "ttl_changed": "0",
+      "p95_rtt_A": "242.62544225",
+      "p99_rtt_A": "284.14608555",
+      "classe": "OK",
+      "motivo_rotulagem": "sem_alerta"
+    }
+  ],
+  "distribuicao": {
+    "OK": 296808,
+    "RISCO": 29783,
+    "FALHA": 16581,
+    "sem rótulo": 15050
+  },
+  "sequencia": [
+    {
+      "timestamp": 1790659487,
+      "timestamp_utc": "2026-09-29 05:24:47 UTC",
+      "classe_atual": "OK",
+      "alvo": "OK",
+      "features": {
+        "razao_rtt_p95": 0.9365667731892506,
+        "razao_jitter_p95": 0.06932141252306774,
+        "perda_media_w3": 0.0,
+        "perdas_consecutivas": 0.0
+      }
+    },
+    {
+      "timestamp": 1790659718,
+      "timestamp_utc": "2026-09-29 05:28:38 UTC",
+      "classe_atual": "OK",
+      "alvo": "RISCO",
+      "features": {
+        "razao_rtt_p95": 0.9269715139664462,
+        "razao_jitter_p95": 0.1043589672506449,
+        "perda_media_w3": 0.0,
+        "perdas_consecutivas": 0.0
+      }
+    },
+    {
+      "timestamp": 1790659963,
+      "timestamp_utc": "2026-09-29 05:32:43 UTC",
+      "classe_atual": "RISCO",
+      "alvo": "OK",
+      "features": {
+        "razao_rtt_p95": 0.9462194356295108,
+        "razao_jitter_p95": 1.4849999323900058,
+        "perda_media_w3": 0.0,
+        "perdas_consecutivas": 0.0
+      }
+    },
+    {
+      "timestamp": 1790660195,
+      "timestamp_utc": "2026-09-29 05:36:35 UTC",
+      "classe_atual": "OK",
+      "alvo": "OK",
+      "features": {
+        "razao_rtt_p95": 0.9459035832631995,
+        "razao_jitter_p95": 0.9603474770492031,
+        "perda_media_w3": 0.0,
+        "perdas_consecutivas": 0.0
+      }
+    },
+    {
+      "timestamp": 1790660440,
+      "timestamp_utc": "2026-09-29 05:40:40 UTC",
+      "classe_atual": "OK",
+      "alvo": "OK",
+      "features": {
+        "razao_rtt_p95": 0.9337839291753918,
+        "razao_jitter_p95": 0.15087117175051898,
+        "perda_media_w3": 0.0,
+        "perdas_consecutivas": 0.0
+      }
+    },
+    {
+      "timestamp": 1790660678,
+      "timestamp_utc": "2026-09-29 05:44:38 UTC",
+      "classe_atual": "OK",
+      "alvo": "OK",
+      "features": {
+        "razao_rtt_p95": 0.9334081485234081,
+        "razao_jitter_p95": 0.4613416213925258,
+        "perda_media_w3": 0.0,
+        "perdas_consecutivas": 0.0
+      }
+    },
+    {
+      "timestamp": 1790660918,
+      "timestamp_utc": "2026-09-29 05:48:38 UTC",
+      "classe_atual": "OK",
+      "alvo": "FALHA",
+      "features": {
+        "razao_rtt_p95": 0.9409183747508854,
+        "razao_jitter_p95": 0.468771803560186,
+        "perda_media_w3": 0.0,
+        "perdas_consecutivas": 0.0
+      }
+    },
+    {
+      "timestamp": 1790661160,
+      "timestamp_utc": "2026-09-29 05:52:40 UTC",
+      "classe_atual": "FALHA",
+      "alvo": "FALHA",
+      "features": {
+        "razao_rtt_p95": -1.0,
+        "razao_jitter_p95": -1.0,
+        "perda_media_w3": 33.333333333333336,
+        "perdas_consecutivas": 1.0
+      }
+    }
+  ],
+  "persistencia": {
+    "treino": 0.703200211398657,
+    "validacao": 0.7105887942733683,
+    "teste": 0.7108027572032635
+  },
+  "alvo_por_split": {
+    "treino": {
+      "OK": 211029,
+      "RISCO": 20695,
+      "FALHA": 9635
+    },
+    "validacao": {
+      "OK": 41000,
+      "RISCO": 4084,
+      "FALHA": 1406
+    },
+    "teste": {
+      "OK": 40250,
+      "RISCO": 4440,
+      "FALHA": 1415
+    }
+  },
+  "splits": {
+    "t0": "2026-09-28 18:00:01 UTC",
+    "corte_treino": "2026-10-03 18:00:01 UTC",
+    "corte_validacao": "2026-10-04 18:00:01 UTC",
+    "treino": {
+      "linhas": 241359,
+      "inicio": "2026-09-28 18:00:01 UTC",
+      "fim": "2026-10-03 17:59:49 UTC"
+    },
+    "validacao": {
+      "linhas": 46490,
+      "inicio": "2026-10-03 19:00:01 UTC",
+      "fim": "2026-10-04 17:59:58 UTC"
+    },
+    "teste": {
+      "linhas": 46105,
+      "inicio": "2026-10-04 19:00:03 UTC",
+      "fim": "2026-10-05 17:55:50 UTC"
+    }
+  },
+  "exclusoes": {
+    "alvo_sem_rotulo": {
+      "fluxos": 3,
+      "linhas": 14
+    },
+    "baseline_desatualizado": {
+      "fluxos": 2,
+      "linhas": 5025
+    },
+    "baseline_nao_encontrado": {
+      "fluxos": 6,
+      "linhas": 15034
+    },
+    "embargo": {
+      "fluxos": 135,
+      "linhas": 4025
+    },
+    "intervalo_acima_de_gap": {
+      "fluxos": 17,
+      "linhas": 19
+    },
+    "perda_pct_vazio": {
+      "fluxos": 3,
+      "linhas": 16
+    },
+    "sem_medicao_t_mais_h": {
+      "fluxos": 135,
+      "linhas": 135
+    }
+  },
+  "verificacoes": {
+    "perda_severa_e_falha": {
+      "estado": "PASSOU",
+      "detalhe": "3115 linhas com perda de pelo menos 2/3 e baseline válido."
+    },
+    "latencia_acima_dos_limites": {
+      "estado": "PASSOU",
+      "detalhe": "13525 linhas acima do P99 e 29409 acima do P95."
+    },
+    "sem_baseline_nao_e_ok": {
+      "estado": "PASSOU",
+      "detalhe": "OK exige baseline válido. FALHA só sai por perda severa ou latência acima do P99."
+    },
+    "sem_vazamento_do_futuro": {
+      "estado": "PASSOU",
+      "detalhe": "200 linhas refeitas só com timestamp ≤ t e com o futuro alterado. Divergências: 0."
+    },
+    "alvo_finito_e_features_sem_nan": {
+      "estado": "PASSOU",
+      "detalhe": "333954 linhas no dataset final."
+    },
+    "colunas_proibidas_fora_das_features": {
+      "estado": "PASSOU",
+      "detalhe": "Nenhuma coluna proibida entre as features."
+    },
+    "ordem_temporal_e_duplicatas": {
+      "estado": "PASSOU",
+      "detalhe": "Treino, validação e teste estão em ordem, com embargo e sem duplicatas."
+    },
+    "latencia_igual_rtt_e_vazio_preservado": {
+      "estado": "PASSOU",
+      "detalhe": "latencia_ms permanece igual a rtt_avg e vazio não entra na comparação."
+    },
+    "timestamps_na_janela_b": {
+      "estado": "PASSOU",
+      "detalhe": "Todo timestamp está em B e fora de A."
+    }
+  },
+  "regras": [
+    {
+      "condicao": "perda_pct ≥ 200/3 − 0,01 (2 de 3 pacotes perdidos)",
+      "classe": "FALHA",
+      "motivo": "perda_severa"
+    },
+    {
+      "condicao": "latencia_ms > P99 de RTT do próprio fluxo",
+      "classe": "FALHA",
+      "motivo": "latencia_acima_p99"
+    },
+    {
+      "condicao": "perda_pct ≥ 100/3 − 0,01 (1 de 3 pacotes perdido)",
+      "classe": "RISCO",
+      "motivo": "perda_parcial"
+    },
+    {
+      "condicao": "latencia_ms > P95 de RTT do próprio fluxo",
+      "classe": "RISCO",
+      "motivo": "latencia_acima_p95"
+    },
+    {
+      "condicao": "jitter_ms > P95 de jitter do próprio fluxo",
+      "classe": "RISCO",
+      "motivo": "jitter_acima_p95"
+    },
+    {
+      "condicao": "nenhuma das condições acima",
+      "classe": "OK",
+      "motivo": "sem_alerta"
+    }
+  ],
+  "features": [
+    {
+      "nome": "perda_pct",
+      "definicao": "Perda de pacotes da execução t, em percentual."
+    },
+    {
+      "nome": "rtt_ausente",
+      "definicao": "1 se rtt_avg está vazio; 0 se há RTT médio."
+    },
+    {
+      "nome": "razao_rtt_p95",
+      "definicao": "rtt_avg dividido pelo P95 de RTT do próprio fluxo."
+    },
+    {
+      "nome": "razao_rtt_p99",
+      "definicao": "rtt_avg dividido pelo P99 de RTT do próprio fluxo."
+    },
+    {
+      "nome": "razao_jitter_p95",
+      "definicao": "jitter_ms dividido pelo P95 de jitter do próprio fluxo."
+    },
+    {
+      "nome": "amplitude_rtt_rel",
+      "definicao": "(rtt_max − rtt_min) / rtt_avg na execução t."
+    },
+    {
+      "nome": "delta_ttl_clip",
+      "definicao": "delta_ttl limitado ao intervalo [-16, 16]. Se o delta falta, usa a sentinela."
+    },
+    {
+      "nome": "ttl_reset",
+      "definicao": "1 se o valor absoluto de delta_ttl é pelo menos 64. Delta ausente não é reinício."
+    },
+    {
+      "nome": "perda_media_w3",
+      "definicao": "Média de perda_pct nas últimas 3 medições, incluindo t, ignorando vazios."
+    },
+    {
+      "nome": "rtt_p95_max_w3",
+      "definicao": "Máximo de razao_rtt_p95 nas últimas 3 medições, incluindo t."
+    },
+    {
+      "nome": "jitter_p95_max_w3",
+      "definicao": "Máximo de razao_jitter_p95 nas últimas 3 medições, incluindo t."
+    },
+    {
+      "nome": "n_rtt_acima_p95_w3",
+      "definicao": "Quantas das últimas 3 medições, incluindo t, têm razao_rtt_p95 maior que 1."
+    },
+    {
+      "nome": "perda_media_w6",
+      "definicao": "Média de perda_pct nas últimas 6 medições, incluindo t, ignorando vazios."
+    },
+    {
+      "nome": "rtt_p95_max_w6",
+      "definicao": "Máximo de razao_rtt_p95 nas últimas 6 medições, incluindo t."
+    },
+    {
+      "nome": "jitter_p95_max_w6",
+      "definicao": "Máximo de razao_jitter_p95 nas últimas 6 medições, incluindo t."
+    },
+    {
+      "nome": "n_rtt_acima_p95_w6",
+      "definicao": "Quantas das últimas 6 medições, incluindo t, têm razao_rtt_p95 maior que 1."
+    },
+    {
+      "nome": "perda_media_w12",
+      "definicao": "Média de perda_pct nas últimas 12 medições, incluindo t, ignorando vazios."
+    },
+    {
+      "nome": "rtt_p95_max_w12",
+      "definicao": "Máximo de razao_rtt_p95 nas últimas 12 medições, incluindo t."
+    },
+    {
+      "nome": "jitter_p95_max_w12",
+      "definicao": "Máximo de razao_jitter_p95 nas últimas 12 medições, incluindo t."
+    },
+    {
+      "nome": "n_rtt_acima_p95_w12",
+      "definicao": "Quantas das últimas 12 medições, incluindo t, têm razao_rtt_p95 maior que 1."
+    },
+    {
+      "nome": "perdas_consecutivas",
+      "definicao": "Medições seguidas, terminando em t, com perda maior que 0."
+    }
+  ],
+  "intervalo_s": 240
+}

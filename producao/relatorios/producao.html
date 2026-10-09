@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relatório de produção</title>
+<style>
+    :root { color-scheme: light; }
+    body { margin: 0; font: 16px/1.45 Georgia, "Times New Roman", serif; color: #1c1915; background: #f4f1ea; }
+    main { max-width: 980px; margin: 0 auto; padding: 1.25rem; }
+    h1, h2 { font-family: "Segoe UI", sans-serif; color: #0c2f4a; line-height: 1.2; }
+    h2 { margin-top: 2rem; border-bottom: 2px solid #0c2f4a; padding-bottom: 0.2rem; }
+    .aviso { background: #0c2f4a; color: #f4f1ea; padding: 0.6rem 0.8rem; margin: 0.4rem 0; }
+    .selo { display: inline-block; padding: 0.1rem 0.45rem; font-family: "Segoe UI", sans-serif; font-size: 0.85rem; }
+    .INCONCLUSIVO, .ATENCAO, .amostra_insuficiente, .ausente { background: #efe6c9; color: #3d3208; }
+    .PASSOU, .estavel, .integro { background: #d9efe4; color: #0d4f32; }
+    .FALHOU, .alerta, .alterado { background: #f6d9dc; color: #7a1420; }
+    .atencao { background: #efe6c9; color: #3d3208; }
+    table { border-collapse: collapse; width: 100%; background: #fffdf8; margin: 0.6rem 0 1rem; }
+    th, td { border: 1px solid #c8bfb0; padding: 0.35rem 0.5rem; text-align: left; vertical-align: top; }
+    th { background: #e7eef3; color: #0c2f4a; }
+    caption { text-align: left; font-size: 0.9rem; margin-bottom: 0.3rem; }
+    .rolagem { overflow-x: auto; }
+    input { font: 1rem Georgia, serif; padding: 0.3rem; width: min(100%, 24rem); }
+    svg { max-width: 100%; height: auto; background: #fffdf8; }
+    @media (max-width: 640px) { main { padding: 0.8rem; } h1 { font-size: 1.45rem; } }
+    </style>
+</head>
+<body>
+<main>
+<h1>Relatório de produção</h1>
+<p>Gerado em 2026-10-06T13:27:22Z UTC.</p>
+<p>Período coberto: 2026-10-04T18:44:46Z a 2026-10-04T18:44:46Z (n=1).</p>
+<p class="aviso">Importância e drift não provam causalidade</p>
+<p class="aviso">O teste de campo não ajusta o modelo</p>
+<section id='estado'><h2>Estado do modelo</h2><table class='ordenavel'><caption>Origem: modelo/modelo_manifest.json</caption><tbody><tr><th scope='row'>Versão</th><td>rf_v1.0.0</td></tr><tr><th scope='row'>Hash</th><td>sha256:ed0f99f27a2ad2e55b63aed196e2fe067f2fdc7a9f81ebdf51e7994b75470b58</td></tr><tr><th scope='row'>Data</th><td>2026-10-05T20:51:08Z. mtime UTC do joblib original; o JSON do modelo escolhido não traz um instante de treino separado</td></tr></tbody></table><p>Lock dos critérios: <span class='selo ausente'>ausente</span>. Origem: config/criterios.yaml e config/criterios.lock.</p><p>Pendências: limiares.macro_f1_transicoes_min, limiares.recall_falha_min, limiares.ganho_sobre_persistencia_min, limiares.antecedencia_media_min_minutos, minimo_eventos_falha, minimo_fluxos.</p><div class='rolagem'><table class='ordenavel'><caption>Critérios. Vazio significa que o piso ainda não foi decidido.</caption><thead><tr><th>Piso</th><th>Valor</th></tr></thead><tbody><tr><td>macro_f1_transicoes_min</td><td>vazio</td></tr><tr><td>recall_falha_min</td><td>vazio</td></tr><tr><td>ganho_sobre_persistencia_min</td><td>vazio</td></tr><tr><td>antecedencia_media_min_minutos</td><td>vazio</td></tr></tbody></table></div></section>
+<section id='operacao'><h2>Operação</h2><div class='rolagem'><table><caption>Contagens deduplicadas por arquivo e fluxo. Origem: logs/coleta.</caption><thead><tr><th>Medida</th><th>Valor</th><th>n</th></tr></thead><tbody><tr><td>Execuções</td><td>logs/coleta/1791135887-1791139487.jsonl</td><td>1</td></tr><tr><td>Linhas coletadas</td><td>14</td><td>14</td></tr><tr><td>Linhas descartadas</td><td>0</td><td>0</td></tr><tr><td>Timeout de medição</td><td>0</td><td>0</td></tr><tr><td>Sem resultado</td><td>0</td><td>0</td></tr><tr><td>Falhas de coleta</td><td>0</td><td>0. Origem: logs/erros e logs/coleta_http</td></tr></tbody></table></div><h3>Fluxos em aquecimento (n=1)</h3><ul><li>999001_3679. Origem: logs/estado/999001_3679.json</li></ul></section>
+<section id='desempenho'><h2>Desempenho no campo</h2><p>Veredito dos critérios: <span class='selo INCONCLUSIVO'>INCONCLUSIVO</span>. Rótulos disponíveis: n=0. Mínimo configurado: n=30. Origem: logs/predicoes.</p><h3>geral</h3><p><span class='selo INCONCLUSIVO'>INCONCLUSIVO</span> (n=0). Origem: logs/predicoes.</p><h3>transicoes</h3><p><span class='selo INCONCLUSIVO'>INCONCLUSIVO</span> (n=0). Persistência: 0 (por construção). A razão não é calculada. Origem: logs/predicoes.</p><h3>por_continente</h3><p><span class='selo INCONCLUSIVO'>INCONCLUSIVO</span> (n=0). Origem: logs/predicoes.</p><h3>probe_vs_anchor</h3><p><span class='selo INCONCLUSIVO'>INCONCLUSIVO</span> (n=0). Origem: logs/predicoes.</p><h3>com_e_sem_anchor_dominante</h3><p><span class='selo INCONCLUSIVO'>INCONCLUSIVO</span> (n=0). Origem: logs/predicoes.</p></section>
+<section id='drift'><h2>Drift</h2><h3>24h (n=0)</h3><p>Status dos dados: <span class='selo amostra_insuficiente'>amostra_insuficiente</span>.</p><p><span class='selo INCONCLUSIVO'>INCONCLUSIVO</span> Amostra insuficiente para PSI (n=0). Origem: relatorios/drift_2026-10-06.json.</p><div class='rolagem'><table class='ordenavel'><caption>Fatias.</caption><thead><tr><th>Tipo</th><th>Chave</th><th>n</th><th>Status</th></tr></thead><tbody><tr><td colspan='4'>Sem fatias.</td></tr></tbody></table></div><h3>7d (n=1)</h3><p>Status dos dados: <span class='selo amostra_insuficiente'>amostra_insuficiente</span>.</p><p><span class='selo INCONCLUSIVO'>INCONCLUSIVO</span> Amostra insuficiente para PSI (n=1). Origem: relatorios/drift_2026-10-06.json.</p><div class='rolagem'><table class='ordenavel'><caption>Fatias.</caption><thead><tr><th>Tipo</th><th>Chave</th><th>n</th><th>Status</th></tr></thead><tbody><tr><td>anchor</td><td>3679</td><td>1</td><td><span class='selo amostra_insuficiente'>amostra_insuficiente</span></td></tr><tr><td>continente</td><td>América do Sul</td><td>1</td><td><span class='selo amostra_insuficiente'>amostra_insuficiente</span></td></tr><tr><td>faixa_rtt</td><td>tipica</td><td>1</td><td><span class='selo amostra_insuficiente'>amostra_insuficiente</span></td></tr></tbody></table></div></section>
+<section id='alertas'><h2>Alertas</h2><p>Não há alertas em logs/alertas.</p></section>
+<section id='decisoes'><h2>Decisões</h2><label for='busca-decisoes'>Pesquisar decisões</label> <input id='busca-decisoes' type='search'><div class='rolagem'><table class='ordenavel' id='tabela-decisoes'><caption>Origem: docs/decisoes.md. n=6.</caption><thead><tr><th>Quando</th><th>Texto</th></tr></thead><tbody><tr><td>2026-10-06</td><td>O log de predição continua com as 13 chaves do contrato, inclusive `fluxo_id`, porque é assim que uma previsão se reconstrói e é assim que a interface de testes lê o JSONL. IP e id de probe que aparecem no log operacional e no log de coleta são hasheados com o sal da variável `PREDITOR_SAL_LOG`. Esse sal não é gravado. O `anchor_id` permanece, porque a anchor é pública. Sem o sal, o identificador da probe é omitido em vez de ir em claro.</td></tr><tr><td>2026-10-06</td><td>Resultado de medição pública não gasta crédito. O campo `creditos` fica vazio. Timeout de ping (`x=*`) não é falha de coleta.</td></tr><tr><td>2026-10-06</td><td>A referência de drift usa só treino e validação. O split de teste não entra. A importância por permutação não existia na etapa 8; ela é calculada numa amostra de 200 linhas do treino, sem retreinar. Os pisos de PSI continuam 0,1 e 0,25. A variação natural dos blocos do treino fica como sugestão em `modelo/ref_stats.json` e não altera o YAML.</td></tr><tr><td>2026-10-06</td><td>O monitoramento de macro-F1 em `config/drift.yaml` usa o piso 0,60 da etapa 8. Isso não preenche `config/criterios.yaml`.</td></tr><tr><td>2026-10-06</td><td>O ponteiro `modelo/ATIVO` aponta para `rf_v1.0.0`. Promover outro modelo exige critérios congelados e um conjunto de teste novo.</td></tr><tr><td>2026-10-06</td><td>O HTML de produção só lê os arquivos já gravados. Não preenche piso vazio, não desenha PSI quando a amostra está abaixo do mínimo e não divide ganho pela persistência nas transições: nessa fatia o texto é 0 por construção.</td></tr></tbody></table></div></section>
+<section id='limites'><h2>Limites</h2><ul><li>Rótulos reais preenchidos: n=0. Sem rótulo, o desempenho do campo é inconclusivo.</li><li>FALHA com rótulo na fatia geral: n=0. Poucas FALHAS não sustentam o recall.</li><li>Período coberto: n=1 previsões de 2026-10-04T18:44:46Z a 2026-10-04T18:44:46Z. Janela curta não fecha o campo.</li><li>Fatia com n abaixo de 30 aparece como inconclusiva e não como alerta.</li><li>Os pisos de aceite continuam vazios enquanto o lock não existir. O relatório não os preenche.</li></ul></section>
+</main>
+<script>
+    document.querySelectorAll("table.ordenavel").forEach(function (tabela) {
+      tabela.querySelectorAll("th").forEach(function (th, indice) {
+        th.tabIndex = 0;
+        th.addEventListener("click", function () { ordenar(tabela, indice); });
+        th.addEventListener("keydown", function (evento) { if (evento.key === "Enter") ordenar(tabela, indice); });
+      });
+    });
+    function ordenar(tabela, indice) {
+      var corpo = tabela.tBodies[0];
+      var linhas = Array.prototype.slice.call(corpo.rows);
+      var desc = tabela.getAttribute("data-col") === String(indice) && tabela.getAttribute("data-dir") !== "desc";
+      linhas.sort(function (a, b) {
+        var x = a.cells[indice].innerText;
+        var y = b.cells[indice].innerText;
+        if (x < y) return desc ? 1 : -1;
+        if (x > y) return desc ? -1 : 1;
+        return 0;
+      });
+      linhas.forEach(function (linha) { corpo.appendChild(linha); });
+      tabela.setAttribute("data-col", String(indice));
+      tabela.setAttribute("data-dir", desc ? "desc" : "asc");
+    }
+    var busca = document.getElementById("busca-decisoes");
+    if (busca) {
+      busca.addEventListener("input", function () {
+        var termo = busca.value.toLowerCase();
+        document.querySelectorAll("#tabela-decisoes tbody tr").forEach(function (linha) {
+          linha.hidden = termo && linha.innerText.toLowerCase().indexOf(termo) === -1;
+        });
+      });
+    }
+    </script>
+</body>
+</html>

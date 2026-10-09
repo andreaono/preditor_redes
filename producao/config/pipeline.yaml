@@ -1,0 +1,29 @@
+# Janela, pausa e tentativas seguem o cliente que a etapa 4 já usou na API pública.
+# Resultados de medição pública não criam medição nova.
+# Este arquivo aponta para os critérios reais, que ainda não estão congelados.
+# python -m src.rodar --config config/pipeline.yaml para até o lock existir.
+
+janela_minutos: 60
+intervalo_medicao_s: 240
+minimo_medicoes_historico: 12
+historico_maximo: 48
+
+pares: config/pares.json
+criterios: config/criterios.yaml
+lock: config/criterios.lock
+
+url_resultados: https://atlas.ripe.net/api/v2/measurements/{id}/results/
+timeout_s: 120
+max_tentativas: 5
+backoff_s: 2.0
+pausa_s: 0.4
+user_agent: "projeto-preditor-redes/producao (inferencia; uso academico)"
+
+pasta_logs: logs/predicoes
+pasta_quarentena: logs/quarentena
+pasta_estado: logs/estado
+pasta_erros: logs/erros
+pasta_coleta: logs/coleta
+arquivo_baseline: ../6_baseline_periodo_a/data/baseline_rotulacao_por_fluxo.csv
+arquivo_artefato: modelo/modelo_rf_v1.0.0.joblib
+arquivo_lock_execucao: logs/execucao.lock

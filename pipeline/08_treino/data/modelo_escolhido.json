@@ -1,0 +1,37 @@
+{
+  "familia": "random_forest",
+  "hiperparametros": {
+    "n_estimators": 200,
+    "max_depth": null,
+    "min_samples_leaf": 5,
+    "max_features": "sqrt",
+    "class_weight": null
+  },
+  "hiperparametros_texto": "n_estimators=200;max_depth=sem_limite;min_samples_leaf=5;max_features=sqrt;class_weight=nenhum",
+  "macro_f1_validacao": "0.7671747956006114",
+  "criterio": "macro_f1",
+  "desempate": "maior macro-F1 de validação; empate pelo menor gap; depois o modelo mais simples",
+  "features": [
+    "perda_pct",
+    "rtt_ausente",
+    "razao_rtt_p95",
+    "razao_rtt_p99",
+    "razao_jitter_p95",
+    "amplitude_rtt_rel",
+    "delta_ttl_clip",
+    "ttl_reset",
+    "perda_media_w3",
+    "rtt_p95_max_w3",
+    "jitter_p95_max_w3",
+    "n_rtt_acima_p95_w3",
+    "perda_media_w6",
+    "rtt_p95_max_w6",
+    "jitter_p95_max_w6",
+    "n_rtt_acima_p95_w6",
+    "perda_media_w12",
+    "rtt_p95_max_w12",
+    "jitter_p95_max_w12",
+    "n_rtt_acima_p95_w12",
+    "perdas_consecutivas"
+  ]
+}

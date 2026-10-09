@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monitor do modelo — avaliação gravada</title>
+<style>
+:root {
+  color-scheme: light;
+  --font-sans: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Iowan Old Style", Palatino, Georgia, "Times New Roman", serif;
+  --color-bg: #f5f6f8; --color-panel: #ffffff; --color-border-line: #e1e4ea;
+  --color-fg: #1b2330; --color-fg-muted: #5d6878;
+  --color-ok: #1c7a4a; --color-warn: #a8660a; --color-bad: #b3261e;
+  --cds-chart-grid: #e8ebf0; --cds-chart-axis: #98a2b3;
+  --c1: #2f6fdd; --c2: #d9822b; --c3: #2a9d8f; --c4: #8e5bd1;
+  --cds-radius: 10px; --cds-pad-lg: 18px;
+  --cds-gap-xs: 4px; --cds-gap-sm: 8px; --cds-gap-md: 14px; --cds-gap-xl: 30px;
+  --cds-font-size-caption: 12px; --cds-font-size-body: 14px;
+  --cds-font-size-heading: 16px; --cds-font-size-title: 30px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-bg: #0f141b; --color-panel: #171d27; --color-border-line: #283142;
+    --color-fg: #e7ebf2; --color-fg-muted: #98a3b5;
+    --color-ok: #4cc38a; --color-warn: #e8a23a; --color-bad: #ff6b61;
+    --cds-chart-grid: #263040; --cds-chart-axis: #5b6678;
+    --c1: #6ea0ff; --c2: #f0a45a; --c3: #4cc3b4; --c4: #b58cf0;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #0f141b; --color-panel: #171d27; --color-border-line: #283142;
+  --color-fg: #e7ebf2; --color-fg-muted: #98a3b5;
+  --color-ok: #4cc38a; --color-warn: #e8a23a; --color-bad: #ff6b61;
+  --cds-chart-grid: #263040; --cds-chart-axis: #5b6678;
+  --c1: #6ea0ff; --c2: #f0a45a; --c3: #4cc3b4; --c4: #b58cf0;
+}
+* { box-sizing: border-box; }
+html { background: var(--color-bg); }
+body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-sans); font-size: 14px; line-height: 1.45; }
+.nf { max-width: 1200px; margin-inline: auto; padding: 28px clamp(16px, 3vw, 32px) 48px; display: flex; flex-direction: column; gap: var(--cds-gap-xl); }
+.nf-topo { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+.nf-head, .nf-sec { display: flex; flex-direction: column; gap: var(--cds-gap-md); }
+.nf-eyebrow { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.nf-title { margin: 0; font-family: var(--font-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.2; }
+.nf-take { margin: 0; font-size: var(--cds-font-size-body); color: var(--color-fg-muted); max-width: 78ch; min-height: 1.4em; }
+.nf-kpis { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 720px) { .nf-kpis { grid-template-columns: 1fr; } }
+.nf-kpi, .nf-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+.nf-kpi { display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+.nf-kl, .nf-kd, .nf-kn, .nf-n, .nf-sec > p, .nf-bl, .nf-range { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.nf-sec > h2 { margin: 0; font-size: var(--cds-font-size-heading); font-weight: 500; }
+.nf-sec > p, .nf-n { margin: 0; max-width: 80ch; }
+.nf-kv { font-family: var(--font-serif); font-weight: 400; font-size: 2rem; line-height: 1.1; font-variant-numeric: tabular-nums; display: flex; align-items: baseline; gap: 0.25rem; flex-wrap: wrap; }
+.nf-kv .u { font-family: var(--font-sans); font-size: var(--cds-font-size-body); color: var(--color-fg-muted); }
+.nf-kd { font-variant-numeric: tabular-nums; }
+.nf-kd .d { font-weight: 500; }
+.nf-kd .d.is-good { color: var(--color-ok); }
+.nf-kd .d.is-bad { color: var(--color-bad); }
+.nf-kn { margin-top: auto; }
+.nf-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--cds-gap-md); }
+.nf-range { font-variant-numeric: tabular-nums; }
+.nf-seg { display: inline-flex; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); overflow: hidden; }
+.nf-seg button { font: inherit; font-size: var(--cds-font-size-caption); background: var(--color-panel); color: var(--color-fg); border: 0; border-right: 1px solid var(--color-border-line); padding: 0.375rem 0.75rem; cursor: pointer; }
+.nf-seg button:last-child { border-right: 0; }
+.nf-seg button[aria-pressed="true"] { background: var(--color-fg); color: var(--color-bg); }
+.nf-chips { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); }
+.nf-chip { font: inherit; font-size: var(--cds-font-size-caption); display: inline-flex; align-items: center; gap: 0.5rem; background: var(--color-panel); color: var(--color-fg-muted); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 0.25rem 0.75rem 0.25rem 0.5rem; cursor: pointer; }
+.nf-chip i { width: 0.625rem; height: 0.625rem; border-radius: 50%; display: inline-block; opacity: 0.35; }
+.nf-chip[aria-pressed="true"] { color: var(--color-fg); border-color: var(--color-fg); }
+.nf-chip[aria-pressed="true"] i { opacity: 1; }
+.nf-field { display: inline-flex; align-items: center; gap: 0.5rem; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.nf-field select, #tema { font: inherit; font-size: var(--cds-font-size-caption); color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+.nf-field select { border-radius: var(--cds-radius); padding: 0.375rem 0.5rem; }
+.nf-seg button:focus-visible, .nf-chip:focus-visible, .nf-field select:focus-visible, #tema:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+.nf-grid { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.nf-h { margin: 0; font-size: var(--cds-font-size-heading); font-weight: 500; }
+.nf-card { display: flex; flex-direction: column; gap: var(--cds-gap-xs); }
+.nf-chart { width: 100%; }
+.nf-chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.nf-tick { font-family: var(--font-sans); font-size: 12px; fill: var(--color-fg-muted); }
+.nf-grid-l { stroke: var(--cds-chart-grid); stroke-width: 1; }
+.nf-tablewrap { overflow-x: auto; }
+.nf-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-body); font-variant-numeric: tabular-nums; }
+.nf-table th { text-align: left; font-weight: 500; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); padding: 0.375rem 0.75rem 0.375rem 0; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.nf-table td { padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--color-border-line); }
+.nf-table .num, .nf-table th.num { text-align: right; padding-right: 0; }
+.matriz { display: grid; grid-template-columns: 5.5rem repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
+.matriz .canto, .matriz .cab { font-size: 12px; color: var(--color-fg-muted); display: flex; align-items: flex-end; }
+.matriz .cab { justify-content: flex-end; padding-bottom: 2px; }
+.cel { border-radius: 8px; padding: 10px 12px; min-height: 4.4rem; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; }
+.cel b { font-family: var(--font-serif); font-weight: 400; font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+.cel span { font-size: 12px; color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.empilhado { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.faixa { display: grid; grid-template-columns: 5.2rem 1fr auto; gap: 8px; align-items: center; font-size: 12px; }
+.trilho { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: var(--cds-chart-grid); }
+.trilho i { display: block; height: 100%; }
+.legenda { display: flex; flex-wrap: wrap; gap: 12px; margin: 8px 0 0; padding: 0; list-style: none; font-size: 12px; color: var(--color-fg-muted); }
+.legenda i { display: inline-block; width: 0.55rem; height: 0.55rem; border-radius: 50%; margin-right: 0.35rem; }
+.feats { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; }
+.feats span { font-size: 12px; border: 1px solid var(--color-border-line); border-radius: 999px; padding: 0.15rem 0.55rem; color: var(--color-fg-muted); }
+.rodape { font-size: 12px; color: var(--color-fg-muted); max-width: 80ch; }
+.menu { display: flex; flex-wrap: wrap; gap: 16px; }
+.menu a, .voltar { color: var(--color-fg); text-decoration: none; border-bottom: 1px solid var(--color-border-line); padding-bottom: 2px; width: fit-content; }
+.nf-escolhas { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+.nf-lista { display: flex; flex-direction: column; gap: 8px; margin: 8px 0 0; padding: 0; list-style: none; }
+.nf-lista label { display: flex; gap: 8px; align-items: flex-start; cursor: pointer; }
+.acao { font: inherit; font-size: var(--cds-font-size-caption); background: var(--color-fg); color: var(--color-bg); border: 0; border-radius: 999px; padding: 8px 16px; cursor: pointer; width: fit-content; }
+.acao:disabled { opacity: 0.55; cursor: wait; }
+.acao.secundario { background: var(--color-panel); color: var(--color-fg); border: 1px solid var(--color-border-line); }
+.aviso, .nf-fail { margin: 0; }
+.aviso { padding: 10px 12px; border-radius: var(--cds-radius); background: color-mix(in srgb, var(--color-warn) 14%, var(--color-panel)); }
+.nf-fail { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.ponto { width: 0.55rem; height: 0.55rem; border-radius: 50%; display: inline-block; margin-right: 0.35rem; vertical-align: 1px; }
+.acoes { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+@media (max-width: 700px) { .nf-topo { flex-direction: column; } .nf-title { font-size: 1.7rem; } }
+</style>
+</head>
+<body>
+<main class="nf" id="nf-page">
+  <header class="nf-head">
+    <a class="voltar" href="index.html">← Início</a>
+    <div class="nf-topo">
+      <div>
+        <p class="nf-eyebrow">Previsão de falhas em rede · avaliação gravada · rf_v1.0.0</p>
+        <h1 class="nf-title">Monitor do modelo de falhas em rede</h1>
+      </div>
+      <button id="tema" type="button">Tema escuro</button>
+    </div>
+    <p class="nf-take" id="nf-take" aria-live="polite"></p>
+  </header>
+
+  <nav class="menu" aria-label="Seções">
+    <a href="#avaliacao">Avaliação gravada</a>
+    <a href="#monitorar">Monitorar</a>
+  </nav>
+
+  <div class="nf-bar" id="avaliacao" role="group" aria-label="Conjunto">
+    <span class="nf-bl">Conjunto</span>
+    <div class="nf-seg" id="nf-splits">
+      <button type="button" data-split="validacao" aria-pressed="true">Validação</button>
+      <button type="button" data-split="teste" aria-pressed="false">Teste</button>
+    </div>
+    <span class="nf-range" id="nf-range"></span>
+  </div>
+
+  <section class="nf-sec" id="resumo" aria-label="Resumo">
+    <div class="nf-kpis" id="nf-kpis"></div>
+  </section>
+
+  <section class="nf-sec" id="classes" aria-label="Classes">
+    <h2>Classes previstas</h2>
+    <p>A classe real sai da regra de perda, latência e jitter. O gráfico compara o Random Forest com a persistência, que repete a classe atual como previsão da próxima medição.</p>
+    <div class="nf-bar">
+      <div class="nf-chips" id="nf-chips" role="group" aria-label="Classes"></div>
+      <label class="nf-field" for="nf-metric"><span>Métrica</span>
+        <select id="nf-metric">
+          <option value="f1" selected>F1</option>
+          <option value="recall">Recall</option>
+          <option value="precisao">Precisão</option>
+        </select>
+      </label>
+    </div>
+    <div class="nf-grid">
+      <div class="nf-card">
+        <h3 class="nf-h">Modelo e persistência</h3>
+        <p class="nf-n" id="nf-metrica-nota"></p>
+        <div class="nf-chart" id="nf-barras"></div>
+      </div>
+      <div class="nf-card">
+        <h3 class="nf-h">Matriz de confusão</h3>
+        <p class="nf-n">Linha: classe real. Coluna: classe prevista. A cor acompanha a parcela da linha.</p>
+        <div class="matriz" id="nf-matriz"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nf-sec" id="qualidade" aria-label="Qualidade das previsões">
+    <h2>Qualidade das previsões</h2>
+    <p>O macro-F1 dá o mesmo peso a OK, RISCO e FALHA. A acurácia fica alta porque OK é a maior parte das medições.</p>
+    <div class="nf-grid">
+      <div class="nf-card">
+        <h3 class="nf-h">Quem foi comparado na validação</h3>
+        <p class="nf-n">Macro-F1. O teste não reavaliou Naive Bayes nem a árvore: serviu só para o modelo já escolhido.</p>
+        <div class="nf-chart" id="nf-familias"></div>
+      </div>
+      <div class="nf-card">
+        <h3 class="nf-h">Composição do alvo</h3>
+        <p class="nf-n">Treino, validação e teste, na ordem do tempo. O corte deixa 60 minutos de fora.</p>
+        <div class="empilhado" id="nf-splits-barra"></div>
+        <ul class="legenda">
+          <li><i style="background:var(--color-ok)"></i>OK</li>
+          <li><i style="background:var(--color-warn)"></i>RISCO</li>
+          <li><i style="background:var(--color-bad)"></i>FALHA</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="nf-sec" id="rotulos" aria-label="Como a classe foi definida">
+    <h2>Como a classe foi definida</h2>
+    <p>Contagem no período B, antes do split. OK é “sem alerta”. Os outros motivos seguem a ordem da regra: a primeira condição verdadeira encerra a classe.</p>
+    <div class="nf-card">
+      <h3 class="nf-h">Motivo do rótulo</h3>
+      <p class="nf-n">343.172 linhas rotuladas. Sem alerta: 296.808. O gráfico mostra só os motivos de RISCO e FALHA.</p>
+      <div class="nf-chart" id="nf-motivos"></div>
+    </div>
+  </section>
+
+  <section class="nf-sec" id="recortes" aria-label="Recortes">
+    <h2>Recortes do mesmo conjunto</h2>
+    <p>O número geral mistura medições que permanecem na mesma classe com as que mudam. A persistência erra toda mudança.</p>
+    <div class="nf-grid" id="nf-recortes"></div>
+  </section>
+
+  <section class="nf-sec" id="alertas" aria-label="Alertas de falha">
+    <h2>Alertas de FALHA</h2>
+    <p>Alerta aqui é a classe FALHA prevista para a medição seguinte. Confirmado é falha real. Falso alarme é OK ou RISCO previstos como FALHA.</p>
+    <div class="nf-grid">
+      <div class="nf-card">
+        <h3 class="nf-h">Destino dos alertas</h3>
+        <p class="nf-n" id="nf-alerta-nota"></p>
+        <div class="nf-chart" id="nf-alertas"></div>
+      </div>
+      <div class="nf-card">
+        <h3 class="nf-h">Início de uma FALHA</h3>
+        <p class="nf-n" id="nf-inicio-nota"></p>
+        <div class="nf-chart" id="nf-inicio"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="nf-sec" id="entrada" aria-label="Variáveis">
+    <h2>Variáveis de entrada</h2>
+    <p>Vinte e uma variáveis da medição atual. A classe atual fica no log e fora do vetor.</p>
+    <div class="nf-grid" id="nf-feats"></div>
+  </section>
+
+  <section class="nf-sec" id="eventos" aria-label="Linha do tempo">
+    <h2>Linha do tempo</h2>
+    <p>Janela usada no dataset. O teste permanece fechado: ajustar de novo exige outro conjunto ou outra janela.</p>
+    <div class="nf-card">
+      <div class="nf-tablewrap">
+        <table class="nf-table">
+          <thead><tr><th>Quando (UTC)</th><th>O que aconteceu</th><th class="num">Macro-F1</th></tr></thead>
+          <tbody>
+            <tr><td>28 set 2026, 18:00</td><td>Começa o período B e o treino. O período A, os sete dias anteriores, só calculou o baseline.</td><td class="num">0,792 no treino</td></tr>
+            <tr><td>3 out 2026, 18:00</td><td>Corte do treino. Sessenta minutos ficam de fora e a validação começa às 19:00.</td><td class="num">0,767</td></tr>
+            <tr><td>4 out 2026, 18:00</td><td>Corte da validação. O Random Forest já estava escolhido. O teste começa às 19:00.</td><td class="num">0,755</td></tr>
+            <tr><td>5 out 2026, 18:00</td><td>Fim da janela. O teste não foi reaberto para novo ajuste.</td><td class="num">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="nf-sec" id="monitorar" aria-label="Monitorar">
+    <h2>Monitorar</h2>
+    <p class="aviso">Esta página é uma demonstração. A classe prevista pelo modelo não abre medição, não retreina e não é ordem de intervenção. O status RISCO ou FALHA da tabela é a regra de limiar do projeto aplicada a este ping.</p>
+    <p class="nf-n">A leitura usa uma medição pública já existente. O intervalo dessa malha no treino é 240 s. O coletor que abre medição nova, a cada 180 s, não é disparado por esta página.</p>
+    <div class="nf-escolhas">
+      <div>
+        <h3 class="nf-h">Período</h3>
+        <div class="nf-seg" id="vivo-periodo" role="group" aria-label="Período">
+          <button type="button" data-dias="7" aria-pressed="false">7 dias</button>
+          <button type="button" data-dias="14" aria-pressed="false">14 dias</button>
+          <button type="button" data-dias="30" aria-pressed="true">30 dias</button>
+          <button type="button" data-dias="60" aria-pressed="false">60 dias</button>
+          <button type="button" data-dias="90" aria-pressed="false">90 dias</button>
+        </div>
+        <p class="nf-n" id="vivo-periodo-intervalo"></p>
+        <p class="nf-n">O período não recorta a avaliação gravada nem a sessão. Não há série diária nesta base.</p>
+      </div>
+      <div>
+        <h3 class="nf-h">Par</h3>
+        <p class="nf-n">A previsão da classe seguinte usa o Random Forest já treinado. A escolha não cria medição.</p>
+        <div class="nf-lista" id="vivo-opcoes" role="radiogroup" aria-label="Par">
+          <label><input type="radio" name="vivo-fluxo" value="6659_4074" checked> <span>6659_4074 · São Paulo, BR → Montevideo, UY · curta</span></label>
+          <label><input type="radio" name="vivo-fluxo" value="1016806_3679"> <span>1016806_3679 · BR → Feira de Santana, BR · curta</span></label>
+          <label><input type="radio" name="vivo-fluxo" value="35709_1360"> <span>35709_1360 · BR → Mutterstadt, DE · média</span></label>
+          <label><input type="radio" name="vivo-fluxo" value="6630_3679"> <span>6630_3679 · Enschede, NL → Feira de Santana, BR · média</span></label>
+          <label><input type="radio" name="vivo-fluxo" value="7307_2026"> <span>7307_2026 · Feira de Santana, BR → Ho Chi Minh City, VN · longa</span></label>
+        </div>
+      </div>
+      <div>
+        <h3 class="nf-h">Janela</h3>
+        <div class="nf-lista" id="vivo-duracao" role="radiogroup" aria-label="Janela"></div>
+      </div>
+    </div>
+    <div class="acoes">
+      <button type="button" class="acao" id="vivo-comecar">Começar monitoramento</button>
+      <button type="button" class="acao secundario" id="vivo-recarregar">Atualizar pares</button>
+    </div>
+    <p class="nf-n" id="vivo-aviso" aria-live="polite"></p>
+
+    <h2>Pares de redes monitorados</h2>
+    <p>Cada linha é o par da sessão em leitura. A série usa latência, perda ou jitter desse ping.</p>
+    <label class="nf-field" for="vivo-metrica"><span>Métrica</span>
+      <select id="vivo-metrica">
+        <option value="risco">Risco (0–100)</option>
+        <option value="latencia_ms" selected>Latência (ms)</option>
+        <option value="perda_pct">Perda de pacotes (%)</option>
+        <option value="jitter_ms">Jitter (ms)</option>
+        <option value="disp_pct">Disponibilidade (%)</option>
+      </select>
+    </label>
+    <div class="nf-card">
+      <div class="nf-tablewrap" id="vivo-tabela-par"></div>
+      <p class="nf-n">Risco de 0 a 100, disponibilidade e dias em risco alto não estão gravados. Latência e perda são o último ping desta sessão.</p>
+      <div class="nf-chart" id="vivo-grafico"></div>
+    </div>
+
+    <div id="vivo-coleta"></div>
+  </section>
+
+  <p class="rodape">A avaliação mostrada é uma cópia gravada neste script de <code>pipeline/08_treino/data/resumo_pagina.json</code>, <code>pipeline/08_treino/data/avaliacao_teste.json</code> e <code>pipeline/07_rotulagem/data/qualidade_rotulagem.json</code>. Abrir a página não relê esses arquivos. O monitoramento lê a API local em <code>http://127.0.0.1:8001</code> e não recalcula o teste.</p>
+</main>
+<script>
+const CLASSES = ["OK", "RISCO", "FALHA"];
+const COR = { OK: "var(--color-ok)", RISCO: "var(--color-warn)", FALHA: "var(--color-bad)" };
+const ROTULO = { precisao: "Precisão", recall: "Recall", f1: "F1" };
+
+const SPLITS = {
+  validacao: {
+    nome: "Validação",
+    n: 46490,
+    janela: "3 out 2026, 19:00 → 4 out 2026, 18:00 UTC · 46.490 medições",
+    macro: 0.7671747956006114,
+    acuracia: 0.9325876532587654,
+    persistenciaMacro: 0.7105887942733683,
+    frase: "Na validação o Random Forest chega a macro-F1 0,767, acima da persistência (0,711). Antecipa 75 dos 414 inícios de FALHA, 18,1%.",
+    classes: {
+      OK: { precisao: 0.9403157845997129, recall: 0.9906341463414634, f1: 0.9648193457966127, n: 41000 },
+      RISCO: { precisao: 0.8319491939423547, recall: 0.4169931439764936, f1: 0.5555374327189692, n: 4084 },
+      FALHA: { precisao: 0.8302642113690952, recall: 0.7375533428165008, f1: 0.7811676082862524, n: 1406 }
+    },
+    persistencia: {
+      OK: { precisao: 0.9445813108276215, recall: 0.9445121951219512, f1: 0.9445467517104283 },
+      RISCO: { precisao: 0.48273328434974283, recall: 0.482615083251714, f1: 0.48267417656422185 },
+      FALHA: { precisao: 0.7035460992907802, recall: 0.705547652916074, f1: 0.7045454545454546 }
+    },
+    matriz: [[40616, 272, 112], [2281, 1703, 100], [297, 72, 1037]],
+    inicio: { n: 414, ok: 275, risco: 64, falha: 75 },
+    semAncora: { id: "4074", fracao: 0.2624466571834993, n: 44767, macro: 0.7359598532007827, recall: 0.6576663452266153 },
+    transicoes: { n: 4802, macro: 0.3057137851109986 }
+  },
+  teste: {
+    nome: "Teste",
+    n: 46105,
+    janela: "4 out 2026, 19:00 → 5 out 2026, 17:56 UTC · 46.105 medições",
+    macro: 0.7546021141569271,
+    acuracia: 0.928207352781694,
+    persistenciaMacro: 0.7108027572032635,
+    frase: "No teste gravado o macro-F1 é 0,755, contra 0,711 da persistência. O modelo antecipa 66 dos 452 inícios de FALHA, 14,6%.",
+    classes: {
+      OK: { precisao: 0.9390841420898898, recall: 0.9904596273291926, f1: 0.9640879301588836, n: 40250 },
+      RISCO: { precisao: 0.8224101479915433, recall: 0.4380630630630631, f1: 0.5716385011021309, n: 4440 },
+      FALHA: { precisao: 0.7639751552795031, recall: 0.6954063604240283, f1: 0.7280799112097669, n: 1415 }
+    },
+    persistencia: {
+      OK: { precisao: 0.9445383162707485, recall: 0.9443975155279503, f1: 0.9444679106517255 },
+      RISCO: { precisao: 0.5058426966292134, recall: 0.506981981981982, f1: 0.5064116985376828 },
+      FALHA: { precisao: 0.6824946846208363, recall: 0.680565371024735, f1: 0.6815286624203822 }
+    },
+    matriz: [[39866, 252, 132], [2323, 1945, 172], [263, 168, 984]],
+    inicio: { n: 452, ok: 231, risco: 155, falha: 66 },
+    semAncora: { id: "2026", fracao: 0.16819787985865725, n: 44396, macro: 0.749727635916364, recall: 0.643160577740017, persistencia: 0.7119304687335287 },
+    transicoes: { n: 4879, macro: 0.28694902022760677 }
+  }
+};
+
+const FAMILIAS = [
+  { nome: "Naive Bayes", macro: 0.5665973351750367 },
+  { nome: "Persistência", macro: 0.7105887942733683 },
+  { nome: "Árvore", macro: 0.7623971425043209 },
+  { nome: "Random Forest", macro: 0.7671747956006114 }
+];
+
+const COMPOSICAO = [
+  { nome: "Treino", n: 241359, ok: 211029, risco: 20695, falha: 9635 },
+  { nome: "Validação", n: 46490, ok: 41000, risco: 4084, falha: 1406 },
+  { nome: "Teste", n: 46105, ok: 40250, risco: 4440, falha: 1415 }
+];
+
+const MOTIVOS = [
+  { nome: "Latência acima do P95", classe: "RISCO", n: 15761 },
+  { nome: "Latência acima do P99", classe: "FALHA", n: 13466 },
+  { nome: "Jitter acima do P95", classe: "RISCO", n: 13090 },
+  { nome: "Perda de 2 ou 3 pacotes", classe: "FALHA", n: 3115 },
+  { nome: "Perda de 1 pacote", classe: "RISCO", n: 932 }
+];
+
+const FEATURES = [
+  { grupo: "Instantânea", itens: ["perda_pct", "rtt_ausente", "razao_rtt_p95", "razao_rtt_p99", "razao_jitter_p95", "amplitude_rtt_rel", "delta_ttl_clip", "ttl_reset"] },
+  { grupo: "Janela · 3, 6 e 12 medições", itens: ["perda_media_w3", "rtt_p95_max_w3", "jitter_p95_max_w3", "n_rtt_acima_p95_w3", "perda_media_w6", "rtt_p95_max_w6", "jitter_p95_max_w6", "n_rtt_acima_p95_w6", "perda_media_w12", "rtt_p95_max_w12", "jitter_p95_max_w12", "n_rtt_acima_p95_w12"] },
+  { grupo: "Dinâmica", itens: ["perdas_consecutivas"] }
+];
+
+const estado = { split: "validacao", metric: "f1", classes: new Set(CLASSES) };
+
+const fmt = (n, d) => n.toLocaleString("pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d });
+const pct = (n, d = 1) => fmt(n * 100, d) + "%";
+const inteiro = (n) => Math.round(n).toLocaleString("pt-BR");
+const sinal = (n, d) => (n > 0 ? "+" : "") + fmt(n, d);
+
+function atual() { return SPLITS[estado.split]; }
+
+function kpi(rotulo, valor, unidade, delta, nota) {
+  const marca = delta.valor > 0 ? "is-good" : delta.valor < 0 ? "is-bad" : "";
+  return `<article class="nf-kpi"><p class="nf-kl">${rotulo}</p><p class="nf-kv"><span>${valor}</span>${unidade ? `<span class="u">${unidade}</span>` : ""}</p><p class="nf-kd"><span class="d ${marca}">${delta.texto}</span> ${delta.contra}</p><p class="nf-kn">${nota}</p></article>`;
+}
+
+function desenharKpis() {
+  const d = atual();
+  const f = d.classes.FALHA;
+  const r = d.classes.RISCO;
+  const pf = d.persistencia.FALHA;
+  const inicio = d.inicio.falha / d.inicio.n;
+  document.getElementById("nf-kpis").innerHTML = [
+    kpi("Macro-F1", fmt(d.macro, 3), "", { valor: d.macro - d.persistenciaMacro, texto: sinal(d.macro - d.persistenciaMacro, 3), contra: "vs. persistência" }, `${inteiro(d.n)} medições`),
+    kpi("Recall de FALHA", pct(f.recall), "", { valor: f.recall - pf.recall, texto: sinal((f.recall - pf.recall) * 100, 1) + " p.p.", contra: "vs. persistência" }, "Falhas reais que o modelo apontou"),
+    kpi("Precisão de FALHA", pct(f.precisao), "", { valor: f.precisao - pf.precisao, texto: sinal((f.precisao - pf.precisao) * 100, 1) + " p.p.", contra: "vs. persistência" }, "Alertas de falha que se confirmaram"),
+    kpi("F1 de RISCO", fmt(r.f1, 3), "", { valor: r.f1 - d.persistencia.RISCO.f1, texto: sinal(r.f1 - d.persistencia.RISCO.f1, 3), contra: "vs. persistência" }, `Recall ${pct(r.recall)} · a classe mais difícil`),
+    kpi("Acurácia", pct(d.acuracia), "", { valor: 0, texto: `OK é ${pct(d.classes.OK.n / d.n, 0)}`, contra: "do conjunto" }, "Sobe porque a classe OK domina"),
+    kpi("Inícios de FALHA", pct(inicio), "", { valor: inicio, texto: `${inteiro(d.inicio.falha)} de ${inteiro(d.inicio.n)}`, contra: "antecipados" }, "A persistência acerta zero nesses casos")
+  ].join("");
+}
+
+function svgBarras(categorias, series, teto, percentual = true) {
+  const W = 640, H = 250, ml = 44, mr = 8, mt = 12, mb = 32;
+  const iw = W - ml - mr, ih = H - mt - mb;
+  const gw = iw / categorias.length;
+  const ns = series.length;
+  const bw = Math.min(26, (gw - 24) / Math.max(ns, 1));
+  const partes = [];
+  for (let g = 0; g <= 4; g++) {
+    const y = mt + ih - ih * (g / 4);
+    partes.push(`<line class="nf-grid-l" x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}"/>`);
+    const marca = percentual ? `${Math.round(teto * (g / 4) * 100)}%` : fmt(teto * (g / 4), 0);
+    partes.push(`<text class="nf-tick" x="${ml - 8}" y="${y + 4}" text-anchor="end">${marca}</text>`);
+  }
+  categorias.forEach((cat, i) => {
+    const cx = ml + gw * i + gw / 2;
+    const bloco = ns * bw + (ns - 1) * 6;
+    series.forEach((serie, j) => {
+      const valor = serie.valores[i];
+      const h = Math.max(0, ih * (valor / teto));
+      const x = cx - bloco / 2 + j * (bw + 6);
+      const y = mt + ih - h;
+      const titulo = percentual ? pct(valor) : inteiro(valor);
+      partes.push(`<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="3" fill="${serie.cor}"><title>${serie.nome} · ${cat}: ${titulo}</title></rect>`);
+    });
+    partes.push(`<text class="nf-tick" x="${cx.toFixed(1)}" y="${H - 10}" text-anchor="middle">${cat}</text>`);
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Barras">${partes.join("")}</svg>`;
+}
+
+function desenharBarras() {
+  const d = atual();
+  const cats = CLASSES.filter((c) => estado.classes.has(c));
+  const nota = document.getElementById("nf-metrica-nota");
+  const host = document.getElementById("nf-barras");
+  if (!cats.length) {
+    nota.textContent = "Escolha ao menos uma classe.";
+    host.innerHTML = "";
+    return;
+  }
+  nota.textContent = `${d.nome} · ${ROTULO[estado.metric]}`;
+  host.innerHTML = svgBarras(cats, [
+    { nome: "Random Forest", cor: "var(--c1)", valores: cats.map((c) => d.classes[c][estado.metric]) },
+    { nome: "Persistência", cor: "var(--c2)", valores: cats.map((c) => d.persistencia[c][estado.metric]) }
+  ], 1) + `<ul class="legenda"><li><i style="background:var(--c1)"></i>Random Forest</li><li><i style="background:var(--c2)"></i>Persistência</li></ul>`;
+}
+
+function desenharMatriz() {
+  const d = atual();
+  const cab = `<div class="canto"></div>` + CLASSES.map((c) => `<div class="cab">${c}</div>`).join("");
+  const linhas = d.matriz.map((linha, i) => {
+    const total = linha.reduce((a, b) => a + b, 0);
+    const cells = linha.map((n, j) => {
+      const parte = total ? n / total : 0;
+      const diagonal = i === j;
+      const cor = diagonal ? COR[CLASSES[i]] : "var(--color-fg-muted)";
+      const alpha = diagonal ? 0.18 + parte * 0.55 : 0.04 + parte * 0.2;
+      return `<div class="cel" style="background:color-mix(in srgb, ${cor} ${Math.round(alpha * 100)}%, var(--color-panel))"><b>${inteiro(n)}</b><span>${pct(parte, 1)}</span></div>`;
+    }).join("");
+    return `<div class="cab" style="align-items:center;justify-content:flex-start">${CLASSES[i]}</div>${cells}`;
+  }).join("");
+  document.getElementById("nf-matriz").innerHTML = cab + linhas;
+}
+
+function desenharFamilias() {
+  const max = 1;
+  const W = 640, H = 36 * FAMILIAS.length + 8;
+  const partes = FAMILIAS.map((item, i) => {
+    const y = 8 + i * 36;
+    const w = 430 * (item.macro / max);
+    const destaque = item.nome === "Random Forest" ? "var(--c1)" : "var(--cds-chart-axis)";
+    return `<text class="nf-tick" x="0" y="${y + 16}">${item.nome}</text><rect x="118" y="${y}" width="${w.toFixed(1)}" height="18" rx="4" fill="${destaque}"></rect><text class="nf-tick" x="${(126 + w).toFixed(1)}" y="${y + 14}">${fmt(item.macro, 3)}</text>`;
+  });
+  document.getElementById("nf-familias").innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Macro-F1 na validação">${partes.join("")}</svg>`;
+}
+
+function desenharComposicao() {
+  document.getElementById("nf-splits-barra").innerHTML = COMPOSICAO.map((item) => {
+    const ok = item.ok / item.n * 100;
+    const risco = item.risco / item.n * 100;
+    const falha = item.falha / item.n * 100;
+    return `<div class="faixa"><span>${item.nome}</span><div class="trilho" title="OK ${pct(item.ok / item.n)} · RISCO ${pct(item.risco / item.n)} · FALHA ${pct(item.falha / item.n)}"><i style="width:${ok}%;background:var(--color-ok)"></i><i style="width:${risco}%;background:var(--color-warn)"></i><i style="width:${falha}%;background:var(--color-bad)"></i></div><span>${inteiro(item.n)}</span></div>`;
+  }).join("");
+}
+
+function barrasHorizontais(itens, corDe) {
+  const maior = Math.max(...itens.map((item) => item.n));
+  const W = 640, H = 34 * itens.length + 4;
+  const partes = itens.map((item, i) => {
+    const y = 4 + i * 34;
+    const w = 360 * (item.n / maior);
+    return `<text class="nf-tick" x="0" y="${y + 16}">${item.nome}</text><rect x="210" y="${y}" width="${w.toFixed(1)}" height="16" rx="4" fill="${corDe(item)}"></rect><text class="nf-tick" x="${(218 + w).toFixed(1)}" y="${y + 13}">${inteiro(item.n)}</text>`;
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img">${partes.join("")}</svg>`;
+}
+
+function desenharMotivos() {
+  document.getElementById("nf-motivos").innerHTML = barrasHorizontais(MOTIVOS, (item) => COR[item.classe]);
+}
+
+function cartao(titulo, nota, linhas) {
+  const corpo = linhas.map((linha) => `<p class="nf-kv" style="font-size:1.6rem">${linha.valor}${linha.unidade ? `<span class="u">${linha.unidade}</span>` : ""}</p><p class="nf-kn">${linha.nota}</p>`).join("");
+  return `<article class="nf-card"><h3 class="nf-h">${titulo}</h3><p class="nf-n">${nota}</p>${corpo}</article>`;
+}
+
+function desenharRecortes() {
+  const d = atual();
+  const a = d.semAncora;
+  const extra = a.persistencia ? ` A persistência nesse recorte fica em ${fmt(a.persistencia, 3)}.` : "";
+  document.getElementById("nf-recortes").innerHTML = [
+    cartao(
+      `Sem a âncora ${a.id}`,
+      `Essa âncora concentra ${pct(a.fracao)} das falhas deste conjunto.${extra}`,
+      [{ valor: fmt(a.macro, 3), nota: `Macro-F1 em ${inteiro(a.n)} medições · recall de FALHA ${pct(a.recall)}` }]
+    ),
+    cartao(
+      "Quando a classe muda",
+      "Medições em que a classe seguinte é diferente da atual. A persistência marca zero nesse recorte.",
+      [{ valor: fmt(d.transicoes.macro, 3), nota: `Macro-F1 do modelo em ${inteiro(d.transicoes.n)} transições` }]
+    )
+  ].join("");
+}
+
+function desenharAlertas() {
+  const d = atual();
+  const confirmados = d.matriz[2][2];
+  const falsos = d.matriz[0][2] + d.matriz[1][2];
+  const perdidas = d.matriz[2][0] + d.matriz[2][1];
+  document.getElementById("nf-alerta-nota").textContent = `${d.nome} · ${inteiro(confirmados + falsos)} previsões de FALHA`;
+  document.getElementById("nf-alertas").innerHTML = barrasHorizontais([
+    { nome: "Confirmadas", n: confirmados, cor: "var(--color-ok)" },
+    { nome: "Falsos alarmes", n: falsos, cor: "var(--color-warn)" },
+    { nome: "Falhas não vistas", n: perdidas, cor: "var(--color-bad)" }
+  ], (item) => item.cor);
+  document.getElementById("nf-inicio-nota").textContent = `${inteiro(d.inicio.n)} medições em que a FALHA começa agora`;
+  document.getElementById("nf-inicio").innerHTML = barrasHorizontais([
+    { nome: "Prevista FALHA", n: d.inicio.falha, classe: "FALHA" },
+    { nome: "Prevista RISCO", n: d.inicio.risco, classe: "RISCO" },
+    { nome: "Prevista OK", n: d.inicio.ok, classe: "OK" }
+  ], (item) => COR[item.classe]);
+}
+
+function desenharFeatures() {
+  document.getElementById("nf-feats").innerHTML = FEATURES.map((grupo) => `<article class="nf-card"><h3 class="nf-h">${grupo.grupo}</h3><p class="nf-n">${grupo.itens.length} ${grupo.itens.length === 1 ? "variável" : "variáveis"}</p><div class="feats">${grupo.itens.map((item) => `<span>${item}</span>`).join("")}</div></article>`).join("");
+}
+
+function desenharChips() {
+  document.getElementById("nf-chips").innerHTML = CLASSES.map((classe) => `<button type="button" class="nf-chip" data-classe="${classe}" aria-pressed="${estado.classes.has(classe)}"><i style="background:${COR[classe]}"></i>${classe}</button>`).join("");
+}
+
+function render() {
+  const d = atual();
+  document.getElementById("nf-take").textContent = d.frase;
+  document.getElementById("nf-range").textContent = d.janela;
+  document.querySelectorAll("#nf-splits button").forEach((botao) => {
+    botao.setAttribute("aria-pressed", String(botao.dataset.split === estado.split));
+  });
+  desenharKpis();
+  desenharBarras();
+  desenharMatriz();
+  desenharRecortes();
+  desenharAlertas();
+}
+
+document.getElementById("nf-splits").addEventListener("click", (evento) => {
+  const botao = evento.target.closest("button");
+  if (!botao) return;
+  estado.split = botao.dataset.split;
+  render();
+});
+
+document.getElementById("nf-chips").addEventListener("click", (evento) => {
+  const botao = evento.target.closest("button");
+  if (!botao) return;
+  const classe = botao.dataset.classe;
+  if (estado.classes.has(classe)) estado.classes.delete(classe);
+  else estado.classes.add(classe);
+  botao.setAttribute("aria-pressed", String(estado.classes.has(classe)));
+  desenharBarras();
+});
+
+document.getElementById("nf-metric").addEventListener("change", (evento) => {
+  estado.metric = evento.target.value;
+  desenharBarras();
+});
+
+const raiz = document.documentElement;
+const botaoTema = document.getElementById("tema");
+function aplicarTema(tema) {
+  if (tema === "dark") raiz.dataset.theme = "dark";
+  else if (tema === "light") raiz.dataset.theme = "light";
+  else delete raiz.dataset.theme;
+  botaoTema.textContent = (tema === "dark" || (tema !== "light" && matchMedia("(prefers-color-scheme: dark)").matches)) ? "Tema claro" : "Tema escuro";
+}
+let tema = localStorage.getItem("painel-preditor-tema") || "auto";
+aplicarTema(tema);
+botaoTema.addEventListener("click", () => {
+  const escuro = raiz.dataset.theme === "dark" || (raiz.dataset.theme !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
+  tema = escuro ? "light" : "dark";
+  localStorage.setItem("painel-preditor-tema", tema);
+  aplicarTema(tema);
+});
+
+const DURACOES = [
+  [5, "5 min"],
+  [10, "10 min"],
+  [30, "30 min"],
+  [60, "1 h"],
+  [240, "4 h"],
+  [1440, "24 h"],
+];
+const ROTULO_METRICA = {
+  latencia_ms: "Latência (ms)",
+  perda_pct: "Perda de pacotes (%)",
+  jitter_ms: "Jitter (ms)",
+};
+const PARES = [
+  { id_fluxo: "6659_4074", faixa: "curta", origem: { cidade: "São Paulo", pais: "BR" }, destino: { cidade: "Montevideo", pais: "UY" } },
+  { id_fluxo: "1016806_3679", faixa: "curta", origem: { cidade: null, pais: "BR" }, destino: { cidade: "Feira de Santana", pais: "BR" } },
+  { id_fluxo: "35709_1360", faixa: "média", origem: { cidade: null, pais: "BR" }, destino: { cidade: "Mutterstadt", pais: "DE" } },
+  { id_fluxo: "6630_3679", faixa: "média", origem: { cidade: "Enschede", pais: "NL" }, destino: { cidade: "Feira de Santana", pais: "BR" } },
+  { id_fluxo: "7307_2026", faixa: "longa", origem: { cidade: "Feira de Santana", pais: "BR" }, destino: { cidade: "Ho Chi Minh City", pais: "VN" } },
+];
+const API = (location.hostname === "127.0.0.1" || location.hostname === "localhost") && location.port === "8001" ? "" : "http://127.0.0.1:8001";
+const vivo = { sessao: null, fluxo: "6659_4074", duracao: 30, dias: 30, opcoesProntas: true };
+
+function esc(valor) {
+  return String(valor ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function numBr(valor) {
+  if (valor === null || valor === undefined || valor === "") return "—";
+  const numero = Number(valor);
+  if (!Number.isFinite(numero)) return "—";
+  return fmt(numero, 3);
+}
+
+function statusHtml(classe) {
+  if (!COR[classe]) return "—";
+  return `<span class="ponto" style="background:${COR[classe]}"></span>${esc(classe)}`;
+}
+
+function explicarAlerta(item) {
+  if (item.status !== "RISCO" && item.status !== "FALHA") return "";
+  const latencia = numBr(item.latencia_ms);
+  const jitter = numBr(item.jitter_ms);
+  const perda = numBr(item.perda_pct);
+  const textos = {
+    perda_severa: `FALHA: a perda foi ${perda}%. Pelo menos dois dos três pacotes não voltaram. A regra trata isso como indisponibilidade e não compara a latência.`,
+    latencia_acima_p99: `FALHA: a latência de ${latencia} ms passou o p99 de RTT deste fluxo. É uma degradação severa em relação ao habitual deste caminho.`,
+    perda_parcial: `RISCO: a perda foi ${perda}%. Um dos três pacotes não voltou. A comunicação existe, mas esta medição já perdeu pacote.`,
+    latencia_acima_p95: `RISCO: a latência de ${latencia} ms passou o p95 de RTT deste fluxo e não chegou ao p99. O caminho está mais lento do que o habitual.`,
+    jitter_acima_p95: `RISCO: o jitter de ${jitter} ms passou o p95 de jitter deste fluxo. Os pacotes chegaram, mas a variação entre eles está acima do habitual deste caminho.`,
+    baseline_nao_encontrado: "A regra não classificou: este fluxo não tem baseline.",
+    baseline_insuficiente: "A regra não classificou: o baseline deste fluxo não está válido.",
+    perda_pct_vazio: "A regra não classificou: a perda desta medição não pôde ser calculada.",
+  };
+  return textos[item.motivo] || `${item.status}: a regra marcou ${item.motivo || "um motivo sem texto"}.`;
+}
+
+function intervaloPeriodo(dias) {
+  const fim = new Date();
+  const inicio = new Date(fim);
+  inicio.setUTCDate(fim.getUTCDate() - (dias - 1));
+  const texto = (data) => data.toLocaleDateString("pt-BR", { timeZone: "UTC" });
+  return `${texto(inicio)} – ${texto(fim)}`;
+}
+
+function marcarPeriodo() {
+  document.querySelectorAll("#vivo-periodo button").forEach((botao) => {
+    botao.setAttribute("aria-pressed", String(Number(botao.dataset.dias) === vivo.dias));
+  });
+  document.getElementById("vivo-periodo-intervalo").textContent = intervaloPeriodo(vivo.dias);
+}
+
+function desenharDuracao() {
+  document.getElementById("vivo-duracao").innerHTML = DURACOES.map(([minutos, rotulo]) => `
+    <label><input type="radio" name="vivo-duracao" value="${minutos}" ${minutos === vivo.duracao ? "checked" : ""}> ${rotulo}</label>
+  `).join("");
+}
+
+function desenharOpcoes(pacote) {
+  const lista = pacote.opcoes || [];
+  if (!lista.length) {
+    document.getElementById("vivo-opcoes").innerHTML = `<p class="nf-fail">Nenhum par disponível.</p>`;
+    return;
+  }
+  if (!vivo.fluxo) vivo.fluxo = pacote.escolhido || lista[0].id_fluxo;
+  document.getElementById("vivo-opcoes").innerHTML = lista.map((item) => {
+    const origem = [item.origem && item.origem.cidade, item.origem && item.origem.pais].filter(Boolean).join(", ");
+    const destino = [item.destino && item.destino.cidade, item.destino && item.destino.pais].filter(Boolean).join(", ");
+    const caminho = origem || destino ? ` · ${origem || "—"} → ${destino || "—"}` : "";
+    return `<label><input type="radio" name="vivo-fluxo" value="${esc(item.id_fluxo)}" ${item.id_fluxo === vivo.fluxo ? "checked" : ""}> <span>${esc(item.id_fluxo)}${esc(caminho)}${item.faixa ? ` · ${esc(item.faixa)}` : ""}</span></label>`;
+  }).join("");
+}
+
+function graficoLinha(pontos, rotulo) {
+  const W = 640, H = 240, ml = 48, mr = 12, mt = 16, mb = 36;
+  const iw = W - ml - mr, ih = H - mt - mb;
+  const ys = pontos.map((ponto) => ponto.y);
+  const max = Math.max(...ys, 0);
+  const teto = max === 0 ? 1 : max * 1.1;
+  const partes = [];
+  for (let g = 0; g <= 4; g++) {
+    const y = mt + ih - ih * (g / 4);
+    partes.push(`<line class="nf-grid-l" x1="${ml}" y1="${y}" x2="${W - mr}" y2="${y}"/>`);
+    partes.push(`<text class="nf-tick" x="${ml - 8}" y="${y + 4}" text-anchor="end">${fmt(teto * (g / 4), teto >= 10 ? 0 : 1)}</text>`);
+  }
+  const coords = pontos.map((ponto, i) => {
+    const x = ml + (pontos.length === 1 ? iw / 2 : iw * (i / (pontos.length - 1)));
+    const y = mt + ih - ih * (ponto.y / teto);
+    return { x, y, ponto };
+  });
+  const d = coords.map((c, i) => `${i ? "L" : "M"}${c.x.toFixed(1)},${c.y.toFixed(1)}`).join(" ");
+  partes.push(`<path d="${d}" fill="none" stroke="var(--c1)" stroke-width="2"/>`);
+  const ultimo = coords[coords.length - 1];
+  partes.push(`<circle cx="${ultimo.x.toFixed(1)}" cy="${ultimo.y.toFixed(1)}" r="4" fill="var(--c1)"><title>${esc(ultimo.ponto.x)} · ${numBr(ultimo.ponto.y)}</title></circle>`);
+  partes.push(`<text class="nf-tick" x="${ml}" y="${H - 8}">${esc(pontos[0].x.slice(11, 16))} UTC</text>`);
+  partes.push(`<text class="nf-tick" x="${W - mr}" y="${H - 8}" text-anchor="end">${esc(ultimo.ponto.x.slice(11, 16))} UTC · ${esc(rotulo)}</text>`);
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(rotulo)}">${partes.join("")}</svg>`;
+}
+
+function desenharPar() {
+  const metrica = document.getElementById("vivo-metrica").value;
+  const sessao = vivo.sessao;
+  const tabela = document.getElementById("vivo-tabela-par");
+  const grafico = document.getElementById("vivo-grafico");
+  if (!sessao || !sessao.id_fluxo) {
+    tabela.innerHTML = "";
+    grafico.innerHTML = `<p class="nf-fail">Nenhum par ligado.</p>`;
+    return;
+  }
+  const linhas = sessao.linhas || [];
+  const ultima = linhas.length ? linhas[linhas.length - 1] : {};
+  tabela.innerHTML = `<table class="nf-table"><thead><tr><th>Par</th><th class="num">Risco hoje</th><th class="num">Risco médio</th><th class="num">Latência</th><th class="num">Perda</th><th class="num">Disponib.</th><th class="num">Dias em risco alto</th><th>Status</th></tr></thead><tbody><tr><td>${esc(sessao.id_fluxo)}</td><td class="num">—</td><td class="num">—</td><td class="num">${numBr(ultima.latencia_ms)}</td><td class="num">${numBr(ultima.perda_pct)}</td><td class="num">—</td><td class="num">—</td><td>${statusHtml(ultima.status)}</td></tr></tbody></table>`;
+  if (!ROTULO_METRICA[metrica]) {
+    grafico.innerHTML = `<p class="nf-fail">Fonte não conectada para esta métrica.</p>`;
+    return;
+  }
+  const pontos = linhas.filter((item) => item[metrica] !== null && item[metrica] !== undefined).map((item) => ({ x: item.hora || "", y: Number(item[metrica]) }));
+  if (!pontos.length) {
+    grafico.innerHTML = sessao.ativa
+      ? `<p class="nf-fail">A leitura de ${esc(sessao.id_fluxo)} está ligada. O próximo ping público deste probe ainda não chegou. A malha costuma publicar a cada 240 s.</p>`
+      : `<p class="nf-fail">Nenhum par ligado.</p>`;
+    return;
+  }
+  grafico.innerHTML = graficoLinha(pontos, ROTULO_METRICA[metrica]);
+}
+
+function desenharColeta() {
+  const host = document.getElementById("vivo-coleta");
+  const sessao = vivo.sessao;
+  if (!sessao || !sessao.id_fluxo) {
+    host.innerHTML = `<div class="nf-card"><h3 class="nf-h">Amostra</h3><p class="nf-n">Escolha um fluxo e um dos tempos fixos. A coleta começa nesse instante e para quando o prazo acaba.</p></div>`;
+    return;
+  }
+  const linhas = sessao.linhas || [];
+  const corpo = linhas.length ? `<table class="nf-table"><thead><tr><th>Hora UTC</th><th class="num">Latência</th><th class="num">Jitter</th><th class="num">Perda %</th><th>Status</th><th>Previsto</th></tr></thead><tbody>${linhas.map((item) => {
+    const alerta = explicarAlerta(item);
+    const extra = alerta ? `<tr><td colspan="6" class="nf-n">${esc(alerta)}</td></tr>` : "";
+    return `<tr><td>${esc(item.hora || "—")}</td><td class="num">${numBr(item.latencia_ms)}</td><td class="num">${numBr(item.jitter_ms)}</td><td class="num">${numBr(item.perda_pct)}</td><td>${statusHtml(item.status)}</td><td>${statusHtml(item.previsto)}</td></tr>${extra}`;
+  }).join("")}</tbody></table>` : `<p class="nf-fail">Aguardando o próximo resultado público deste probe. A malha costuma publicar a cada 240 s.</p>`;
+  const modelo = sessao.modelo || {};
+  const ultima = modelo.ultima_previsao || null;
+  const prazo = sessao.ativa ? "em leitura" : "encerrada";
+  const rotulo = DURACOES.find(([minutos]) => minutos === sessao.duracao_minutos);
+  const notas = [
+    `${sessao.id_fluxo} · ${rotulo ? rotulo[1] : sessao.duracao_minutos + " min"} · ${prazo} · ${sessao.inicio || "—"} até ${sessao.fim || "—"}.`,
+    "O status da tabela é a regra do fluxo. O modelo prevê a classe da medição seguinte.",
+    "Um único fluxo cobre um caminho. O monitoramento dele não prova que o modelo vale para os demais.",
+  ];
+  if (modelo.abaixo_do_aquecimento) notas.push(`O aquecimento oficial usa 12 medições. Esta janela ainda tem ${modelo.n || 0}. Os números abaixo descrevem só a amostra recebida.`);
+  if (modelo.texto) notas.push(modelo.texto);
+  else if (modelo.n_fechadas) {
+    const ganho = modelo.ganho_macro_f1 === null || modelo.ganho_macro_f1 === undefined
+      ? "O ganho não é mostrado: a persistência desta amostra tem macro-F1 zero."
+      : `ganho ${numBr(modelo.ganho_macro_f1)}`;
+    notas.push(`Previsões fechadas: ${modelo.n_fechadas}. Macro-F1 desta amostra, não o da validação. Persistência na mesma amostra: acurácia ${numBr(modelo.acuracia_persistencia)}, macro-F1 ${numBr(modelo.macro_f1_persistencia)}, ${ganho}. Pares em que a classe mudou: ${modelo.n_transicoes ?? "—"}.`);
+  }
+  if (ultima) notas.push(`Última previsão para a próxima medição: ${ultima.previsto} (OK ${numBr(ultima.prob_OK)}, RISCO ${numBr(ultima.prob_RISCO)}, FALHA ${numBr(ultima.prob_FALHA)}).`);
+  host.innerHTML = `
+    <div class="nf-grid">
+      <article class="nf-card"><h3 class="nf-h">Coleta</h3><p class="nf-n">Latência, jitter, perda, status da regra e classe prevista para a medição seguinte.</p>${sessao.erro ? `<p class="aviso">${esc(sessao.erro)}</p>` : ""}${corpo}</article>
+      <article class="nf-card">
+        <h3 class="nf-h">Modelo nesta amostra</h3>
+        <div class="nf-kpis">
+          <div class="nf-kpi"><p class="nf-kl">Resultados</p><p class="nf-kv">${esc(modelo.n || 0)}</p></div>
+          <div class="nf-kpi"><p class="nf-kl">Acurácia</p><p class="nf-kv">${numBr(modelo.acuracia)}</p></div>
+          <div class="nf-kpi"><p class="nf-kl">Macro-F1 desta amostra</p><p class="nf-kv">${numBr(modelo.macro_f1)}</p></div>
+          <div class="nf-kpi"><p class="nf-kl">Recall falha</p><p class="nf-kv">${numBr(modelo.recall_falha)}</p></div>
+        </div>
+        ${notas.map((nota) => `<p class="nf-n">${esc(nota)}</p>`).join("")}
+      </article>
+    </div>`;
+}
+
+function desenharVivo() {
+  desenharPar();
+  desenharColeta();
+}
+
+async function pedirApi(caminho, opcoes) {
+  const resposta = await fetch(API + caminho, opcoes);
+  if (!resposta.ok) {
+    let detalhe = "";
+    try { detalhe = (await resposta.json()).detail || ""; } catch (erro) { detalhe = ""; }
+    throw new Error(typeof detalhe === "string" ? detalhe : "A API recusou o pedido.");
+  }
+  return resposta.json();
+}
+
+async function atualizarSessao() {
+  const aviso = document.getElementById("vivo-aviso");
+  try {
+    vivo.sessao = await pedirApi("/monitorar/sessao");
+    if (!aviso.dataset.fixo) aviso.textContent = vivo.sessao && vivo.sessao.id_fluxo ? "" : "Nenhuma sessão em leitura. Escolha um par e comece o monitoramento.";
+    desenharVivo();
+  } catch (erro) {
+    vivo.sessao = null;
+    if (!aviso.dataset.fixo) aviso.textContent = "API indisponível. Suba a API em 127.0.0.1:8001 e atualize esta página. Se ela já estava no ar, reinicie para aceitar esta origem.";
+    desenharVivo();
+  }
+}
+
+async function carregarOpcoes() {
+  const aviso = document.getElementById("vivo-aviso");
+  const botao = document.getElementById("vivo-recarregar");
+  botao.disabled = true;
+  aviso.dataset.fixo = "1";
+  aviso.textContent = "Lendo os cinco pares na malha pública. Isso pode levar cerca de um minuto e não cria medição.";
+  try {
+    const pacote = await pedirApi("/monitorar/opcoes");
+    vivo.opcoesProntas = true;
+    if (pacote.escolhido) vivo.fluxo = pacote.escolhido;
+    desenharOpcoes(pacote);
+    aviso.textContent = "Pares atualizados. Começar monitoramento não cria medição.";
+  } catch (erro) {
+    desenharOpcoes({ opcoes: PARES, escolhido: vivo.fluxo });
+    aviso.textContent = "Os cinco pares locais continuam na lista. A API não devolveu a consulta ao vivo.";
+  } finally {
+    delete aviso.dataset.fixo;
+    botao.disabled = false;
+  }
+}
+
+document.getElementById("vivo-periodo").addEventListener("click", (evento) => {
+  const botao = evento.target.closest("button");
+  if (!botao) return;
+  vivo.dias = Number(botao.dataset.dias);
+  marcarPeriodo();
+});
+
+document.getElementById("vivo-duracao").addEventListener("change", (evento) => {
+  if (evento.target.name === "vivo-duracao") vivo.duracao = Number(evento.target.value);
+});
+
+document.getElementById("vivo-opcoes").addEventListener("change", (evento) => {
+  if (evento.target.name === "vivo-fluxo") vivo.fluxo = evento.target.value;
+});
+
+document.getElementById("vivo-metrica").addEventListener("change", desenharPar);
+
+document.getElementById("vivo-recarregar").addEventListener("click", carregarOpcoes);
+
+document.getElementById("vivo-comecar").addEventListener("click", async () => {
+  const aviso = document.getElementById("vivo-aviso");
+  const botao = document.getElementById("vivo-comecar");
+  if (!vivo.fluxo) {
+    aviso.textContent = "Marque um fluxo. Se a lista estiver vazia, atualize os pares.";
+    return;
+  }
+  botao.disabled = true;
+  aviso.dataset.fixo = "1";
+  aviso.textContent = "Abrindo a leitura pública. Nenhuma medição nova é criada.";
+  try {
+    await pedirApi("/monitorar/escolher", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id_fluxo: vivo.fluxo, duracao_minutos: vivo.duracao }),
+    });
+    const rotulo = DURACOES.find(([minutos]) => minutos === vivo.duracao);
+    aviso.textContent = `${vivo.fluxo} em leitura por ${rotulo ? rotulo[1] : vivo.duracao + " min"}, a partir de agora. Nenhuma medição foi criada.`;
+    await atualizarSessao();
+  } catch (erro) {
+    aviso.textContent = erro.message || "API indisponível.";
+  } finally {
+    delete aviso.dataset.fixo;
+    botao.disabled = false;
+  }
+});
+
+marcarPeriodo();
+desenharDuracao();
+desenharOpcoes({ opcoes: PARES, escolhido: vivo.fluxo });
+desenharVivo();
+carregarOpcoes();
+atualizarSessao();
+setInterval(atualizarSessao, 5000);
+
+desenharChips();
+desenharFamilias();
+desenharComposicao();
+desenharMotivos();
+desenharFeatures();
+render();
+</script>
+</body>
+</html>

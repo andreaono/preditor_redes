@@ -1,0 +1,52 @@
+# Critérios de aceite do teste de campo.
+# Os quatro limiares e os dois mínimos abaixo estão null de propósito.
+# Quem decide o número é o responsável pelo teste. Este arquivo não congela sozinho.
+
+modelo_versao: rf_v1.0.0
+
+fatias:
+  - geral
+  - transicoes
+  - por_continente
+  - probe_vs_anchor
+  - com_e_sem_anchor_dominante
+
+metricas:
+  primarias:
+    - macro_f1
+    - recall_falha
+    - ganho_sobre_persistencia
+  secundarias:
+    - f1_por_classe
+    - precisao
+    - pr_auc
+    - antecedencia
+
+limiares:
+  # Validação do Random Forest nas transições: macro-F1 0,306 (n=4802).
+  # A persistência nessa fatia é 0 por construção. Sugestão de piso: 0,25 a 0,35.
+  macro_f1_transicoes_min: null
+  # Recall de FALHA na validação geral: 0,738. Nas transições e no início de FALHA: 0,181.
+  # O protocolo da etapa 8 usa 0,50 como alerta, tanto no geral quanto no início.
+  # Um piso de 0,50 passa no geral e falha no início. A sugestão depende de qual definição for a do campo.
+  recall_falha_min: null
+  # Ganho de macro-F1 sobre a persistência na validação geral: 0,0566 (0,767 − 0,711).
+  # A etapa 8 trata ganho abaixo de 0,03 como pequeno. No teste já executado o ganho geral foi 0,044.
+  # Sugestão de piso: 0,03 a 0,05. Não copiar o número da validação para cá.
+  ganho_sobre_persistencia_min: null
+  # A etapa 8 não calculou antecedência em minutos. O intervalo das medições é 240 s.
+  # Sugestão, só depois de definir a métrica: 4 a 12 minutos.
+  antecedencia_media_min_minutos: null
+
+periodo_minimo_coleta_dias: 14
+
+# Validação: 1406 medições FALHA e 414 inícios de FALHA. Sugestão: pelo menos 100 inícios no campo.
+minimo_eventos_falha: null
+# O dataset final tem 135 fluxos. Sugestão: não concluir o campo com menos de 30 fluxos.
+minimo_fluxos: null
+
+bootstrap:
+  nivel: fluxo
+  iteracoes: 1000
+  seed: 42
+  ic: 0.95

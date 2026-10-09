@@ -1,0 +1,8 @@
+# Pisos iniciais de monitoramento. Não substituem config/criterios.yaml, que continua vazio.
+psi_estavel: 0.1
+psi_alerta: 0.25
+js_alerta: 0.1
+minimo_amostra: 30
+macro_f1_min: 0.60
+recall_falha_min: 0.50
+feriados: []

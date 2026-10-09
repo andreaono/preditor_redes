@@ -1,0 +1,9 @@
+modelo_versao: rf_v1.0.0
+seed: 42
+classes:
+  - OK
+  - RISCO
+  - FALHA
+arquivo_modelo: ../8_treino_modelos/data/modelos/modelo_escolhido.joblib
+arquivo_metadados_modelo: ../8_treino_modelos/data/modelo_escolhido.json
+pasta_logs: logs/predicoes

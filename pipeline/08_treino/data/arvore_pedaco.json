@@ -1,0 +1,156 @@
+{
+  "origem": "random_forest_arvore_0",
+  "n_arvores": 200,
+  "profundidade_total": 56,
+  "n_folhas": 8886,
+  "nos": [
+    {
+      "id": 0,
+      "profundidade": 0,
+      "folha": false,
+      "continua": false,
+      "feature": "perda_media_w12",
+      "limiar": "34.02775001525879",
+      "esquerda": 1,
+      "direita": 17380,
+      "amostras": 241359,
+      "contagem": {
+        "OK": 211029,
+        "RISCO": 20695,
+        "FALHA": 9635
+      },
+      "majoritaria": "OK",
+      "prevista": "1.0",
+      "rotulo_esquerda": "sim",
+      "rotulo_direita": "não"
+    },
+    {
+      "id": 1,
+      "profundidade": 1,
+      "folha": false,
+      "continua": false,
+      "feature": "razao_jitter_p95",
+      "limiar": "1.4630749821662903",
+      "esquerda": 2,
+      "direita": 16147,
+      "amostras": 238709,
+      "contagem": {
+        "OK": 210493,
+        "RISCO": 20498,
+        "FALHA": 7718
+      },
+      "majoritaria": "OK",
+      "prevista": "1.0",
+      "rotulo_esquerda": "sim",
+      "rotulo_direita": "não"
+    },
+    {
+      "id": 2,
+      "profundidade": 2,
+      "folha": true,
+      "continua": true,
+      "feature": "n_rtt_acima_p95_w12",
+      "limiar": "6.5",
+      "esquerda": null,
+      "direita": null,
+      "amostras": 229815,
+      "contagem": {
+        "OK": 205134,
+        "RISCO": 17987,
+        "FALHA": 6694
+      },
+      "majoritaria": "OK",
+      "prevista": "1.0",
+      "rotulo_esquerda": "sim",
+      "rotulo_direita": "não"
+    },
+    {
+      "id": 16147,
+      "profundidade": 2,
+      "folha": true,
+      "continua": true,
+      "feature": "n_rtt_acima_p95_w6",
+      "limiar": "2.5",
+      "esquerda": null,
+      "direita": null,
+      "amostras": 8894,
+      "contagem": {
+        "OK": 5359,
+        "RISCO": 2511,
+        "FALHA": 1024
+      },
+      "majoritaria": "OK",
+      "prevista": "1.0",
+      "rotulo_esquerda": "sim",
+      "rotulo_direita": "não"
+    },
+    {
+      "id": 17380,
+      "profundidade": 1,
+      "folha": false,
+      "continua": false,
+      "feature": "perda_media_w12",
+      "limiar": "98.61109924316406",
+      "esquerda": 17381,
+      "direita": 17758,
+      "amostras": 2650,
+      "contagem": {
+        "OK": 536,
+        "RISCO": 197,
+        "FALHA": 1917
+      },
+      "majoritaria": "FALHA",
+      "prevista": "0.0",
+      "rotulo_esquerda": "sim",
+      "rotulo_direita": "não"
+    },
+    {
+      "id": 17381,
+      "profundidade": 2,
+      "folha": true,
+      "continua": true,
+      "feature": "perda_media_w6",
+      "limiar": "34.72220039367676",
+      "esquerda": null,
+      "direita": null,
+      "amostras": 2129,
+      "contagem": {
+        "OK": 525,
+        "RISCO": 196,
+        "FALHA": 1408
+      },
+      "majoritaria": "FALHA",
+      "prevista": "0.0",
+      "rotulo_esquerda": "sim",
+      "rotulo_direita": "não"
+    },
+    {
+      "id": 17758,
+      "profundidade": 2,
+      "folha": true,
+      "continua": true,
+      "feature": "perdas_consecutivas",
+      "limiar": "97.5",
+      "esquerda": null,
+      "direita": null,
+      "amostras": 521,
+      "contagem": {
+        "OK": 11,
+        "RISCO": 1,
+        "FALHA": 509
+      },
+      "majoritaria": "FALHA",
+      "prevista": "0.0",
+      "rotulo_esquerda": "sim",
+      "rotulo_direita": "não"
+    }
+  ],
+  "caminho_falha": [
+    0,
+    17380,
+    17758
+  ],
+  "texto_caminho": "se perda_media_w12 > 34,03 e perda_media_w12 > 98,61, então 0.0",
+  "contagem_em": "treino",
+  "nota_contagem": "As contagens desta árvore foram feitas no treino inteiro, não na amostra bootstrap dela."
+}

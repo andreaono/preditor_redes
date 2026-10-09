@@ -1,0 +1,1146 @@
+{
+  "meta": {
+    "gerado_em": "2026-10-05T17:17:08+00:00",
+    "estrategia_busca": "Para cada anchor da chave anchors, consultar GET /measurements/ com type=ping, af=4 e status=2, primeiro com target=<fqdn> e depois com target_ip=<ip_v4>. Deduplicar por id. Não usar target_asn. Todo mesh_measurement_ids ausente dessa busca é conferido em GET /measurements/{id}/, sem baixar /results/.",
+    "limitacoes": [
+      "target_asn filtra o AS inteiro, não a anchor, e fica de fora da busca.",
+      "GET /anchors/{id}/measurements/ respondeu 405 na anchor 3679 e não é usado.",
+      "A listagem completa de anchor-measurements não é repetida: a Etapa 1 já gravou os IDs mesh, e o filtro type desse endpoint é ignorado pela API.",
+      "Somente metadados são baixados; URLs de /results/ não são consultadas."
+    ],
+    "totais": {
+      "anchors": 30,
+      "medicoes": 63,
+      "anchors_sem_medicao": 0
+    },
+    "anchors_com_erro": [],
+    "complementos_mesh": [],
+    "duplicatas_resolvidas": [],
+    "conferencia_mesh": {
+      "esperados": 30,
+      "encontrados": 30,
+      "ausentes": []
+    }
+  },
+  "anchors": [
+    {
+      "id": 4335,
+      "hostname": "ca-van-as396993",
+      "fqdn": "ca-van-as396993.anchors.atlas.ripe.net",
+      "ip_v4": "198.135.169.29",
+      "city": "Vancouver",
+      "country": "CA",
+      "medicoes": [
+        {
+          "id": 112696111,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor ca-van-as396993.anchors.atlas.ripe.net",
+          "start_time": 1751028170,
+          "target": "ca-van-as396993.anchors.atlas.ripe.net",
+          "target_ip": "198.135.169.29",
+          "participant_count": 1071
+        },
+        {
+          "id": 112713951,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor ca-van-as396993.anchors.atlas.ripe.net",
+          "start_time": 1751032931,
+          "target": "ca-van-as396993.anchors.atlas.ripe.net",
+          "target_ip": "198.135.169.29",
+          "participant_count": 146
+        }
+      ]
+    },
+    {
+      "id": 3920,
+      "hostname": "do-lav-as273867",
+      "fqdn": "do-lav-as273867.anchors.atlas.ripe.net",
+      "ip_v4": "45.68.42.34",
+      "city": "La Vega",
+      "country": "DO",
+      "medicoes": [
+        {
+          "id": 79976907,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor do-lav-as273867.anchors.atlas.ripe.net",
+          "start_time": 1728225127,
+          "target": "do-lav-as273867.anchors.atlas.ripe.net",
+          "target_ip": "45.68.42.34",
+          "participant_count": 1065
+        },
+        {
+          "id": 79977886,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor do-lav-as273867.anchors.atlas.ripe.net",
+          "start_time": 1728231092,
+          "target": "do-lav-as273867.anchors.atlas.ripe.net",
+          "target_ip": "45.68.42.34",
+          "participant_count": 132
+        }
+      ]
+    },
+    {
+      "id": 1086,
+      "hostname": "mx-tte-as22894",
+      "fqdn": "mx-tte-as22894.anchors.atlas.ripe.net",
+      "ip_v4": "200.94.182.170",
+      "city": "Monterrey",
+      "country": "MX",
+      "medicoes": [
+        {
+          "id": 16437037,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor mx-tte-as22894.anchors.atlas.ripe.net",
+          "start_time": 1538652864,
+          "target": "mx-tte-as22894.anchors.atlas.ripe.net",
+          "target_ip": "200.94.182.170",
+          "participant_count": 1058
+        },
+        {
+          "id": 16437076,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor mx-tte-as22894.anchors.atlas.ripe.net",
+          "start_time": 1538653217,
+          "target": "mx-tte-as22894.anchors.atlas.ripe.net",
+          "target_ip": "200.94.182.170",
+          "participant_count": 119
+        }
+      ]
+    },
+    {
+      "id": 1418,
+      "hostname": "tt-ptw-as264811",
+      "fqdn": "tt-ptw-as264811.anchors.atlas.ripe.net",
+      "ip_v4": "131.72.76.118",
+      "city": "Princes Town",
+      "country": "TT",
+      "medicoes": [
+        {
+          "id": 88535195,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor tt-ptw-as264811.anchors.atlas.ripe.net",
+          "start_time": 1740917488,
+          "target": "tt-ptw-as264811.anchors.atlas.ripe.net",
+          "target_ip": "131.72.76.118",
+          "participant_count": 1068
+        },
+        {
+          "id": 88636105,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor tt-ptw-as264811.anchors.atlas.ripe.net",
+          "start_time": 1740954368,
+          "target": "tt-ptw-as264811.anchors.atlas.ripe.net",
+          "target_ip": "131.72.76.118",
+          "participant_count": 173
+        }
+      ]
+    },
+    {
+      "id": 1880,
+      "hostname": "us-dcx-as5006",
+      "fqdn": "us-dcx-as5006.anchors.atlas.ripe.net",
+      "ip_v4": "206.144.243.4",
+      "city": "Dallas",
+      "country": "US",
+      "medicoes": [
+        {
+          "id": 23663001,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor us-dcx-as5006.anchors.atlas.ripe.net",
+          "start_time": 1576672509,
+          "target": "us-dcx-as5006.anchors.atlas.ripe.net",
+          "target_ip": "206.144.243.4",
+          "participant_count": 1058
+        },
+        {
+          "id": 23664697,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor us-dcx-as5006.anchors.atlas.ripe.net",
+          "start_time": 1576706331,
+          "target": "us-dcx-as5006.anchors.atlas.ripe.net",
+          "target_ip": "206.144.243.4",
+          "participant_count": 187
+        }
+      ]
+    },
+    {
+      "id": 3816,
+      "hostname": "ar-bue-as4270",
+      "fqdn": "ar-bue-as4270.anchors.atlas.ripe.net",
+      "ip_v4": "170.210.5.200",
+      "city": "Buenos Aires",
+      "country": "AR",
+      "medicoes": [
+        {
+          "id": 94342428,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor ar-bue-as4270.anchors.atlas.ripe.net",
+          "start_time": 1743193980,
+          "target": "ar-bue-as4270.anchors.atlas.ripe.net",
+          "target_ip": "170.210.5.200",
+          "participant_count": 1068
+        },
+        {
+          "id": 94353556,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor ar-bue-as4270.anchors.atlas.ripe.net",
+          "start_time": 1743197876,
+          "target": "ar-bue-as4270.anchors.atlas.ripe.net",
+          "target_ip": "170.210.5.200",
+          "participant_count": 98
+        },
+        {
+          "id": 198487759,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Ping measurement to ar-bue-as4270.anchors.atlas.ripe.net",
+          "start_time": 1786130731,
+          "target": "ar-bue-as4270.anchors.atlas.ripe.net",
+          "target_ip": "170.210.5.200",
+          "participant_count": 1
+        }
+      ]
+    },
+    {
+      "id": 4371,
+      "hostname": "bo-cbb-as27839",
+      "fqdn": "bo-cbb-as27839.anchors.atlas.ripe.net",
+      "ip_v4": "200.58.72.14",
+      "city": "Cochabamba",
+      "country": "BO",
+      "medicoes": [
+        {
+          "id": 125059414,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor bo-cbb-as27839.anchors.atlas.ripe.net",
+          "start_time": 1755870296,
+          "target": "bo-cbb-as27839.anchors.atlas.ripe.net",
+          "target_ip": "200.58.72.14",
+          "participant_count": 1071
+        }
+      ]
+    },
+    {
+      "id": 3679,
+      "hostname": "br-fec-as264479",
+      "fqdn": "br-fec-as264479.anchors.atlas.ripe.net",
+      "ip_v4": "138.117.32.11",
+      "city": "Feira de Santana",
+      "country": "BR",
+      "medicoes": [
+        {
+          "id": 66196984,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor br-fec-as264479.anchors.atlas.ripe.net",
+          "start_time": 1705350819,
+          "target": "br-fec-as264479.anchors.atlas.ripe.net",
+          "target_ip": "138.117.32.11",
+          "participant_count": 1064
+        },
+        {
+          "id": 66198951,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor br-fec-as264479.anchors.atlas.ripe.net",
+          "start_time": 1705357719,
+          "target": "br-fec-as264479.anchors.atlas.ripe.net",
+          "target_ip": "138.117.32.11",
+          "participant_count": 154
+        }
+      ]
+    },
+    {
+      "id": 1605,
+      "hostname": "cl-scl-as64112",
+      "fqdn": "cl-scl-as64112.anchors.atlas.ripe.net",
+      "ip_v4": "170.247.95.81",
+      "city": "Santiago de Chile",
+      "country": "CL",
+      "medicoes": [
+        {
+          "id": 19187535,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor cl-scl-as64112.anchors.atlas.ripe.net",
+          "start_time": 1548686033,
+          "target": "cl-scl-as64112.anchors.atlas.ripe.net",
+          "target_ip": "170.247.95.81",
+          "participant_count": 1058
+        },
+        {
+          "id": 19187739,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor cl-scl-as64112.anchors.atlas.ripe.net",
+          "start_time": 1548686671,
+          "target": "cl-scl-as64112.anchors.atlas.ripe.net",
+          "target_ip": "170.247.95.81",
+          "participant_count": 147
+        }
+      ]
+    },
+    {
+      "id": 3217,
+      "hostname": "pe-aqp-as263189",
+      "fqdn": "pe-aqp-as263189.anchors.atlas.ripe.net",
+      "ip_v4": "179.43.96.85",
+      "city": "Arequipa",
+      "country": "PE",
+      "medicoes": [
+        {
+          "id": 48152563,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor pe-aqp-as263189.anchors.atlas.ripe.net",
+          "start_time": 1672367770,
+          "target": "pe-aqp-as263189.anchors.atlas.ripe.net",
+          "target_ip": "179.43.96.85",
+          "participant_count": 1061
+        },
+        {
+          "id": 48156476,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor pe-aqp-as263189.anchors.atlas.ripe.net",
+          "start_time": 1672380638,
+          "target": "pe-aqp-as263189.anchors.atlas.ripe.net",
+          "target_ip": "179.43.96.85",
+          "participant_count": 137
+        }
+      ]
+    },
+    {
+      "id": 4074,
+      "hostname": "uy-mvd-as28000",
+      "fqdn": "uy-mvd-as28000.anchors.atlas.ripe.net",
+      "ip_v4": "200.7.84.24",
+      "city": "Montevideo",
+      "country": "UY",
+      "medicoes": [
+        {
+          "id": 86022641,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor uy-mvd-as28000.anchors.atlas.ripe.net",
+          "start_time": 1736584386,
+          "target": "uy-mvd-as28000.anchors.atlas.ripe.net",
+          "target_ip": "200.7.84.24",
+          "participant_count": 1067
+        },
+        {
+          "id": 86023946,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor uy-mvd-as28000.anchors.atlas.ripe.net",
+          "start_time": 1736590558,
+          "target": "uy-mvd-as28000.anchors.atlas.ripe.net",
+          "target_ip": "200.7.84.24",
+          "participant_count": 101
+        }
+      ]
+    },
+    {
+      "id": 4261,
+      "hostname": "ve-bla-as21826",
+      "fqdn": "ve-bla-as21826.anchors.atlas.ripe.net",
+      "ip_v4": "200.82.230.152",
+      "city": "Barcelona",
+      "country": "VE",
+      "medicoes": [
+        {
+          "id": 132526060,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor ve-bla-as21826.anchors.atlas.ripe.net",
+          "start_time": 1760553069,
+          "target": "ve-bla-as21826.anchors.atlas.ripe.net",
+          "target_ip": "200.82.230.152",
+          "participant_count": 1070
+        },
+        {
+          "id": 132528686,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor ve-bla-as21826.anchors.atlas.ripe.net",
+          "start_time": 1760554778,
+          "target": "ve-bla-as21826.anchors.atlas.ripe.net",
+          "target_ip": "200.82.230.152",
+          "participant_count": 149
+        }
+      ]
+    },
+    {
+      "id": 2343,
+      "hostname": "ch-win-as58299",
+      "fqdn": "ch-win-as58299.anchors.atlas.ripe.net",
+      "ip_v4": "5.226.144.240",
+      "city": "Winterthur",
+      "country": "CH",
+      "medicoes": [
+        {
+          "id": 26523893,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor ch-win-as58299.anchors.atlas.ripe.net",
+          "start_time": 1596134046,
+          "target": "ch-win-as58299.anchors.atlas.ripe.net",
+          "target_ip": "5.226.144.240",
+          "participant_count": 1058
+        },
+        {
+          "id": 26524399,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor ch-win-as58299.anchors.atlas.ripe.net",
+          "start_time": 1596138509,
+          "target": "ch-win-as58299.anchors.atlas.ripe.net",
+          "target_ip": "5.226.144.240",
+          "participant_count": 151
+        }
+      ]
+    },
+    {
+      "id": 1360,
+      "hostname": "de-mdt-as15945",
+      "fqdn": "de-mdt-as15945.anchors.atlas.ripe.net",
+      "ip_v4": "213.206.174.172",
+      "city": "Mutterstadt",
+      "country": "DE",
+      "medicoes": [
+        {
+          "id": 15708032,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor de-mdt-as15945.anchors.atlas.ripe.net",
+          "start_time": 1534235383,
+          "target": "de-mdt-as15945.anchors.atlas.ripe.net",
+          "target_ip": "213.206.174.172",
+          "participant_count": 1058
+        },
+        {
+          "id": 15708052,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor de-mdt-as15945.anchors.atlas.ripe.net",
+          "start_time": 1534235753,
+          "target": "de-mdt-as15945.anchors.atlas.ripe.net",
+          "target_ip": "213.206.174.172",
+          "participant_count": 237
+        }
+      ]
+    },
+    {
+      "id": 1612,
+      "hostname": "fr-rns-as204092",
+      "fqdn": "fr-rns-as204092.anchors.atlas.ripe.net",
+      "ip_v4": "80.67.190.218",
+      "city": "Rennes",
+      "country": "FR",
+      "medicoes": [
+        {
+          "id": 19299324,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor fr-rns-as204092.anchors.atlas.ripe.net",
+          "start_time": 1549014346,
+          "target": "fr-rns-as204092.anchors.atlas.ripe.net",
+          "target_ip": "80.67.190.218",
+          "participant_count": 1058
+        },
+        {
+          "id": 19299477,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor fr-rns-as204092.anchors.atlas.ripe.net",
+          "start_time": 1549014906,
+          "target": "fr-rns-as204092.anchors.atlas.ripe.net",
+          "target_ip": "80.67.190.218",
+          "participant_count": 117
+        }
+      ]
+    },
+    {
+      "id": 1223,
+      "hostname": "it-mil-as42473",
+      "fqdn": "it-mil-as42473.anchors.atlas.ripe.net",
+      "ip_v4": "188.172.218.22",
+      "city": "Milano",
+      "country": "IT",
+      "medicoes": [
+        {
+          "id": 10683789,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor it-mil-as42473.anchors.atlas.ripe.net",
+          "start_time": 1514465410,
+          "target": "it-mil-as42473.anchors.atlas.ripe.net",
+          "target_ip": "188.172.218.22",
+          "participant_count": 1057
+        },
+        {
+          "id": 10683801,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor it-mil-as42473.anchors.atlas.ripe.net",
+          "start_time": 1514465786,
+          "target": "it-mil-as42473.anchors.atlas.ripe.net",
+          "target_ip": "188.172.218.22",
+          "participant_count": 149
+        }
+      ]
+    },
+    {
+      "id": 3294,
+      "hostname": "nl-ams-as44788",
+      "fqdn": "nl-ams-as44788.anchors.atlas.ripe.net",
+      "ip_v4": "178.250.1.75",
+      "city": "Amsterdam",
+      "country": "NL",
+      "medicoes": [
+        {
+          "id": 79429531,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor nl-ams-as44788.anchors.atlas.ripe.net",
+          "start_time": 1727471912,
+          "target": "nl-ams-as44788.anchors.atlas.ripe.net",
+          "target_ip": "178.250.1.75",
+          "participant_count": 1065
+        },
+        {
+          "id": 79430946,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor nl-ams-as44788.anchors.atlas.ripe.net",
+          "start_time": 1727476674,
+          "target": "nl-ams-as44788.anchors.atlas.ripe.net",
+          "target_ip": "178.250.1.75",
+          "participant_count": 407
+        }
+      ]
+    },
+    {
+      "id": 4169,
+      "hostname": "se-bod-as200675",
+      "fqdn": "se-bod-as200675.anchors.atlas.ripe.net",
+      "ip_v4": "185.71.177.181",
+      "city": "Boden",
+      "country": "SE",
+      "medicoes": [
+        {
+          "id": 91218945,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor se-bod-as200675.anchors.atlas.ripe.net",
+          "start_time": 1741876492,
+          "target": "se-bod-as200675.anchors.atlas.ripe.net",
+          "target_ip": "185.71.177.181",
+          "participant_count": 1068
+        },
+        {
+          "id": 91220449,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor se-bod-as200675.anchors.atlas.ripe.net",
+          "start_time": 1741884024,
+          "target": "se-bod-as200675.anchors.atlas.ripe.net",
+          "target_ip": "185.71.177.181",
+          "participant_count": 210
+        }
+      ]
+    },
+    {
+      "id": 4685,
+      "hostname": "au-mel-as63956",
+      "fqdn": "au-mel-as63956.anchors.atlas.ripe.net",
+      "ip_v4": "103.52.117.1",
+      "city": "Melbourne",
+      "country": "AU",
+      "medicoes": [
+        {
+          "id": 179906321,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor au-mel-as63956.anchors.atlas.ripe.net",
+          "start_time": 1781353956,
+          "target": "au-mel-as63956.anchors.atlas.ripe.net",
+          "target_ip": "103.52.117.1",
+          "participant_count": 1077
+        },
+        {
+          "id": 179913953,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor au-mel-as63956.anchors.atlas.ripe.net",
+          "start_time": 1781355920,
+          "target": "au-mel-as63956.anchors.atlas.ripe.net",
+          "target_ip": "103.52.117.1",
+          "participant_count": 145
+        }
+      ]
+    },
+    {
+      "id": 2842,
+      "hostname": "nc-nou-as45345",
+      "fqdn": "nc-nou-as45345.anchors.atlas.ripe.net",
+      "ip_v4": "103.2.186.195",
+      "city": "Nouméa",
+      "country": "NC",
+      "medicoes": [
+        {
+          "id": 31471701,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor nc-nou-as45345.anchors.atlas.ripe.net",
+          "start_time": 1625762020,
+          "target": "nc-nou-as45345.anchors.atlas.ripe.net",
+          "target_ip": "103.2.186.195",
+          "participant_count": 1061
+        },
+        {
+          "id": 31472920,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor nc-nou-as45345.anchors.atlas.ripe.net",
+          "start_time": 1625766398,
+          "target": "nc-nou-as45345.anchors.atlas.ripe.net",
+          "target_ip": "103.2.186.195",
+          "participant_count": 153
+        }
+      ]
+    },
+    {
+      "id": 4809,
+      "hostname": "gh-acc-as37271",
+      "fqdn": "gh-acc-as37271.anchors.atlas.ripe.net",
+      "ip_v4": "197.157.75.29",
+      "city": "Accra",
+      "country": "GH",
+      "medicoes": [
+        {
+          "id": 207232419,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor gh-acc-as37271.anchors.atlas.ripe.net",
+          "start_time": 1788358867,
+          "target": "gh-acc-as37271.anchors.atlas.ripe.net",
+          "target_ip": "197.157.75.29",
+          "participant_count": 1056
+        },
+        {
+          "id": 207245097,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor gh-acc-as37271.anchors.atlas.ripe.net",
+          "start_time": 1788360961,
+          "target": "gh-acc-as37271.anchors.atlas.ripe.net",
+          "target_ip": "197.157.75.29",
+          "participant_count": 4
+        }
+      ]
+    },
+    {
+      "id": 4828,
+      "hostname": "ly-tip-as329263-client",
+      "fqdn": "ly-tip-as329263-client.anchors.atlas.ripe.net",
+      "ip_v4": "102.213.181.187",
+      "city": "Tripoli",
+      "country": "LY",
+      "medicoes": [
+        {
+          "id": 209696740,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor ly-tip-as329263-client.anchors.atlas.ripe.net",
+          "start_time": 1788949268,
+          "target": "ly-tip-as329263-client.anchors.atlas.ripe.net",
+          "target_ip": "102.213.181.187",
+          "participant_count": 1053
+        },
+        {
+          "id": 209710220,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor ly-tip-as329263-client.anchors.atlas.ripe.net",
+          "start_time": 1788951400,
+          "target": "ly-tip-as329263-client.anchors.atlas.ripe.net",
+          "target_ip": "102.213.181.187",
+          "participant_count": 5
+        },
+        {
+          "id": 211728548,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Ping measurement to 102.213.181.187 ( LTF Anchor )",
+          "start_time": 1789472040,
+          "target": "102.213.181.187",
+          "target_ip": "102.213.181.187",
+          "participant_count": 7
+        },
+        {
+          "id": 213308117,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Ping measurement to 102.213.181.187 ( LTF ANCHOR )",
+          "start_time": 1789821120,
+          "target": "102.213.181.187",
+          "target_ip": "102.213.181.187",
+          "participant_count": 1
+        }
+      ]
+    },
+    {
+      "id": 4292,
+      "hostname": "sl-fna-as209049",
+      "fqdn": "sl-fna-as209049.anchors.atlas.ripe.net",
+      "ip_v4": "195.110.184.7",
+      "city": "Freetown",
+      "country": "SL",
+      "medicoes": [
+        {
+          "id": 108739161,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor sl-fna-as209049.anchors.atlas.ripe.net",
+          "start_time": 1749587408,
+          "target": "sl-fna-as209049.anchors.atlas.ripe.net",
+          "target_ip": "195.110.184.7",
+          "participant_count": 1070
+        },
+        {
+          "id": 108745188,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor sl-fna-as209049.anchors.atlas.ripe.net",
+          "start_time": 1749591063,
+          "target": "sl-fna-as209049.anchors.atlas.ripe.net",
+          "target_ip": "195.110.184.7",
+          "participant_count": 162
+        }
+      ]
+    },
+    {
+      "id": 4766,
+      "hostname": "za-dur-as37668",
+      "fqdn": "za-dur-as37668.anchors.atlas.ripe.net",
+      "ip_v4": "196.10.55.135",
+      "city": "Durban",
+      "country": "ZA",
+      "medicoes": [
+        {
+          "id": 192498850,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor za-dur-as37668.anchors.atlas.ripe.net",
+          "start_time": 1784658700,
+          "target": "za-dur-as37668.anchors.atlas.ripe.net",
+          "target_ip": "196.10.55.135",
+          "participant_count": 1074
+        },
+        {
+          "id": 192509392,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor za-dur-as37668.anchors.atlas.ripe.net",
+          "start_time": 1784660776,
+          "target": "za-dur-as37668.anchors.atlas.ripe.net",
+          "target_ip": "196.10.55.135",
+          "participant_count": 97
+        }
+      ]
+    },
+    {
+      "id": 4707,
+      "hostname": "bh-amh-as51375",
+      "fqdn": "bh-amh-as51375.anchors.atlas.ripe.net",
+      "ip_v4": "37.131.66.98",
+      "city": "Seef",
+      "country": "BH",
+      "medicoes": [
+        {
+          "id": 209654486,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor bh-amh-as51375.anchors.atlas.ripe.net",
+          "start_time": 1788942064,
+          "target": "bh-amh-as51375.anchors.atlas.ripe.net",
+          "target_ip": "37.131.15.98",
+          "participant_count": 1053
+        },
+        {
+          "id": 209666740,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor bh-amh-as51375.anchors.atlas.ripe.net",
+          "start_time": 1788944311,
+          "target": "bh-amh-as51375.anchors.atlas.ripe.net",
+          "target_ip": "37.131.15.98",
+          "participant_count": 5
+        },
+        {
+          "id": 213763866,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor bh-amh-as51375.anchors.atlas.ripe.net",
+          "start_time": 1789993326,
+          "target": "bh-amh-as51375.anchors.atlas.ripe.net",
+          "target_ip": "37.131.66.98",
+          "participant_count": 1048
+        }
+      ]
+    },
+    {
+      "id": 2526,
+      "hostname": "jp-tyo-as12008",
+      "fqdn": "jp-tyo-as12008.anchors.atlas.ripe.net",
+      "ip_v4": "156.154.181.254",
+      "city": "Tokyo",
+      "country": "JP",
+      "medicoes": [
+        {
+          "id": 79354268,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor jp-tyo-as12008.anchors.atlas.ripe.net",
+          "start_time": 1727266957,
+          "target": "jp-tyo-as12008.anchors.atlas.ripe.net",
+          "target_ip": "156.154.181.254",
+          "participant_count": 1065
+        },
+        {
+          "id": 79355432,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor jp-tyo-as12008.anchors.atlas.ripe.net",
+          "start_time": 1727271957,
+          "target": "jp-tyo-as12008.anchors.atlas.ripe.net",
+          "target_ip": "156.154.181.254",
+          "participant_count": 299
+        }
+      ]
+    },
+    {
+      "id": 4524,
+      "hostname": "kz-ura-as21299",
+      "fqdn": "kz-ura-as21299.anchors.atlas.ripe.net",
+      "ip_v4": "145.249.228.158",
+      "city": "Uralsk",
+      "country": "KZ",
+      "medicoes": [
+        {
+          "id": 141855159,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor kz-ura-as21299.anchors.atlas.ripe.net",
+          "start_time": 1764693216,
+          "target": "kz-ura-as21299.anchors.atlas.ripe.net",
+          "target_ip": "145.249.228.158",
+          "participant_count": 1070
+        },
+        {
+          "id": 141858884,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor kz-ura-as21299.anchors.atlas.ripe.net",
+          "start_time": 1764694985,
+          "target": "kz-ura-as21299.anchors.atlas.ripe.net",
+          "target_ip": "145.249.228.158",
+          "participant_count": 88
+        }
+      ]
+    },
+    {
+      "id": 4382,
+      "hostname": "lk-cmb-as151197",
+      "fqdn": "lk-cmb-as151197.anchors.atlas.ripe.net",
+      "ip_v4": "103.140.194.100",
+      "city": "Colombo",
+      "country": "LK",
+      "medicoes": [
+        {
+          "id": 125059589,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor lk-cmb-as151197.anchors.atlas.ripe.net",
+          "start_time": 1755870326,
+          "target": "lk-cmb-as151197.anchors.atlas.ripe.net",
+          "target_ip": "103.140.194.100",
+          "participant_count": 1071
+        },
+        {
+          "id": 125065652,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor lk-cmb-as151197.anchors.atlas.ripe.net",
+          "start_time": 1755872668,
+          "target": "lk-cmb-as151197.anchors.atlas.ripe.net",
+          "target_ip": "103.140.194.100",
+          "participant_count": 121
+        }
+      ]
+    },
+    {
+      "id": 4237,
+      "hostname": "my-kul-as45839",
+      "fqdn": "my-kul-as45839.anchors.atlas.ripe.net",
+      "ip_v4": "124.217.226.30",
+      "city": "kuala lumpur",
+      "country": "MY",
+      "medicoes": [
+        {
+          "id": 135841920,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor my-kul-as45839.anchors.atlas.ripe.net",
+          "start_time": 1762360151,
+          "target": "my-kul-as45839.anchors.atlas.ripe.net",
+          "target_ip": "124.217.226.30",
+          "participant_count": 1070
+        },
+        {
+          "id": 135857298,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor my-kul-as45839.anchors.atlas.ripe.net",
+          "start_time": 1762361715,
+          "target": "my-kul-as45839.anchors.atlas.ripe.net",
+          "target_ip": "124.217.226.30",
+          "participant_count": 90
+        }
+      ]
+    },
+    {
+      "id": 2026,
+      "hostname": "vn-sgn-as24173",
+      "fqdn": "vn-sgn-as24173.anchors.atlas.ripe.net",
+      "ip_v4": "101.53.31.6",
+      "city": "Ho Chi Minh City",
+      "country": "VN",
+      "medicoes": [
+        {
+          "id": 23834668,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Mesh Measurement: Ping IPv4 for anchor vn-sgn-as24173.anchors.atlas.ripe.net",
+          "start_time": 1579090223,
+          "target": "vn-sgn-as24173.anchors.atlas.ripe.net",
+          "target_ip": "101.53.31.6",
+          "participant_count": 1058
+        },
+        {
+          "id": 23836528,
+          "type": "ping",
+          "status": "Ongoing",
+          "af": 4,
+          "interval": 240,
+          "is_public": true,
+          "description": "Anchoring Probes Measurement: Ping IPv4 for anchor vn-sgn-as24173.anchors.atlas.ripe.net",
+          "start_time": 1579103584,
+          "target": "vn-sgn-as24173.anchors.atlas.ripe.net",
+          "target_ip": "101.53.31.6",
+          "participant_count": 215
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Probes de origem — Etapa 3</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f3f1ea; --ink: #1c1915; --muted: #5e584e; --card: #fffdf8;
+      --line: #e4ddd0; --accent: #0f6e56; --accent-soft: #e5f5ef; --br: #c45c26;
+      --shadow: 0 10px 30px rgba(40, 32, 20, 0.06);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #12171a; --ink: #f3f1ea; --muted: #b7b1a6; --card: #1c2428;
+      --line: #314046; --accent: #3dbe9a; --accent-soft: #16352c; --br: #e5925d;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.45; }
+    header, main { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
+    header { padding: 28px 0 8px; display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+    h1 { margin: 8px 0; font-size: 1.7rem; }
+    h2 { margin: 0 0 12px; font-size: 1.05rem; }
+    a { color: var(--br); }
+    .voltar { color: var(--muted); text-decoration: none; }
+    button { font: inherit; color: inherit; border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+    .frase { font-size: 1.05rem; }
+    .aviso { background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 16px; padding: 14px 16px; }
+    .grade { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 16px 0; }
+    .cartao, .bloco { background: var(--card); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); }
+    .cartao { padding: 14px; }
+    .cartao span { display: block; color: var(--muted); font-size: 0.82rem; }
+    .cartao strong { font-size: 1.35rem; }
+    .bloco { padding: 16px; margin: 16px 0; }
+    .selo { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: var(--br); color: #fff; font-size: 0.75rem; vertical-align: 2px; }
+    .legenda { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; color: var(--muted); }
+    .amostra { width: 14px; height: 14px; border-radius: 4px; display: inline-block; vertical-align: -2px; margin-right: 4px; }
+    svg { width: 100%; height: auto; }
+    .caixa { fill: var(--card); stroke: var(--line); }
+    .rotulo { fill: var(--ink); font-size: 13px; font-family: "Segoe UI", sans-serif; }
+    .miudo { fill: var(--muted); font-size: 12px; font-family: "Segoe UI", sans-serif; }
+    .tabela-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+    .badge.curta { background: #e5f5ef; color: #0f6e56; }
+    .badge.media { background: #fff1e6; color: #c45c26; }
+    .badge.longa { background: #e7eef8; color: #3d5a80; }
+    footer { width: min(1100px, calc(100% - 32px)); margin: 12px auto 28px; color: var(--muted); }
+    @media (max-width: 800px) {
+      .grade { grid-template-columns: 1fr 1fr; }
+      header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <a class="voltar" href="../../../index.html">← Início</a>
+      <h1 id="titulo">Probes de origem — Etapa 3</h1>
+      <p class="frase" id="frase"></p>
+    </div>
+    <button id="tema" type="button">Tema escuro</button>
+  </header>
+  <main>
+    <p class="aviso" id="aviso"></p>
+    <section class="grade" id="cartoes"></section>
+    <section class="bloco">
+      <h2>Fluxo origem → destino</h2>
+      <div id="diagrama"></div>
+      <div class="legenda" id="legenda"></div>
+    </section>
+    <div class="tabela-wrap">
+      <table>
+        <thead><tr id="cabecalho"></tr></thead>
+        <tbody id="corpo"></tbody>
+      </table>
+    </div>
+  </main>
+  <footer id="rodape"></footer>
+  <script id="dados-probes" type="application/json">{"meta":{"gerado_em":"2026-10-05T17:45:27+00:00","seed":42,"totais":{"destinos":30,"vinculos":150,"probes_distintas":144,"anchors_com_uma_probe":0,"anchors_sem_probe":0}},"destino":{"id":3679,"country":"BR","city":"Feira de Santana","hostname":"br-fec-as264479","ip_v4":"138.117.32.11","elegiveis":1152,"poucas_origens":false,"limitacoes":[],"probes":[{"id":1016806,"country_code":"BR","description":"CM Tech","longitude":-54.6725,"latitude":-27.8295,"is_anchor":false,"is_public":true,"status":"Connected","address_v4":"187.109.226.175","asn_v4":28343,"tags":["system-resolves-a-correctly","system-resolves-aaaa-correctly","system-ipv4-works","system-ipv6-works","system-ipv4-capable","system-ipv6-capable","system-ipv4-rfc1918","system-ipv6-stable-30d","system-ipv4-stable-30d","system-software","system-software-2"],"city":null,"measurement_ids":[66198951],"measurement_id":66198951,"distance_km":2381.0,"distance_band":"curta","continente":"América do Sul"},{"id":7607,"country_code":"SV","description":"SVNET","longitude":-89.2325,"latitude":13.6805,"is_anchor":true,"is_public":true,"status":"Connected","address_v4":"131.100.140.163","asn_v4":26617,"tags":["system-anchor","system-ipv4-capable","system-virtual"],"city":"San Salvador","measurement_ids":[66196984],"measurement_id":66196984,"distance_km":6244.3,"distance_band":"media","continente":"América do Norte"},{"id":7091,"country_code":"SG","description":"NewMedia Express Pte Ltd","longitude":103.7915,"latitude":1.2975,"is_anchor":true,"is_public":true,"status":"Connected","address_v4":"203.174.85.106","asn_v4":38001,"tags":["system-anchor","system-resolves-a-correctly","system-resolves-aaaa-correctly","system-ipv4-works","system-ipv6-works","system-ipv4-capable","system-ipv6-capable","system-ipv6-stable-1d","system-ipv4-stable-1d","system-v3-pc-engines"],"city":"Singapore","measurement_ids":[66196984],"measurement_id":66196984,"distance_km":15734.7,"distance_band":"longa","continente":"Ásia"},{"id":6630,"country_code":"NL","description":"InterDC","longitude":6.8585,"latitude":52.2175,"is_anchor":true,"is_public":true,"status":"Connected","address_v4":"178.251.24.49","asn_v4":42093,"tags":["system-anchor","system-resolves-a-correctly","system-resolves-aaaa-correctly","system-ipv4-works","system-ipv6-works","system-ipv4-capable","system-ipv6-capable","system-ipv6-stable-30d","system-ipv6-stable-1d","system-ipv4-stable-30d","system-ipv4-stable-90d","system-ipv6-stable-90d","system-ipv4-stable-1d","system-virtual"],"city":"Enschede","measurement_ids":[66196984],"measurement_id":66196984,"distance_km":8400.2,"distance_band":"media","continente":"Europa"},{"id":6803,"country_code":"NZ","description":"Prodigi Technology Services Limited","longitude":174.7675,"latitude":-36.8515,"is_anchor":true,"is_public":true,"status":"Connected","address_v4":"103.121.34.150","asn_v4":138398,"tags":["system-anchor","system-resolves-a-correctly","system-resolves-aaaa-correctly","system-ipv4-works","system-ipv6-works","system-ipv4-capable","system-ipv6-capable","system-ipv6-stable-30d","system-ipv6-stable-1d","system-ipv4-stable-30d","system-ipv4-stable-90d","system-ipv6-stable-90d","system-ipv4-stable-1d","system-firewall-problem-suspected","system-virtual"],"city":"Auckland","measurement_ids":[66196984],"measurement_id":66196984,"distance_km":13514.9,"distance_band":"longa","continente":"Oceania"}]},"pagina":{"titulo":"Probes de origem — Etapa 3","vazio":"—","sim":"sim","nao":"não","texto_sem_probe":"nenhuma probe elegível","texto_poucas":"poucas origens","caminho_dados":"data/probes_selecionadas.json","link_inicio":"../../index.html","url_probe":"https://atlas.ripe.net/probes/{id}/","url_medicao":"https://atlas.ripe.net/measurements/{id}/","total_destinos":30,"colunas":[{"chave":"country","rotulo":"País destino","tipo":"texto"},{"chave":"city_destino","rotulo":"Cidade destino","tipo":"texto"},{"chave":"country_code","rotulo":"País origem","tipo":"texto"},{"chave":"city","rotulo":"Cidade origem","tipo":"texto"},{"chave":"id","rotulo":"id_probe","tipo":"link_probe"},{"chave":"measurement_id","rotulo":"id_medição","tipo":"link_medicao"},{"chave":"is_public","rotulo":"Pública","tipo":"bool"},{"chave":"status","rotulo":"Status","tipo":"badge_status"},{"chave":"address_v4","rotulo":"ip_origem","tipo":"texto"},{"chave":"ip_destino","rotulo":"ip_destino","tipo":"texto"},{"chave":"distance_km","rotulo":"Distância (km)","tipo":"numero"},{"chave":"distance_band","rotulo":"Faixa","tipo":"badge_faixa"}],"cores_faixa":{"curta":"#0f6e56","media":"#c45c26","longa":"#3d5a80"},"rotulo_faixa":{"curta":"curta","media":"média","longa":"longa"},"ordem_faixas":["curta","media","longa"],"nomes_pais":{"AR":"Argentina","AU":"Austrália","BH":"Bahrein","BO":"Bolívia","BR":"Brasil","CA":"Canadá","CH":"Suíça","CL":"Chile","DE":"Alemanha","DO":"República Dominicana","FR":"França","GH":"Gana","IT":"Itália","JP":"Japão","KZ":"Cazaquistão","LK":"Sri Lanka","LY":"Líbia","MX":"México","MY":"Malásia","NC":"Nova Caledônia","NL":"Países Baixos","PE":"Peru","SE":"Suécia","SL":"Serra Leoa","TT":"Trinidad e Tobago","US":"Estados Unidos","UY":"Uruguai","VE":"Venezuela","VN":"Vietnã","ZA":"África do Sul"}}}</script>
+  <script>
+    const doc = JSON.parse(document.getElementById("dados-probes").textContent);
+    const pagina = doc.pagina;
+    const destino = doc.destino;
+    const probes = destino.probes || [];
+    const vazio = pagina.vazio;
+
+    const raiz = document.documentElement;
+    const botao = document.getElementById("tema");
+    const salvo = localStorage.getItem("etapa-tema");
+    aplicar(salvo || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+    botao.addEventListener("click", () => {
+      const proximo = raiz.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      localStorage.setItem("etapa-tema", proximo);
+      aplicar(proximo);
+    });
+    function aplicar(tema) {
+      raiz.setAttribute("data-theme", tema);
+      botao.textContent = tema === "dark" ? "Tema claro" : "Tema escuro";
+    }
+    function semValor(valor) {
+      return valor === null || valor === undefined || valor === "";
+    }
+    function nomePais(codigo) {
+      return pagina.nomes_pais[codigo] || codigo || vazio;
+    }
+    function juntar(lista) {
+      if (!lista.length) return "nenhuma probe";
+      if (lista.length === 1) return lista[0];
+      return lista.slice(0, -1).join(", ") + " e " + lista[lista.length - 1];
+    }
+    const frase = document.getElementById("frase");
+    frase.textContent = nomePais(destino.country) + " (destino · anchor) recebe pacotes de "
+      + juntar(probes.map((probe) => String(probe.id))) + " (origem · probes).";
+    if (destino.poucas_origens) {
+      const selo = document.createElement("span");
+      selo.className = "selo";
+      selo.textContent = pagina.texto_poucas;
+      frase.appendChild(selo);
+    }
+    document.getElementById("aviso").textContent = "Amostra: 1 de " + pagina.total_destinos
+      + " destinos. Dados completos em `" + pagina.caminho_dados + "`.";
+
+    const totais = doc.meta.totais;
+    const grade = document.getElementById("cartoes");
+    [
+      ["Destinos", String(totais.destinos)],
+      ["Vínculos", String(totais.vinculos)],
+      ["Probes distintas", String(totais.probes_distintas)],
+      ["Com 1 probe", String(totais.anchors_com_uma_probe)],
+      ["Sem probe", String(totais.anchors_sem_probe)]
+    ].forEach(([rotulo, valor]) => {
+      const artigo = document.createElement("article");
+      artigo.className = "cartao";
+      const span = document.createElement("span");
+      span.textContent = rotulo;
+      const forte = document.createElement("strong");
+      forte.textContent = valor;
+      artigo.append(span, forte);
+      grade.appendChild(artigo);
+    });
+
+    const legenda = document.getElementById("legenda");
+    pagina.ordem_faixas.forEach((faixa) => {
+      const item = document.createElement("span");
+      const cor = document.createElement("i");
+      cor.className = "amostra";
+      cor.style.background = pagina.cores_faixa[faixa];
+      item.append(cor, document.createTextNode(pagina.rotulo_faixa[faixa] || faixa));
+      legenda.appendChild(item);
+    });
+
+    function svgEl(nome) {
+      return document.createElementNS("http://www.w3.org/2000/svg", nome);
+    }
+    function desenhar() {
+      const painel = document.getElementById("diagrama");
+      painel.replaceChildren();
+      if (!probes.length) {
+        const aviso = document.createElement("p");
+        aviso.textContent = pagina.texto_sem_probe;
+        painel.appendChild(aviso);
+        return;
+      }
+      const alturaLinha = 78;
+      const altura = probes.length * alturaLinha + 16;
+      const svg = svgEl("svg");
+      svg.setAttribute("viewBox", "0 0 820 " + altura);
+      svg.setAttribute("role", "img");
+      const centroDestino = altura / 2;
+      probes.forEach((probe, indice) => {
+        const y = 16 + indice * alturaLinha;
+        const centro = y + 26;
+        const cor = pagina.cores_faixa[probe.distance_band] || "#888";
+        const forma = svgEl(probe.is_anchor ? "ellipse" : "rect");
+        if (probe.is_anchor) {
+          forma.setAttribute("cx", "120");
+          forma.setAttribute("cy", String(centro));
+          forma.setAttribute("rx", "108");
+          forma.setAttribute("ry", "28");
+        } else {
+          forma.setAttribute("x", "16");
+          forma.setAttribute("y", String(y));
+          forma.setAttribute("width", "208");
+          forma.setAttribute("height", "52");
+          forma.setAttribute("rx", "12");
+        }
+        forma.setAttribute("class", "caixa");
+        svg.appendChild(forma);
+        const linha1 = svgEl("text");
+        linha1.setAttribute("class", "rotulo");
+        linha1.setAttribute("x", "120");
+        linha1.setAttribute("y", String(centro - 4));
+        linha1.setAttribute("text-anchor", "middle");
+        linha1.textContent = probe.id + " · " + (probe.country_code || vazio);
+        const linha2 = svgEl("text");
+        linha2.setAttribute("class", "miudo");
+        linha2.setAttribute("x", "120");
+        linha2.setAttribute("y", String(centro + 14));
+        linha2.setAttribute("text-anchor", "middle");
+        linha2.textContent = (probe.is_anchor ? "anchor" : "probe") + " · ASN " + (probe.asn_v4 ?? vazio);
+        svg.append(linha1, linha2);
+        const linha = svgEl("line");
+        linha.setAttribute("x1", "230");
+        linha.setAttribute("y1", String(centro));
+        linha.setAttribute("x2", "560");
+        linha.setAttribute("y2", String(centroDestino));
+        linha.setAttribute("stroke", cor);
+        linha.setAttribute("stroke-width", "2");
+        svg.appendChild(linha);
+        const rotulo = svgEl("text");
+        rotulo.setAttribute("class", "miudo");
+        rotulo.setAttribute("x", "390");
+        rotulo.setAttribute("y", String((centro + centroDestino) / 2 - 6));
+        rotulo.setAttribute("text-anchor", "middle");
+        rotulo.setAttribute("fill", cor);
+        rotulo.textContent = probe.distance_km + " km";
+        svg.appendChild(rotulo);
+      });
+      const destinoCaixa = svgEl("rect");
+      destinoCaixa.setAttribute("class", "caixa");
+      destinoCaixa.setAttribute("x", "580");
+      destinoCaixa.setAttribute("y", String(centroDestino - 36));
+      destinoCaixa.setAttribute("width", "220");
+      destinoCaixa.setAttribute("height", "72");
+      destinoCaixa.setAttribute("rx", "14");
+      svg.appendChild(destinoCaixa);
+      const t1 = svgEl("text");
+      t1.setAttribute("class", "rotulo");
+      t1.setAttribute("x", "690");
+      t1.setAttribute("y", String(centroDestino - 8));
+      t1.setAttribute("text-anchor", "middle");
+      t1.textContent = nomePais(destino.country);
+      const t2 = svgEl("text");
+      t2.setAttribute("class", "miudo");
+      t2.setAttribute("x", "690");
+      t2.setAttribute("y", String(centroDestino + 10));
+      t2.setAttribute("text-anchor", "middle");
+      t2.textContent = destino.city || vazio;
+      const t3 = svgEl("text");
+      t3.setAttribute("class", "miudo");
+      t3.setAttribute("x", "690");
+      t3.setAttribute("y", String(centroDestino + 26));
+      t3.setAttribute("text-anchor", "middle");
+      t3.textContent = destino.hostname || vazio;
+      svg.append(t1, t2, t3);
+      painel.appendChild(svg);
+    }
+    desenhar();
+
+    function valor(chave, probe) {
+      if (chave === "country") return destino.country;
+      if (chave === "city_destino") return destino.city;
+      if (chave === "ip_destino") return destino.ip_v4;
+      if (!probe) return null;
+      return probe[chave];
+    }
+    const cabecalho = document.getElementById("cabecalho");
+    const corpo = document.getElementById("corpo");
+    pagina.colunas.forEach((coluna) => {
+      const th = document.createElement("th");
+      th.textContent = coluna.rotulo;
+      cabecalho.appendChild(th);
+    });
+    if (!probes.length) {
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+      td.colSpan = pagina.colunas.length;
+      td.textContent = pagina.texto_sem_probe;
+      tr.appendChild(td);
+      corpo.appendChild(tr);
+    } else {
+      probes.forEach((probe) => {
+        const tr = document.createElement("tr");
+        pagina.colunas.forEach((coluna) => {
+          const td = document.createElement("td");
+          const bruto = valor(coluna.chave, probe);
+          if (coluna.tipo === "link_probe" && probe) {
+            const link = document.createElement("a");
+            link.href = pagina.url_probe.replace("{id}", String(probe.id));
+            link.rel = "noopener";
+            link.textContent = String(probe.id);
+            td.appendChild(link);
+          } else if (coluna.tipo === "link_medicao" && probe) {
+            const link = document.createElement("a");
+            link.href = pagina.url_medicao.replace("{id}", String(probe.measurement_id));
+            link.rel = "noopener";
+            link.textContent = String(probe.measurement_id);
+            td.appendChild(link);
+          } else if (coluna.tipo === "bool") {
+            td.textContent = bruto === true ? pagina.sim : bruto === false ? pagina.nao : vazio;
+          } else if (coluna.tipo === "badge_status" || coluna.tipo === "badge_faixa") {
+            const badge = document.createElement("span");
+            badge.className = "badge" + (coluna.tipo === "badge_faixa" ? " " + bruto : "");
+            badge.textContent = coluna.tipo === "badge_faixa"
+              ? (pagina.rotulo_faixa[bruto] || bruto || vazio)
+              : (semValor(bruto) ? vazio : String(bruto));
+            td.appendChild(badge);
+          } else {
+            td.textContent = semValor(bruto) ? vazio : String(bruto);
+          }
+          tr.appendChild(td);
+        });
+        corpo.appendChild(tr);
+      });
+    }
+    const quando = new Date(doc.meta.gerado_em);
+    document.getElementById("rodape").textContent = "Gerado em " + (Number.isNaN(quando.getTime())
+      ? doc.meta.gerado_em
+      : quando.toLocaleString("pt-BR", {timeZone: "UTC"}) + " UTC") + " · seed " + doc.meta.seed;
+  </script>
+</body>
+</html>

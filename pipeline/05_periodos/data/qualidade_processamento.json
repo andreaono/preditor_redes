@@ -1,0 +1,1186 @@
+{
+  "etapa": "5",
+  "gerado_em": "2026-10-05T19:17:13+00:00",
+  "min_amostras_baseline": 30,
+  "tolerancia_divergencia_ms": 0.01,
+  "linhas_por_periodo": {
+    "A": {
+      "lidas": 342534,
+      "finais": 342534
+    },
+    "B": {
+      "lidas": 358222,
+      "finais": 358222
+    }
+  },
+  "fluxos": 150,
+  "anchors": 30,
+  "probes": 137,
+  "descartes_por_motivo": {},
+  "vazios_por_coluna": {
+    "anchor_id": 0,
+    "probe_id": 0,
+    "rtt_min": 10435,
+    "rtt_max": 10435,
+    "rtt_avg": 10435,
+    "perda_pct": 16,
+    "jitter_ms": 10435,
+    "ttl": 10435,
+    "ttl_baseline": 15034,
+    "delta_ttl": 17814,
+    "ttl_changed": 17814,
+    "latencia_ms": 10435,
+    "timestamp": 0
+  },
+  "divergencias_min_max_avg": [
+    {
+      "id_fluxo": "35709_1360",
+      "timestamp": "1790931122",
+      "campo": "max",
+      "original": "217.605",
+      "recalculado": "1877.6930999999999585",
+      "diferenca": "1660.0880999999999403"
+    },
+    {
+      "id_fluxo": "35709_1360",
+      "timestamp": "1790931122",
+      "campo": "avg",
+      "original": "217.605",
+      "recalculado": "1047.6490499999999884",
+      "diferenca": "830.0440499999999702"
+    },
+    {
+      "id_fluxo": "35709_1360",
+      "timestamp": "1790937110",
+      "campo": "max",
+      "original": "612.58408",
+      "recalculado": "1455.1539900000000216",
+      "diferenca": "842.5699100000000499"
+    },
+    {
+      "id_fluxo": "35709_1360",
+      "timestamp": "1790937110",
+      "campo": "avg",
+      "original": "612.58408",
+      "recalculado": "1158.3882933333331948",
+      "diferenca": "545.8042133333332231"
+    },
+    {
+      "id_fluxo": "35709_1360",
+      "timestamp": "1790941440",
+      "campo": "max",
+      "original": "422.149575",
+      "recalculado": "1251.0702249999999367",
+      "diferenca": "828.9206499999999096"
+    },
+    {
+      "id_fluxo": "35709_1360",
+      "timestamp": "1790941440",
+      "campo": "avg",
+      "original": "319.546965",
+      "recalculado": "630.0547183333333123",
+      "diferenca": "310.5077533333333122"
+    },
+    {
+      "id_fluxo": "35709_1360",
+      "timestamp": "1790949601",
+      "campo": "max",
+      "original": "301.73426",
+      "recalculado": "1269.4370949999999993",
+      "diferenca": "967.7028350000000501"
+    },
+    {
+      "id_fluxo": "35709_1360",
+      "timestamp": "1790949601",
+      "campo": "avg",
+      "original": "260.244635",
+      "recalculado": "596.6421216666666396",
+      "diferenca": "336.397486666666623"
+    },
+    {
+      "id_fluxo": "35709_1360",
+      "timestamp": "1791052083",
+      "campo": "max",
+      "original": "941.82452",
+      "recalculado": "1100.4592099999999846",
+      "diferenca": "158.6346899999999778"
+    },
+    {
+      "id_fluxo": "35709_1360",
+      "timestamp": "1791052083",
+      "campo": "avg",
+      "original": "941.82452",
+      "recalculado": "1021.1418650000000525",
+      "diferenca": "79.3173450000000457"
+    },
+    {
+      "id_fluxo": "7798_1605",
+      "timestamp": "1790624039",
+      "campo": "max",
+      "original": "951.845021",
+      "recalculado": "1921.9476400000000922",
+      "diferenca": "970.1026190000001179"
+    },
+    {
+      "id_fluxo": "7798_1605",
+      "timestamp": "1790624039",
+      "campo": "avg",
+      "original": "951.845021",
+      "recalculado": "1421.6602773333333971",
+      "diferenca": "469.8152563333334228"
+    },
+    {
+      "id_fluxo": "1017252_3294",
+      "timestamp": "1790803321",
+      "campo": "max",
+      "original": "978.783274",
+      "recalculado": "1511.8608939999999166",
+      "diferenca": "533.0776199999999108"
+    },
+    {
+      "id_fluxo": "1017252_3294",
+      "timestamp": "1790803321",
+      "campo": "avg",
+      "original": "978.783274",
+      "recalculado": "1173.6914463333332606",
+      "diferenca": "194.9081723333332548"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790634195",
+      "campo": "max",
+      "original": "796.890191",
+      "recalculado": "2795.2273989999998776",
+      "diferenca": "1998.3372079999999187"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790634195",
+      "campo": "avg",
+      "original": "796.890191",
+      "recalculado": "1796.0537896666664892",
+      "diferenca": "999.1635986666665303"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790642835",
+      "campo": "max",
+      "original": "213.260514",
+      "recalculado": "2187.4566610000001674",
+      "diferenca": "1974.19614700000011"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790642835",
+      "campo": "avg",
+      "original": "213.260514",
+      "recalculado": "1196.3960080000001653",
+      "diferenca": "983.1354940000001079"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790647148",
+      "campo": "max",
+      "original": "564.85288",
+      "recalculado": "1565.2502649999998994",
+      "diferenca": "1000.397384999999872"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790647148",
+      "campo": "avg",
+      "original": "388.815423",
+      "recalculado": "780.9603700000001254",
+      "diferenca": "392.1449470000001156"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790661077",
+      "campo": "max",
+      "original": "937.254502",
+      "recalculado": "1934.2723570000000564",
+      "diferenca": "997.0178550000000541"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790661077",
+      "campo": "avg",
+      "original": "574.831076",
+      "recalculado": "1027.9781696666666448",
+      "diferenca": "453.1470936666665921"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790662996",
+      "campo": "max",
+      "original": "932.015719",
+      "recalculado": "1931.6143119999999271",
+      "diferenca": "999.5985929999999371"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790662996",
+      "campo": "avg",
+      "original": "572.328094",
+      "recalculado": "1025.4234999999998763",
+      "diferenca": "453.0954059999999117"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790664195",
+      "campo": "max",
+      "original": "750.352804",
+      "recalculado": "1750.1388420000000679",
+      "diferenca": "999.786038000000076"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790664195",
+      "campo": "avg",
+      "original": "481.431759",
+      "recalculado": "904.3341196666666519",
+      "diferenca": "422.9023606666666524"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790665148",
+      "campo": "max",
+      "original": "441.337188",
+      "recalculado": "1441.4562459999999646",
+      "diferenca": "1000.1190579999999954"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790665148",
+      "campo": "avg",
+      "original": "327.122354",
+      "recalculado": "698.566984666666599",
+      "diferenca": "371.444630666666626"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790668037",
+      "campo": "max",
+      "original": "231.975254",
+      "recalculado": "1180.1073040000001129",
+      "diferenca": "948.132050000000163"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790668037",
+      "campo": "avg",
+      "original": "231.959617",
+      "recalculado": "548.0088460000000623",
+      "diferenca": "316.0492290000000821"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790684106",
+      "campo": "max",
+      "original": "213.176514",
+      "recalculado": "2129.5739859999998771",
+      "diferenca": "1916.3974719999998797"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790684106",
+      "campo": "avg",
+      "original": "213.176514",
+      "recalculado": "1157.1024549999999635",
+      "diferenca": "943.9259409999999662"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790698995",
+      "campo": "max",
+      "original": "828.988032",
+      "recalculado": "2829.662597999999889",
+      "diferenca": "2000.6745659999999134"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790698995",
+      "campo": "avg",
+      "original": "828.988032",
+      "recalculado": "1829.6935300000002371",
+      "diferenca": "1000.7054980000002615"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790716031",
+      "campo": "avg",
+      "original": "1008.601608",
+      "recalculado": "940.800591000000054",
+      "diferenca": "67.8010170000000016"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790745308",
+      "campo": "max",
+      "original": "801.894667",
+      "recalculado": "1621.6889969999999721",
+      "diferenca": "819.7943299999999454"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790745308",
+      "campo": "avg",
+      "original": "712.6414",
+      "recalculado": "1015.6572656666667172",
+      "diferenca": "303.0158656666667412"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790750587",
+      "campo": "max",
+      "original": "268.65636",
+      "recalculado": "2268.0494870000002265",
+      "diferenca": "1999.3931270000002769"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790750587",
+      "campo": "avg",
+      "original": "268.65636",
+      "recalculado": "1268.3608206666667684",
+      "diferenca": "999.7044606666668187"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790763559",
+      "campo": "max",
+      "original": "213.82987",
+      "recalculado": "2175.4017749999998159",
+      "diferenca": "1961.5719049999997878"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790763559",
+      "campo": "avg",
+      "original": "213.82987",
+      "recalculado": "1190.2613316666665924",
+      "diferenca": "976.4314616666665643"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790769555",
+      "campo": "max",
+      "original": "904.791089",
+      "recalculado": "2902.9522390000001906",
+      "diferenca": "1998.1611500000001342"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790769555",
+      "campo": "avg",
+      "original": "904.791089",
+      "recalculado": "1904.0040646666668636",
+      "diferenca": "999.2129756666668072"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790785388",
+      "campo": "max",
+      "original": "681.5404",
+      "recalculado": "1681.1484550000000127",
+      "diferenca": "999.6080550000000358"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790785388",
+      "campo": "avg",
+      "original": "447.231709",
+      "recalculado": "858.537290999999982",
+      "diferenca": "411.3055819999999585"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790799079",
+      "campo": "max",
+      "original": "722.449517",
+      "recalculado": "2720.2452600000001439",
+      "diferenca": "1997.7957430000001295"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790799079",
+      "campo": "avg",
+      "original": "722.449517",
+      "recalculado": "1721.3557110000001558",
+      "diferenca": "998.9061940000001414"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790825231",
+      "campo": "max",
+      "original": "260.452033",
+      "recalculado": "1260.5402039999999033",
+      "diferenca": "1000.0881709999998748"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790825231",
+      "campo": "avg",
+      "original": "236.249477",
+      "recalculado": "577.6797193333333098",
+      "diferenca": "341.4302423333332968"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790833873",
+      "campo": "max",
+      "original": "266.600583",
+      "recalculado": "1264.7567050000000108",
+      "diferenca": "998.1561220000000958"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790833873",
+      "campo": "avg",
+      "original": "239.708309",
+      "recalculado": "581.3911076666666986",
+      "diferenca": "341.682798666666713"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790840105",
+      "campo": "avg",
+      "original": "906.354464",
+      "recalculado": "806.230619000000047",
+      "diferenca": "100.1238449999999602"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790841546",
+      "campo": "max",
+      "original": "213.478126",
+      "recalculado": "1062.15280800000005",
+      "diferenca": "848.6746820000000753"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790841546",
+      "campo": "avg",
+      "original": "213.285594",
+      "recalculado": "496.2413316666666674",
+      "diferenca": "282.9557376666666642"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790848993",
+      "campo": "max",
+      "original": "212.961731",
+      "recalculado": "4162.281992999999602",
+      "diferenca": "3949.3202619999997296"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790848993",
+      "campo": "avg",
+      "original": "212.738036",
+      "recalculado": "1529.2526886666666996",
+      "diferenca": "1316.5146526666667341"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790855477",
+      "campo": "max",
+      "original": "361.339454",
+      "recalculado": "2356.4408490000000711",
+      "diferenca": "1995.1013950000001387"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790855477",
+      "campo": "avg",
+      "original": "361.339454",
+      "recalculado": "1358.9910710000001473",
+      "diferenca": "997.6516170000002148"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790868187",
+      "campo": "max",
+      "original": "622.018479",
+      "recalculado": "2621.2251930000002176",
+      "diferenca": "1999.2067140000003747"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790868187",
+      "campo": "avg",
+      "original": "622.018479",
+      "recalculado": "1621.7907920000000104",
+      "diferenca": "999.7723130000000538"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790881392",
+      "campo": "max",
+      "original": "386.814777",
+      "recalculado": "1385.0352720000000772",
+      "diferenca": "998.2204950000000281"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790881392",
+      "campo": "avg",
+      "original": "299.637529",
+      "recalculado": "661.4367763333333414",
+      "diferenca": "361.7992473333333692"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790883803",
+      "campo": "max",
+      "original": "213.097881",
+      "recalculado": "9594.0205829999995331",
+      "diferenca": "9380.9227019999998447"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790883803",
+      "campo": "avg",
+      "original": "212.850958",
+      "recalculado": "3339.9074996666663537",
+      "diferenca": "3127.0565416666663623"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790900119",
+      "campo": "max",
+      "original": "569.619837",
+      "recalculado": "2565.5329400000000533",
+      "diferenca": "1995.9131030000000919"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790900119",
+      "campo": "avg",
+      "original": "569.619837",
+      "recalculado": "1567.5041093333336448",
+      "diferenca": "997.8842723333336835"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790901790",
+      "campo": "max",
+      "original": "947.140827",
+      "recalculado": "2947.5380150000000867",
+      "diferenca": "2000.397188000000142"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790901790",
+      "campo": "avg",
+      "original": "947.140827",
+      "recalculado": "1947.4952320000002146",
+      "diferenca": "1000.3544050000002699"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790904435",
+      "campo": "max",
+      "original": "883.254448",
+      "recalculado": "2882.6441039999999703",
+      "diferenca": "1999.3896559999998317"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790904435",
+      "campo": "avg",
+      "original": "883.254448",
+      "recalculado": "1882.7747693333330972",
+      "diferenca": "999.5203213333330723"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790911389",
+      "campo": "max",
+      "original": "551.169037",
+      "recalculado": "1551.1454850000000079",
+      "diferenca": "999.9764480000000049"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790911389",
+      "campo": "avg",
+      "original": "382.116194",
+      "recalculado": "771.7926243333334924",
+      "diferenca": "389.6764303333334851"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790912588",
+      "campo": "max",
+      "original": "212.789372",
+      "recalculado": "2122.9843019999998432",
+      "diferenca": "1910.1949299999998857"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790912588",
+      "campo": "avg",
+      "original": "212.789372",
+      "recalculado": "1153.5203169999999773",
+      "diferenca": "940.7309450000000197"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790928185",
+      "campo": "max",
+      "original": "340.396457",
+      "recalculado": "1340.0857370000001083",
+      "diferenca": "999.6892800000000534"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790928185",
+      "campo": "avg",
+      "original": "276.698221",
+      "recalculado": "631.1607266666667329",
+      "diferenca": "354.4625056666667433"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790928917",
+      "campo": "max",
+      "original": "212.775632",
+      "recalculado": "2087.3143279999999322",
+      "diferenca": "1874.5386959999998453"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790928917",
+      "campo": "avg",
+      "original": "212.775632",
+      "recalculado": "1129.9953459999999268",
+      "diferenca": "917.2197139999999536"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790945705",
+      "campo": "max",
+      "original": "212.59554",
+      "recalculado": "2079.2796899999998459",
+      "diferenca": "1866.6841499999998177"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790945705",
+      "campo": "avg",
+      "original": "212.59554",
+      "recalculado": "1123.6115896666665321",
+      "diferenca": "911.016049666666504"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790978833",
+      "campo": "max",
+      "original": "252.149014",
+      "recalculado": "1251.274359000000004",
+      "diferenca": "999.1253450000000385"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790978833",
+      "campo": "avg",
+      "original": "232.638444",
+      "recalculado": "572.1837490000000344",
+      "diferenca": "339.5453050000000417"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790979553",
+      "campo": "max",
+      "original": "345.983217",
+      "recalculado": "1343.832014000000072",
+      "diferenca": "997.8487970000001042"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790979553",
+      "campo": "avg",
+      "original": "279.185507",
+      "recalculado": "634.0676756666666734",
+      "diferenca": "354.8821686666667006"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790995865",
+      "campo": "max",
+      "original": "978.992225",
+      "recalculado": "2971.8097259999999551",
+      "diferenca": "1992.8175009999999929"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1790995865",
+      "campo": "avg",
+      "original": "978.992225",
+      "recalculado": "1975.2668383333332258",
+      "diferenca": "996.2746133333332637"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791010032",
+      "campo": "max",
+      "original": "298.536422",
+      "recalculado": "1297.5266070000000127",
+      "diferenca": "998.9901849999999968"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791010032",
+      "campo": "avg",
+      "original": "255.945417",
+      "recalculado": "603.1391469999999799",
+      "diferenca": "347.1937299999999595"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791013158",
+      "campo": "max",
+      "original": "215.372836",
+      "recalculado": "2151.8170789999999215",
+      "diferenca": "1936.4442429999999149"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791013158",
+      "campo": "avg",
+      "original": "215.372836",
+      "recalculado": "1173.1670996666666724",
+      "diferenca": "957.7942636666666658"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791029712",
+      "campo": "max",
+      "original": "825.697992",
+      "recalculado": "2822.4011590000000069",
+      "diferenca": "1996.7031670000001213"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791029712",
+      "campo": "avg",
+      "original": "825.697992",
+      "recalculado": "1824.4402356666666947",
+      "diferenca": "998.7422436666666954"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791041239",
+      "campo": "max",
+      "original": "233.459915",
+      "recalculado": "2232.551441000000068",
+      "diferenca": "1999.0915260000001581"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791041239",
+      "campo": "avg",
+      "original": "233.459915",
+      "recalculado": "1233.0464246666665531",
+      "diferenca": "999.5865096666665295"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791048669",
+      "campo": "avg",
+      "original": "772.887636",
+      "recalculado": "627.0209253333333663",
+      "diferenca": "145.8667106666666768"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791059236",
+      "campo": "avg",
+      "original": "1062.181629",
+      "recalculado": "1012.1700436666666292",
+      "diferenca": "50.0115853333333007"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791079874",
+      "campo": "max",
+      "original": "725.691173",
+      "recalculado": "1726.4902689999998984",
+      "diferenca": "1000.7990959999998495"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791079874",
+      "campo": "avg",
+      "original": "469.639147",
+      "recalculado": "888.5895209999999906",
+      "diferenca": "418.9503740000000107"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791092599",
+      "campo": "max",
+      "original": "464.357701",
+      "recalculado": "2464.2090360000001965",
+      "diferenca": "1999.8513350000002902"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791092599",
+      "campo": "avg",
+      "original": "464.357701",
+      "recalculado": "1464.204617666666536",
+      "diferenca": "999.846916666666516"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791097639",
+      "campo": "avg",
+      "original": "1105.170226",
+      "recalculado": "1068.2484673333331102",
+      "diferenca": "36.9217586666668467"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791126911",
+      "campo": "max",
+      "original": "944.554551",
+      "recalculado": "2944.1744109999999637",
+      "diferenca": "1999.619860000000017"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791126911",
+      "campo": "avg",
+      "original": "944.554551",
+      "recalculado": "1944.2405556666665234",
+      "diferenca": "999.6860046666665767"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791149953",
+      "campo": "max",
+      "original": "649.347431",
+      "recalculado": "1594.0905519999998887",
+      "diferenca": "944.74312099999986"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791149953",
+      "campo": "avg",
+      "original": "621.631756",
+      "recalculado": "945.7846876666666276",
+      "diferenca": "324.1529316666666318"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791158587",
+      "campo": "max",
+      "original": "943.566",
+      "recalculado": "1941.5885969999999361",
+      "diferenca": "998.0225969999999052"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791158587",
+      "campo": "avg",
+      "original": "578.719151",
+      "recalculado": "1033.008966666666538",
+      "diferenca": "454.2898156666665272"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791164353",
+      "campo": "max",
+      "original": "500.992136",
+      "recalculado": "2500.54969200000005",
+      "diferenca": "1999.5575559999999768"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791164353",
+      "campo": "avg",
+      "original": "500.992136",
+      "recalculado": "1500.6877486666664936",
+      "diferenca": "999.6956126666664204"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791178506",
+      "campo": "max",
+      "original": "434.952584",
+      "recalculado": "1425.4166809999999259",
+      "diferenca": "990.4640969999999243"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791178506",
+      "campo": "avg",
+      "original": "324.337433",
+      "recalculado": "691.3638493333332917",
+      "diferenca": "367.0264163333333158"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791200111",
+      "campo": "max",
+      "original": "796.420059",
+      "recalculado": "2781.3368529999997918",
+      "diferenca": "1984.9167939999997543"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791200111",
+      "campo": "avg",
+      "original": "796.420059",
+      "recalculado": "1788.9205146666665769",
+      "diferenca": "992.5004556666665394"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791204428",
+      "campo": "max",
+      "original": "487.084847",
+      "recalculado": "1486.8964109999999437",
+      "diferenca": "999.8115639999998621"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791204428",
+      "campo": "avg",
+      "original": "487.084847",
+      "recalculado": "986.9906290000000126",
+      "diferenca": "499.9057819999999879"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791213788",
+      "campo": "max",
+      "original": "222.409765",
+      "recalculado": "1205.007671000000073",
+      "diferenca": "982.59790600000008"
+    },
+    {
+      "id_fluxo": "7558_4261",
+      "timestamp": "1791213788",
+      "campo": "avg",
+      "original": "222.302059",
+      "recalculado": "549.8705963333333102",
+      "diferenca": "327.5685373333333246"
+    },
+    {
+      "id_fluxo": "6583_4335",
+      "timestamp": "1790770980",
+      "campo": "max",
+      "original": "189.981224",
+      "recalculado": "190.4920630000000017",
+      "diferenca": "0.5108390000000043"
+    },
+    {
+      "id_fluxo": "6583_4335",
+      "timestamp": "1790770980",
+      "campo": "avg",
+      "original": "179.318192",
+      "recalculado": "182.1116597500000012",
+      "diferenca": "2.7934677499999907"
+    },
+    {
+      "id_fluxo": "7573_4382",
+      "timestamp": "1791185608",
+      "campo": "max",
+      "original": "382.039844",
+      "recalculado": "1379.2336259999999584",
+      "diferenca": "997.1937819999999419"
+    },
+    {
+      "id_fluxo": "7573_4382",
+      "timestamp": "1791185608",
+      "campo": "avg",
+      "original": "382.039844",
+      "recalculado": "880.6367350000000442",
+      "diferenca": "498.5968910000000278"
+    }
+  ],
+  "pares_sem_baseline": [
+    {
+      "anchor_id": "1223",
+      "probe_id": "32764",
+      "id_fluxo": "32764_1223"
+    },
+    {
+      "anchor_id": "2526",
+      "probe_id": "1013136",
+      "id_fluxo": "1013136_2526"
+    },
+    {
+      "anchor_id": "4169",
+      "probe_id": "7414",
+      "id_fluxo": "7414_4169"
+    },
+    {
+      "anchor_id": "4237",
+      "probe_id": "7814",
+      "id_fluxo": "7814_4237"
+    },
+    {
+      "anchor_id": "4237",
+      "probe_id": "1015231",
+      "id_fluxo": "1015231_4237"
+    },
+    {
+      "anchor_id": "4524",
+      "probe_id": "7461",
+      "id_fluxo": "7461_4524"
+    }
+  ],
+  "divergencias_af": [],
+  "validacoes": {
+    "zero_linhas_A_no_dataset": true,
+    "timestamps_dentro_de_B": true,
+    "baseline_so_com_A": true,
+    "latencia_igual_rtt_avg": true,
+    "ttl_baseline_constante_por_par": true
+  },
+  "janela": [
+    {
+      "nome": "A",
+      "inicio": "2026-09-21T18:00:00+00:00",
+      "fim": "2026-09-28T18:00:00+00:00",
+      "fuso": "UTC",
+      "papel": "baseline",
+      "justificativa": "Sete dias imediatamente anteriores ao período B. Servem somente para calcular a mediana do TTL de cada par. Nenhuma linha deste período entra no dataset.",
+      "duracao_s": 604800
+    },
+    {
+      "nome": "B",
+      "inicio": "2026-09-28T18:00:00+00:00",
+      "fim": "2026-10-05T18:00:00+00:00",
+      "fuso": "UTC",
+      "papel": "dataset",
+      "justificativa": "Sete dias de linhas do dataset, encerrados em 2026-10-05T18:00:00Z, o fim da hora UTC já usado no ensaio da Etapa 4. O baseline não é recalculado com estas linhas.",
+      "duracao_s": 604800
+    }
+  ],
+  "features": [
+    {
+      "feature": "anchor_id",
+      "origem": "fluxo",
+      "tipo": "Original",
+      "formula": "id da anchor de destino",
+      "unidade": "—",
+      "interpretacao": "Identifica o destino. Não é o msm_id nem o probe_id."
+    },
+    {
+      "feature": "probe_id",
+      "origem": "prb_id",
+      "tipo": "Original",
+      "formula": "valor retornado",
+      "unidade": "—",
+      "interpretacao": "Identifica a probe de origem."
+    },
+    {
+      "feature": "rtt_min",
+      "origem": "min",
+      "tipo": "Original/recalculável",
+      "formula": "usar min; se ausente, min(rtts)",
+      "unidade": "ms",
+      "interpretacao": "Menor RTT da execução. Vazio se a perda for 100%."
+    },
+    {
+      "feature": "rtt_max",
+      "origem": "max",
+      "tipo": "Original/recalculável",
+      "formula": "usar max; se ausente, max(rtts)",
+      "unidade": "ms",
+      "interpretacao": "Maior RTT da execução. Vazio se a perda for 100%."
+    },
+    {
+      "feature": "rtt_avg",
+      "origem": "avg",
+      "tipo": "Original/recalculável",
+      "formula": "usar avg; se ausente, sum(rtts)/len(rtts)",
+      "unidade": "ms",
+      "interpretacao": "RTT médio da execução. Vazio se a perda for 100%."
+    },
+    {
+      "feature": "perda_pct",
+      "origem": "sent, rcvd",
+      "tipo": "Derivada",
+      "formula": "((sent − rcvd) / sent) × 100, só se sent > 0",
+      "unidade": "%",
+      "interpretacao": "Percentual de pacotes sem resposta. 100 quando rcvd é 0. Vazio se sent é 0."
+    },
+    {
+      "feature": "jitter_ms",
+      "origem": "result[].rtt",
+      "tipo": "Derivada",
+      "formula": "statistics.pstdev(rtts); 0 se há 1 RTT; vazio se nenhum",
+      "unidade": "ms",
+      "interpretacao": "Dispersão dos RTTs da execução. Com 3 pacotes, a amostra é pequena."
+    },
+    {
+      "feature": "ttl",
+      "origem": "ttl",
+      "tipo": "Original",
+      "formula": "valor retornado, sem alterar",
+      "unidade": "—",
+      "interpretacao": "TTL observado no pacote de resposta. Não é número de hops."
+    },
+    {
+      "feature": "ttl_baseline",
+      "origem": "ttl em A",
+      "tipo": "Derivada",
+      "formula": "mediana de ttl por par somente no período A",
+      "unidade": "—",
+      "interpretacao": "TTL típico do par antes do dataset. Vazio se o par não tem baseline."
+    },
+    {
+      "feature": "delta_ttl",
+      "origem": "ttl, ttl_baseline",
+      "tipo": "Derivada",
+      "formula": "ttl − ttl_baseline, com sinal",
+      "unidade": "—",
+      "interpretacao": "Quanto o TTL se afastou do histórico. Negativo também é válido. Vazio sem baseline ou sem ttl."
+    },
+    {
+      "feature": "ttl_changed",
+      "origem": "delta_ttl",
+      "tipo": "Derivada",
+      "formula": "int(delta_ttl != 0)",
+      "unidade": "0/1",
+      "interpretacao": "1 só indica que o TTL mudou em relação ao par. Não é falha de rede."
+    },
+    {
+      "feature": "latencia_ms",
+      "origem": "rtt_avg",
+      "tipo": "Renomeada",
+      "formula": "latencia_ms = rtt_avg",
+      "unidade": "ms",
+      "interpretacao": "O mesmo valor de rtt_avg. As duas colunas são colineares."
+    },
+    {
+      "feature": "timestamp",
+      "origem": "timestamp",
+      "tipo": "Original",
+      "formula": "Unix timestamp original",
+      "unidade": "s (UTC)",
+      "interpretacao": "Instante da execução. No dataset, cai dentro da janela B."
+    }
+  ],
+  "cuidados_ml": [
+    "Vazamento: ttl_baseline usa somente o período A. Nenhuma linha de B entra nessa mediana, e nenhuma linha de A entra no dataset.",
+    "latencia_ms e rtt_avg são a mesma informação. Usar as duas juntas é colinearidade.",
+    "ttl_changed não é rótulo de falha. O valor 1 significa apenas que o TTL diferiu do histórico do par.",
+    "Não preencher vazios com 0. Zero seria um TTL, uma perda ou um jitter reais.",
+    "jitter_ms depende de poucas amostras: cada execução manda 3 pacotes.",
+    "Pares sem baseline ficam com ttl_baseline, delta_ttl e ttl_changed vazios. Não misture esses fluxos com os demais sem uma decisão explícita."
+  ],
+  "rtts_validos": 346322,
+  "por_classe": {
+    "A+B": 137,
+    "B": 6,
+    "A": 0,
+    "nenhum": 7
+  }
+}
